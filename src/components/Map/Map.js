@@ -1,27 +1,55 @@
-import React, { Component } from 'react'
-import L from 'leaflet'
+import React, {Component} from 'react'
+import {Map, Marker, Popup, TileLayer} from 'react-leaflet'
+import L from 'leaflet';
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-class Map extends Component {
-  render () {
-    const map = L.map('map').setView([54.505, -18.50], 5);
+class MainMap extends Component {
+  state = {
+    markers: [[54.35, 18.7], [54.37, 18.65]]
+  };
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+  clickHandler = (e) => {
+    this.state.markers.push([e.latlng.lat, e.latlng.lng]);
+    this.setState({markers: this.state.markers})
+  };
 
-    L.marker([51.5, -0.09]).addTo(map)
-      .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-      .openPopup();
+  render() {
+    const position = [54.40, 18.60];
+    let DefaultIcon = L.icon({
+      iconUrl: icon,
+      shadowUrl: iconShadow
+    });
 
-    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    L.Marker.prototype.options.icon = DefaultIcon;
 
     return (
-    <div id="map">
-
-    </div>
-
-    )
+      <div>
+        <Map
+          center={position}
+          zoom={13}
+          onClick={this.clickHandler}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+          />
+          {this.state.markers.map((coordinates, id) =>
+              <Marker key={`marker-${id}`} position={coordinates}>
+            <Popup>
+              <div className="popup">
+              <span>Wanna add an Event?</span>
+                <p>PLACE</p>
+                <p>People</p>
+                <button>GIVE LIKE</button>
+              </div>
+            </Popup>
+          </Marker>
+          )}
+        </Map>
+      </div>
+    );
   }
 }
 
-export default Map
+export default MainMap;

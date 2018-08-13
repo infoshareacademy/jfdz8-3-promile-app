@@ -3,10 +3,16 @@
   text-align: center;
 }
 
-#mapId {
-  height: 1000px;
-  width: 1000px;
-  border: 1px solid red;
-  margin: 0 auto;
+.popup {
+  height: 300px;
+  width: 250px;
+  background: lightblue;
+
 }
 
+.leaflet-container {
+  height: 500px;
+  width: 500px;
+  margin: 0 auto;
+  border: 3px solid green;
+}
