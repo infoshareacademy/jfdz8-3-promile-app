@@ -28,7 +28,7 @@ class MainMap extends Component {
         <Map
           center={position}
           zoom={13}
-          onClick={this.clickHandler}
+          onClick={() => this.props.newMarker ? this.clickHandler : alert('False')}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import MainMap from '../Map/Map'
 
 class NewEventDisplay extends Component {
 
@@ -16,8 +17,9 @@ class NewEventDisplay extends Component {
   toggleMapBlock = () => {
     this.setState({
       mapBlocked: !this.state.mapBlocked
-    });
-    console.log(this.state.mapBlocked)
+    }, function() {
+      console.log(this.state.mapBlocked)
+    })
   };
 
   render() {
@@ -26,6 +28,7 @@ class NewEventDisplay extends Component {
 
     return (
       <div>
+        <MainMap newMarker={this.state.mapBlocked} />
         <div>
           <button onClick={this.showNewEventPanel}> Create new Event</button>
         </div>
