@@ -10,8 +10,12 @@ class MainMap extends Component {
   };
 
   clickHandler = (e) => {
-    this.state.markers.push([e.latlng.lat, e.latlng.lng]);
-    this.setState({markers: this.state.markers})
+    if (this.props.newMarker) {
+      this.state.markers.push([e.latlng.lat, e.latlng.lng]);
+      this.setState({markers: this.state.markers})
+    } else {
+      alert ('MAP IS BLOCKED')
+    }
   };
 
   render() {
@@ -28,7 +32,7 @@ class MainMap extends Component {
         <Map
           center={position}
           zoom={13}
-          onClick={() => this.props.newMarker ? this.clickHandler : alert('False')}
+          onClick={this.clickHandler}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
