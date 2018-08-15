@@ -12,11 +12,14 @@ class MainMap extends Component {
   clickHandler = (e) => {
     if (this.props.newMarker) {
       this.state.markers.push([e.latlng.lat, e.latlng.lng]);
+      this.state.markers = this.state.markers.slice(-1);
       this.setState({markers: this.state.markers})
     } else {
       alert ('MAP IS BLOCKED')
     }
   };
+
+
 
   render() {
     const position = [54.40, 18.60];
