@@ -17,7 +17,6 @@ class App extends Component {
           <input type="text" value={this.state.textValue}/>
         </div>
         <MainMap className="mainMap"/>
-        <AddEventButton />
         <NewEventDisplay />
       </div>
 

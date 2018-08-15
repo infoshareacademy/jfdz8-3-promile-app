@@ -3,13 +3,21 @@ import React, { Component } from 'react'
 class NewEventDisplay extends Component {
 
   state = {
-  visible: false
+    visible: false,
+    mapBlocked: false
 };
 
   showNewEventPanel = () => {
     this.setState({
       visible: !this.state.visible
     })
+  };
+
+  toggleMapBlock = () => {
+    this.setState({
+      mapBlocked: !this.state.mapBlocked
+    });
+    console.log(this.state.mapBlocked)
   };
 
   render() {
@@ -29,7 +37,7 @@ class NewEventDisplay extends Component {
             <option value="SQL">SQL</option>
             <option value="PHP">PHP</option>
           </select>
-          <button>Add Event on map</button>
+          <button onClick={this.toggleMapBlock}>Add Event on map</button>
           <div className="timePicker">
             <input type="date" />
             <input type="time" />
