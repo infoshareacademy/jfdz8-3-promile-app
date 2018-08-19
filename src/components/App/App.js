@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import NewEventDisplay from '../NewEventDisplay/NewEventDisplay'
-import Test from '../test'
 
 class App extends Component {
 
@@ -33,7 +32,6 @@ class App extends Component {
           <input type="text" value={this.state.textValue}/>
         </div>
         <NewEventDisplay />
-        <Test />
       </div>
 
 
