@@ -7,6 +7,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 class MainMap extends Component {
   state = {
     markers: [[54.405, 18.61], [54.40, 18.59], [54.40, 18.60], [54.41, 18.605]],
+    events: [],
     userMarkers: [[0, 0]]
   };
 
@@ -19,6 +20,22 @@ class MainMap extends Component {
       alert ('MAP IS BLOCKED')
     }
   };
+
+  getEvents = () => {
+    fetch(`http://localhost:3000/events`)
+      .then(results => {
+        return results.json()
+      })
+      .then(eventList => {
+        this.setState({
+          events: eventList
+        })
+      })
+  }
+
+  componentDidMount() {
+    this.getEvents()
+  }
 
   render() {
     const position = [54.40, 18.60];
@@ -40,15 +57,18 @@ class MainMap extends Component {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           />
-          {this.state.markers.map((coordinates, id) =>
-              <Marker key={`marker-${id}`} position={coordinates}>
+          {this.state.events.map((event, id) =>
+              <Marker key={`marker-${id}`} position={event.coordinates}>
               <Marker key={`marker-${id}`} position={this.state.userMarkers[0]} />
             <Popup>
               <div className="popup">
-              <span>Wanna add an Event?</span>
-                <p>PLACE</p>
-                <p>People</p>
-                <button>GIVE LIKE</button>
+              <span>Here's the event</span>
+                <p>Technology {event.technology}</p>
+                <p>Total places: {event.slots}</p>
+                <p>Free places: {event.freeSlots}</p>
+                <p>Tags for event: </p>
+                <p>{event.tags.join(' ')}</p>
+                <button>Join</button>
               </div>
             </Popup>
           </Marker>
