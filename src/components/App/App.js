@@ -5,8 +5,25 @@ import NewEventDisplay from '../NewEventDisplay/NewEventDisplay'
 class App extends Component {
 
   state = {
-    textValue: ''
+    textValue: '',
+    events: []
   };
+
+  getEvents = () => {
+    fetch(`http://localhost/events`)
+      .then(results => {
+        return results.json()
+      })
+      .then(eventsList => {
+        this.setState({
+          events: eventsList
+        })
+      })
+  };
+
+  componentDidMount() {
+    this.getEvents()
+  }
 
   render() {
     return (

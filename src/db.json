@@ -1,0 +1,52 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "slots": 3,
+      "freeSlots": 2,
+      "coordinates": [],
+      "description": "xyz",
+      "technology": "JavaScript",
+      "dateYear": "2018",
+      "dateMonth": "September",
+      "dateDay": "20",
+      "tags": ["js", "webdev", "html"]
+    },
+    {
+      "id": 2,
+      "slots": 4,
+      "freeSlots": 1,
+      "coordinates": [],
+      "description": "abc",
+      "technology": "Java",
+      "dateYear": "2018",
+      "dateMonth": "September",
+      "dateDay": "22",
+      "tags": ["java", "software"]
+    },
+    {
+      "id": 3,
+      "slots": 2,
+      "freeSlots": 0,
+      "coordinates": [],
+      "description": "qwe",
+      "technology": "SQL",
+      "dateYear": "2018",
+      "dateMonth": "September",
+      "dateDay": "25",
+      "tags": ["sql", "database"]
+    },
+    {
+      "id": 4,
+      "slots": 5,
+      "freeSlots": 5,
+      "coordinates": [],
+      "description": "cxz",
+      "technology": "JavaScript",
+      "dateYear": "2018",
+      "dateMonth": "September",
+      "dateDay": "15",
+      "tags": ["js", "front-end"]
+    }
+  ]
+}

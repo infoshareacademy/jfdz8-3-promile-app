@@ -7,7 +7,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 class MainMap extends Component {
   state = {
     markers: [[54.405, 18.61], [54.40, 18.59], [54.40, 18.60], [54.41, 18.605]],
-    userMarkers: [[54.5, 18.6]]
+    userMarkers: [[0, 0]]
   };
 
   clickHandler = (e) => {
