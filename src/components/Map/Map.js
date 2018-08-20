@@ -15,7 +15,8 @@ class MainMap extends Component {
     if (this.props.newMarker) {
       this.state.userMarkers.push([e.latlng.lat, e.latlng.lng]);
       this.state.userMarkers = this.state.userMarkers.slice(-1);
-      this.setState({userMarkers: this.state.userMarkers})
+      this.setState({userMarkers: this.state.userMarkers});
+      this.props.getCoordinates(e)
     } else {
       alert ('MAP IS BLOCKED')
     }
@@ -62,12 +63,8 @@ class MainMap extends Component {
               <Marker key={`marker-${id}`} position={this.state.userMarkers[0]} />
             <Popup>
               <div className="popup">
-              <span>Here's the event</span>
+              <span>{event.description}</span>
                 <p>Technology {event.technology}</p>
-                <p>Total places: {event.slots}</p>
-                <p>Free places: {event.freeSlots}</p>
-                <p>Tags for event: </p>
-                <p>{event.tags.join(' ')}</p>
                 <button>Join</button>
               </div>
             </Popup>

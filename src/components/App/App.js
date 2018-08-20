@@ -10,7 +10,7 @@ class App extends Component {
   };
 
   getEvents = () => {
-    fetch(`http://localhost/events`)
+    fetch(`http://localhost:3000/events`)
       .then(results => {
         return results.json()
       })
@@ -31,10 +31,8 @@ class App extends Component {
         <div>
           <input type="text" value={this.state.textValue}/>
         </div>
-        <NewEventDisplay />
+        <NewEventDisplay getEvents={this.getEvents}/>
       </div>
-
-
     );
   }
 }

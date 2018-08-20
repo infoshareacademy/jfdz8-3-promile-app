@@ -4,49 +4,56 @@
       "id": 1,
       "slots": 3,
       "freeSlots": 2,
-      "coordinates": [54.405, 18.61],
+      "coordinates": [
+        54.405,
+        18.61
+      ],
       "description": "xyz",
       "technology": "JavaScript",
       "dateYear": "2018",
       "dateMonth": "September",
       "dateDay": "20",
-      "tags": ["js", "webdev", "html"]
+      "tags": [
+        "js",
+        "webdev",
+        "html"
+      ]
     },
     {
       "id": 2,
       "slots": 4,
       "freeSlots": 1,
-      "coordinates": [54.40, 18.59],
+      "coordinates": [
+        54.4,
+        18.59
+      ],
       "description": "abc",
       "technology": "Java",
       "dateYear": "2018",
       "dateMonth": "September",
       "dateDay": "22",
-      "tags": ["java", "software"]
+      "tags": [
+        "java",
+        "software"
+      ]
     },
     {
-      "id": 3,
-      "slots": 2,
-      "freeSlots": 0,
-      "coordinates": [54.40, 18.62],
-      "description": "qwe",
+      "coordinates": [
+        54.38605564675264,
+        18.605861663818363
+      ],
+      "technology": "Python",
+      "description": "aaaaa",
+      "id": 3
+    },
+    {
+      "coordinates": [
+        54.41173784028463,
+        18.59968185424805
+      ],
       "technology": "SQL",
-      "dateYear": "2018",
-      "dateMonth": "September",
-      "dateDay": "25",
-      "tags": ["sql", "database"]
-    },
-    {
-      "id": 4,
-      "slots": 5,
-      "freeSlots": 5,
-      "coordinates": [54.42, 18.61],
-      "description": "cxz",
-      "technology": "JavaScript",
-      "dateYear": "2018",
-      "dateMonth": "September",
-      "dateDay": "15",
-      "tags": ["js", "front-end"]
+      "description": "let's learn sql",
+      "id": 4
     }
   ]
 }
