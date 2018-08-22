@@ -42,7 +42,9 @@ class MainMap extends Component {
     const position = [54.40, 18.60];
     let DefaultIcon = L.icon({
       iconUrl: icon,
-      shadowUrl: iconShadow
+      shadowUrl: iconShadow,
+      iconSize: [25,36],
+      iconAnchor: [12,36]
     });
 
     L.Marker.prototype.options.icon = DefaultIcon;

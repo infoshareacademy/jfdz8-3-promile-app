@@ -54,6 +54,24 @@
       "technology": "SQL",
       "description": "let's learn sql",
       "id": 4
+    },
+    {
+      "coordinates": [
+        54.4096398985001,
+        18.564405441284183
+      ],
+      "technology": "SQL",
+      "description": "Opis super wydarzenia!",
+      "id": 5
+    },
+    {
+      "coordinates": [
+        54.40704229804531,
+        18.58444690704346
+      ],
+      "technology": "Python",
+      "description": "Super Python Coding Time!",
+      "id": 6
     }
   ]
 }
