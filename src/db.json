@@ -42,6 +42,56 @@
       "date": "1986-06-06",
       "time": "20:06",
       "id": 3
+    },
+    {
+      "title": "nowy",
+      "technology": "",
+      "coordinates": [
+        54.3980493335108,
+        18.605003356933597
+      ],
+      "description": "Put here description as",
+      "date": "1906-06-06",
+      "time": "19:04",
+      "id": 4
+    },
+    {
+      "title": "asd",
+      "technology": "",
+      "coordinates": [
+        54.402046450064596,
+        18.5914421081543
+      ],
+      "description": "Put here description",
+      "date": "2011-11-11",
+      "time": "11:11",
+      "id": 5
+    },
+    {
+      "title": "dfdsfsd",
+      "technology": "Java",
+      "coordinates": [
+        54.39764960043302,
+        18.588352203369144
+      ],
+      "description": "Put here descriptionasd",
+      "slots": "2",
+      "date": "1906-06-06",
+      "time": "19:06",
+      "id": 6
+    },
+    {
+      "title": "asd",
+      "technology": "Javascript",
+      "coordinates": [
+        54.40164675593637,
+        18.578395843505863
+      ],
+      "description": "Put here descriptionasd",
+      "slots": "2",
+      "date": "1906-06-06",
+      "time": "00:00",
+      "id": 7
     }
   ]
 }

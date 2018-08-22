@@ -8,7 +8,7 @@ class NewEventDisplay extends Component {
     visible: false,
     mapBlocked: false,
     title: '',
-    technology: '',
+    technology: 'Javascript',
     coordinates: [],
     slots: '',
     arePlacesAvailable: true,
@@ -37,6 +37,7 @@ class NewEventDisplay extends Component {
       technology: this.state.technology,
       coordinates: this.state.coordinates,
       description: this.state.description,
+      slots: this.state.slots,
       date: this.state.date,
       time: this.state.time
     };
@@ -83,6 +84,12 @@ class NewEventDisplay extends Component {
     })
   };
 
+  addAttendees = (event) => {
+    this.setState({
+      slots: event.target.value
+    })
+  };
+
   changeSelect = (event) => {
     this.setState({
       technology: event.target.value,
@@ -93,7 +100,7 @@ class NewEventDisplay extends Component {
     this.setState({
       title: event.target.value
     })
-  }
+  };
 
   componentDidMount() {
     this.props.getEvents();
@@ -124,7 +131,7 @@ class NewEventDisplay extends Component {
             <input type="time" value={this.state.time} onChange={this.changeTime} />
           </div>
           <div className="numberOfSlots">
-            <input type="text" placeholder="Number of attendees"/>
+            <input type="text" placeholder="Number of attendees" value={this.state.slots} onChange={this.addAttendees}/>
           </div>
           <textarea value={this.state.description} onChange={this.changeDescription} rows="5" cols="50"></textarea>
           <button onClick={this.toggleMapBlock}>Add Event on map</button>

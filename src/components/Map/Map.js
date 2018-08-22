@@ -70,6 +70,7 @@ class MainMap extends Component {
                 <p>Technology: {event.technology}</p>
                 <p>When? {event.date}</p>
                 <p>What time? {event.time}</p>
+                <p>Number of attendees: {event.slots}</p>
                 <button>Join</button>
               </div>
             </Popup>
