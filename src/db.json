@@ -10,9 +10,8 @@
       ],
       "description": "xyz",
       "technology": "JavaScript",
-      "dateYear": "2018",
-      "dateMonth": "September",
-      "dateDay": "20",
+      "date": "2018-09-30",
+      "time": "18:00:00",
       "tags": [
         "js",
         "webdev",
@@ -29,9 +28,8 @@
       ],
       "description": "abc",
       "technology": "Java",
-      "dateYear": "2018",
-      "dateMonth": "September",
-      "dateDay": "22",
+      "date": "2018-09-15",
+      "time": "20:00:00",
       "tags": [
         "java",
         "software"
@@ -39,39 +37,25 @@
     },
     {
       "coordinates": [
-        54.38605564675264,
-        18.605861663818363
+        54.38865457639228,
+        18.608608245849613
       ],
-      "technology": "Python",
-      "description": "aaaaa",
+      "technology": "SQL",
+      "description": "Let's learn some database!",
+      "date": "2018-10-15",
+      "time": "",
       "id": 3
     },
     {
       "coordinates": [
-        54.41173784028463,
-        18.59968185424805
-      ],
-      "technology": "SQL",
-      "description": "let's learn sql",
-      "id": 4
-    },
-    {
-      "coordinates": [
-        54.4096398985001,
-        18.564405441284183
-      ],
-      "technology": "SQL",
-      "description": "Opis super wydarzenia!",
-      "id": 5
-    },
-    {
-      "coordinates": [
-        54.40704229804531,
-        18.58444690704346
+        54.408341118840845,
+        18.588523864746097
       ],
       "technology": "Python",
-      "description": "Super Python Coding Time!",
-      "id": 6
+      "description": "Another python gag.",
+      "date": "2018-08-25",
+      "time": "20:00",
+      "id": 4
     }
   ]
 }

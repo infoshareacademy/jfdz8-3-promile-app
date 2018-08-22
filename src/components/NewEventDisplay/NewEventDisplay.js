@@ -8,7 +8,9 @@ class NewEventDisplay extends Component {
     mapBlocked: false,
     technology: '',
     coordinates: [],
-    description: 'Put here description'
+    description: 'Put here description',
+    date: '',
+    time: '',
 };
 
   showNewEventPanel = () => {
@@ -26,15 +28,17 @@ class NewEventDisplay extends Component {
 
   addEvent = (event) => {
     event.preventDefault();
-    const newContact = {
+    const newEvent = {
       coordinates: this.state.coordinates,
       technology: this.state.technology,
-      description: this.state.description
+      description: this.state.description,
+      date: this.state.date,
+      time: this.state.time
     };
     fetch(
       'http://localhost:3000/events', {
         method: 'POST',
-        body: JSON.stringify(newContact),
+        body: JSON.stringify(newEvent),
         headers: {
           'Content-type': 'application/json'
         }
@@ -52,6 +56,20 @@ class NewEventDisplay extends Component {
   changeDescription = (event) => {
     this.setState({
       description: event.target.value
+    })
+  };
+
+  changeDate = (event) => {
+    console.log(event.target.value)
+    this.setState({
+      date: event.target.value
+    })
+  };
+
+  changeTime = (event) => {
+    console.log(event)
+    this.setState({
+      time: event.target.value
     })
   };
 
@@ -74,7 +92,7 @@ class NewEventDisplay extends Component {
                  getCoordinates={this.getCoordinates}
         />
         <div>
-          <button onClick={this.showNewEventPanel}> Create new Event</button>
+          <button onClick={this.showNewEventPanel}>Create new Event</button>
         </div>
         <div className={`new-event ${visibility}`}>
           <select value={this.state.value} onChange={this.changeSelect}>
@@ -86,8 +104,8 @@ class NewEventDisplay extends Component {
           </select>
           <button onClick={this.toggleMapBlock}>Add Event on map</button>
           <div className="timePicker">
-            <input type="date" />
-            <input type="time" />
+            <input type="date" value={this.state.date} onChange={this.changeDate} />
+            <input type="time" value={this.state.time} onChange={this.changeTime}/>
           </div>
           <textarea value={this.state.description} onChange={this.changeDescription} rows="5" cols="50"></textarea>
           <button onClick={this.addEvent}>Create Event!</button>

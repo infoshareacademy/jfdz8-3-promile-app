@@ -43,7 +43,7 @@ class MainMap extends Component {
     let DefaultIcon = L.icon({
       iconUrl: icon,
       shadowUrl: iconShadow,
-      iconSize: [25,36],
+      iconSize: [24,36],
       iconAnchor: [12,36]
     });
 
@@ -67,6 +67,8 @@ class MainMap extends Component {
               <div className="popup">
               <span>{event.description}</span>
                 <p>Technology {event.technology}</p>
+                <p>When? {event.date}</p>
+                <p>What time? {event.time}</p>
                 <button>Join</button>
               </div>
             </Popup>
