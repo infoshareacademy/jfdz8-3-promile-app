@@ -2,6 +2,7 @@
   "events": [
     {
       "id": 1,
+      "title": "Great event",
       "slots": 3,
       "freeSlots": 2,
       "coordinates": [
@@ -19,43 +20,16 @@
       ]
     },
     {
-      "id": 2,
-      "slots": 4,
-      "freeSlots": 1,
-      "coordinates": [
-        54.4,
-        18.59
-      ],
-      "description": "abc",
-      "technology": "Java",
-      "date": "2018-09-15",
-      "time": "20:00:00",
-      "tags": [
-        "java",
-        "software"
-      ]
-    },
-    {
-      "coordinates": [
-        54.38865457639228,
-        18.608608245849613
-      ],
+      "title": "Better event ",
       "technology": "SQL",
-      "description": "Let's learn some database!",
-      "date": "2018-10-15",
-      "time": "",
-      "id": 3
-    },
-    {
       "coordinates": [
-        54.408341118840845,
-        18.588523864746097
+        54.40594326370309,
+        18.58766555786133
       ],
-      "technology": "Python",
-      "description": "Another python gag.",
-      "date": "2018-08-25",
-      "time": "20:00",
-      "id": 4
+      "description": "PHP EVENT FOR NERDS",
+      "date": "2018-08-30",
+      "time": "19:30",
+      "id": 2
     }
   ]
 }

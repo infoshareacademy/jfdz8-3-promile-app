@@ -4,8 +4,10 @@ import MainMap from '../Map/Map'
 class NewEventDisplay extends Component {
 
   state = {
+    events: [],
     visible: false,
     mapBlocked: false,
+    title: '',
     technology: '',
     coordinates: [],
     description: 'Put here description',
@@ -29,8 +31,9 @@ class NewEventDisplay extends Component {
   addEvent = (event) => {
     event.preventDefault();
     const newEvent = {
-      coordinates: this.state.coordinates,
+      title: this.state.title,
       technology: this.state.technology,
+      coordinates: this.state.coordinates,
       description: this.state.description,
       date: this.state.date,
       time: this.state.time
@@ -43,7 +46,12 @@ class NewEventDisplay extends Component {
           'Content-type': 'application/json'
         }
       }
-    ).then(this.props.getEvents)
+    ).then(() => {
+      this.setState({
+        visible: false
+      });
+      alert('ADDED')
+    })
   };
 
   getCoordinates = (event) => {
@@ -60,14 +68,14 @@ class NewEventDisplay extends Component {
   };
 
   changeDate = (event) => {
-    console.log(event.target.value)
+    console.log(event.target.value);
     this.setState({
       date: event.target.value
     })
   };
 
   changeTime = (event) => {
-    console.log(event)
+    console.log(event);
     this.setState({
       time: event.target.value
     })
@@ -78,6 +86,12 @@ class NewEventDisplay extends Component {
       technology: event.target.value,
     })
   };
+
+  changeTitle = (event) => {
+    this.setState({
+      title: event.target.value
+    })
+  }
 
   componentDidMount() {
     this.props.getEvents();
@@ -95,6 +109,7 @@ class NewEventDisplay extends Component {
           <button onClick={this.showNewEventPanel}>Create new Event</button>
         </div>
         <div className={`new-event ${visibility}`}>
+          <input type="text" value={this.eventTitle} placeholder="Name your event" onChange={this.changeTitle}></input>
           <select value={this.state.value} onChange={this.changeSelect}>
             <option value="JavaScript">JavaScript</option>
             <option value="Python">Python</option>
@@ -102,12 +117,12 @@ class NewEventDisplay extends Component {
             <option value="SQL">SQL</option>
             <option value="PHP">PHP</option>
           </select>
-          <button onClick={this.toggleMapBlock}>Add Event on map</button>
           <div className="timePicker">
             <input type="date" value={this.state.date} onChange={this.changeDate} />
-            <input type="time" value={this.state.time} onChange={this.changeTime}/>
+            <input type="time" value={this.state.time} onChange={this.changeTime} />
           </div>
           <textarea value={this.state.description} onChange={this.changeDescription} rows="5" cols="50"></textarea>
+          <button onClick={this.toggleMapBlock}>Add Event on map</button>
           <button onClick={this.addEvent}>Create Event!</button>
           <p>{this.getCoordinates}</p>
         </div>

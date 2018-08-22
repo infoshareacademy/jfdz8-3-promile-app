@@ -65,8 +65,9 @@ class MainMap extends Component {
               <Marker key={`marker-${id}`} position={this.state.userMarkers[0]} />
             <Popup>
               <div className="popup">
-              <span>{event.description}</span>
-                <p>Technology {event.technology}</p>
+                <h1>{event.title}</h1>
+                <p>{event.description}</p>
+                <p>Technology: {event.technology}</p>
                 <p>When? {event.date}</p>
                 <p>What time? {event.time}</p>
                 <button>Join</button>
