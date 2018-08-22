@@ -10,6 +10,8 @@ class NewEventDisplay extends Component {
     title: '',
     technology: '',
     coordinates: [],
+    slots: '',
+    arePlacesAvailable: true,
     description: 'Put here description',
     date: '',
     time: '',
@@ -120,6 +122,9 @@ class NewEventDisplay extends Component {
           <div className="timePicker">
             <input type="date" value={this.state.date} onChange={this.changeDate} />
             <input type="time" value={this.state.time} onChange={this.changeTime} />
+          </div>
+          <div className="numberOfSlots">
+            <input type="text" placeholder="Number of attendees"/>
           </div>
           <textarea value={this.state.description} onChange={this.changeDescription} rows="5" cols="50"></textarea>
           <button onClick={this.toggleMapBlock}>Add Event on map</button>

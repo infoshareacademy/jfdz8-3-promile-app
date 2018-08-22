@@ -30,6 +30,18 @@
       "date": "2018-08-30",
       "time": "19:30",
       "id": 2
+    },
+    {
+      "title": "Siema test event",
+      "technology": "SQL",
+      "coordinates": [
+        54.40299570800934,
+        18.599338531494144
+      ],
+      "description": ".,asdnasdbasudbabsidasdasida",
+      "date": "1986-06-06",
+      "time": "20:06",
+      "id": 3
     }
   ]
 }
