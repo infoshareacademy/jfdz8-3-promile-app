@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import NewEventDisplay from '../NewEventDisplay/NewEventDisplay'
+import ListItem from "../ListItem/ListItem";
 
 class App extends Component {
 
   state = {
     textValue: '',
-    events: []
+    events: [],
+    clickedEvent: ''
   };
 
   getEvents = () => {
@@ -25,13 +27,38 @@ class App extends Component {
     this.getEvents()
   }
 
+  handleCallback = (data) => {
+    this.setState({
+      clickedEvent: data
+    })
+  };
+
+  handleRevertView = () => {
+    this.setState({
+      clickedEvent: ''
+    })
+  };
+
   render() {
     return (
       <div className="App">
         <div>
           <input type="text" value={this.state.textValue}/>
         </div>
-        <NewEventDisplay getEvents={this.getEvents}/>
+        <div className="events-list">
+          <h1>Events</h1>
+          <ListItem eventsList={
+            this.state.events.filter(event => this.state.clickedEvent === '' ? this.state.events : (
+              event.id === this.state.clickedEvent
+            ))}
+                    revertView={this.handleRevertView}
+                    eventClicked={this.state.clickedEvent}
+          />
+        </div>
+          <NewEventDisplay events={this.state.events}
+                           getEvents={this.getEvents}
+                           callback={this.handleCallback}
+          />
       </div>
     );
   }

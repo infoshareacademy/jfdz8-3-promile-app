@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+/*div {*/
+  /*outline: 1px solid red;*/
+/*}*/
+
 .new-event {
   border: 2px solid black;
 }
@@ -19,4 +23,16 @@ body {
 button {
   display: block;
   margin: 1% auto;
+}
+
+.events-list {
+  float: left;
+  width: 25%;
+}
+
+.single-event{
+  margin: 5%;
+  list-style: none;
+  background: burlywood;
+  padding: 10px;
 }

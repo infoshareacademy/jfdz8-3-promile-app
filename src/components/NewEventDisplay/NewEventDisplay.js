@@ -7,14 +7,14 @@ class NewEventDisplay extends Component {
     events: [],
     visible: false,
     mapBlocked: false,
-    title: '',
+    title: 'New',
     technology: 'Javascript',
     coordinates: [],
-    slots: '',
+    slots: '2',
     arePlacesAvailable: true,
-    description: 'Put here description',
-    date: '',
-    time: '',
+    description: 'Description',
+    date: '2018-08-09',
+    time: '13:00',
 };
 
   showNewEventPanel = () => {
@@ -26,8 +26,7 @@ class NewEventDisplay extends Component {
   toggleMapBlock = () => {
     this.setState({
       mapBlocked: !this.state.mapBlocked
-    }, function() {
-      })
+    })
   };
 
   addEvent = (event) => {
@@ -54,7 +53,7 @@ class NewEventDisplay extends Component {
         visible: false
       });
       alert('ADDED')
-    })
+    }).then(this.toggleMapBlock).then(this.props.getEvents)
   };
 
   getCoordinates = (event) => {
@@ -102,23 +101,22 @@ class NewEventDisplay extends Component {
     })
   };
 
-  componentDidMount() {
-    this.props.getEvents();
-  }
-
   render() {
 
     const visibility = this.state.visible ? "visible" : "unvisible";
     return (
       <div>
-        <MainMap newMarker={this.state.mapBlocked}
-                 getCoordinates={this.getCoordinates}
+        <MainMap
+          events={this.props.events}
+          newMarker={this.state.mapBlocked}
+          getCoordinates={this.getCoordinates}
+          handleCallback={this.props.callback}
         />
         <div>
           <button onClick={this.showNewEventPanel}>Create new Event</button>
         </div>
         <div className={`new-event ${visibility}`}>
-          <input type="text" value={this.eventTitle} placeholder="Name your event" onChange={this.changeTitle}></input>
+          <input type="text" value={this.state.title} placeholder="Name your event" onChange={this.changeTitle}/>
           <select value={this.state.value} onChange={this.changeSelect}>
             <option value="JavaScript">JavaScript</option>
             <option value="Python">Python</option>
@@ -133,10 +131,15 @@ class NewEventDisplay extends Component {
           <div className="numberOfSlots">
             <input type="text" placeholder="Number of attendees" value={this.state.slots} onChange={this.addAttendees}/>
           </div>
-          <textarea value={this.state.description} onChange={this.changeDescription} rows="5" cols="50"></textarea>
+          <div>
+            <input type="text"
+                   placeholder="Type event tags ie. JavaScript"
+                   value={this.state.technology}
+            />
+          </div>
+          <textarea value={this.state.description} onChange={this.changeDescription} rows="5" cols="50"/>
           <button onClick={this.toggleMapBlock}>Add Event on map</button>
           <button onClick={this.addEvent}>Create Event!</button>
-          <p>{this.getCoordinates}</p>
         </div>
     </div>
     )
