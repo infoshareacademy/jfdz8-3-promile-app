@@ -20,3 +20,14 @@ button {
   display: block;
   margin: 1% auto;
 }
+
+.events-list {
+  float: left;
+}
+
+.single-event{
+  margin: 5%;
+  list-style: none;
+  background: burlywood;
+  padding: 10px;
+}

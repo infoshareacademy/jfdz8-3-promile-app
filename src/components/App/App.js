@@ -31,6 +31,15 @@ class App extends Component {
         <div>
           <input type="text" value={this.state.textValue}/>
         </div>
+        <div className="events-list">
+          <h1>Events</h1>
+          {this.state.events.map(event =>
+            <li className="single-event" key={event.id}>
+              <h2>{event.title}</h2>
+              <p>{event.technology}</p>
+            </li>
+          )}
+        </div>
         <NewEventDisplay events={this.state.events} getEvents={this.getEvents}/>
       </div>
     );
