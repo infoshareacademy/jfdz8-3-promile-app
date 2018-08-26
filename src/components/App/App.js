@@ -41,7 +41,11 @@ class App extends Component {
         </div>
         <div className="events-list">
           <h1>Events</h1>
-          <ListItem eventsList={this.state.events}/>
+          <ListItem eventsList={
+            this.state.events.filter(event => this.state.clickedEvent === '' ? this.state.events : (
+              event.id === this.state.clickedEvent
+            ))}
+          />
         </div>
           <NewEventDisplay events={this.state.events}
                            getEvents={this.getEvents}
