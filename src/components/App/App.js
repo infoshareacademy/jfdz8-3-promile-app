@@ -33,6 +33,12 @@ class App extends Component {
     })
   };
 
+  handleRevertView = () => {
+    this.setState({
+      clickedEvent: ''
+    })
+  };
+
   render() {
     return (
       <div className="App">
@@ -45,6 +51,7 @@ class App extends Component {
             this.state.events.filter(event => this.state.clickedEvent === '' ? this.state.events : (
               event.id === this.state.clickedEvent
             ))}
+                    revertView={this.handleRevertView}
           />
         </div>
           <NewEventDisplay events={this.state.events}
