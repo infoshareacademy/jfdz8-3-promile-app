@@ -8,7 +8,7 @@ class NewEventDisplay extends Component {
     visible: false,
     mapBlocked: false,
     title: 'New',
-    technology: 'Javascript',
+    technology: 'JavaScript',
     coordinates: [],
     slots: '2',
     arePlacesAvailable: true,

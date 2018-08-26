@@ -3,6 +3,19 @@ import {Map, Marker, Popup, TileLayer} from 'react-leaflet'
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import pyIcon from 'leaflet/src/images/python.png'
+import jsIcon from 'leaflet/src/images/js.png'
+import javaIcon from 'leaflet/src/images/java.png'
+import dbIcon from 'leaflet/src/images/database.png'
+import phpIcon from 'leaflet/src/images/php.png'
+
+const markers = {
+  Python: pyIcon,
+  SQL: dbIcon,
+  Java: javaIcon,
+  PHP: phpIcon,
+  JavaScript: jsIcon
+};
 
 class MainMap extends Component {
   state = {
@@ -27,9 +40,9 @@ class MainMap extends Component {
     let DefaultIcon = L.icon({
       iconUrl: icon,
       shadowUrl: iconShadow,
-      iconSize: [24, 36],
+      iconSize: [30, 30],
       iconAnchor: [12, 36],
-      popupAnchor: [0, -25]
+      popupAnchor: [0, -25],
     });
 
     L.Marker.prototype.options.icon = DefaultIcon;
@@ -47,8 +60,15 @@ class MainMap extends Component {
           />
 
           {this.props.events.map((event, id) =>
+
             <Marker key={`marker-${id}`}
                     position={event.coordinates}
+                    icon={Object.assign(Object.create(Object.getPrototypeOf(DefaultIcon)), DefaultIcon, {
+                      options: {
+                        ...DefaultIcon.options,
+                        iconUrl: markers[event.technology]
+                      }})
+                    }
                     onClick={() => this.handleClickCallback(event.id)}
             >
               <Popup>
