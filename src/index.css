@@ -4,9 +4,9 @@ body {
   font-family: sans-serif;
 }
 
-div {
-  outline: 1px solid red;
-}
+/*div {*/
+  /*outline: 1px solid red;*/
+/*}*/
 
 .new-event {
   border: 2px solid black;
