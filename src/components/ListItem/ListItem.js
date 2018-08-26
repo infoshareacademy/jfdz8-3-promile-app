@@ -16,7 +16,10 @@ class ListItem extends Component {
             >
               <h2>{event.title}</h2>
               <p>{event.technology}</p>
-              <button onClick={this.handleRevertView}>Back</button>
+              {this.props.eventClicked !== '' ?
+                <button onClick={this.handleRevertView}>Back</button>
+                : false
+              }
             </li>
             )}
           </ul>
