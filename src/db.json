@@ -92,6 +92,110 @@
       "date": "1906-06-06",
       "time": "00:00",
       "id": 7
+    },
+    {
+      "title": "asd",
+      "technology": "PHP",
+      "coordinates": [
+        54.42112731177978,
+        18.565177917480472
+      ],
+      "description": "ABC",
+      "slots": "3",
+      "date": "2018-08-30",
+      "time": "12:12",
+      "id": 8
+    },
+    {
+      "title": "asdfsadf",
+      "technology": "Javascript",
+      "coordinates": [
+        54.38895444229823,
+        18.6024284362793
+      ],
+      "description": "Put here description",
+      "slots": "asdf",
+      "date": "0004-04-23",
+      "time": "14:34",
+      "id": 9
+    },
+    {
+      "title": "asdfasdf",
+      "technology": "Javascript",
+      "coordinates": [
+        54.389154351684915,
+        18.581142425537113
+      ],
+      "description": "Put here descriptionasdfsd",
+      "slots": "sadfas",
+      "date": "0042-04-23",
+      "time": "14:34",
+      "id": 10
+    },
+    {
+      "title": "sadfsadf",
+      "technology": "Javascript",
+      "coordinates": [
+        54.3549556895541,
+        18.64036560058594
+      ],
+      "description": "Put here description",
+      "slots": "dfasdf",
+      "date": "0003-12-12",
+      "time": "02:13",
+      "id": 11
+    },
+    {
+      "title": "sadfdsf",
+      "technology": "Javascript",
+      "coordinates": [
+        54.39095349234122,
+        18.618564605712894
+      ],
+      "description": "Put here description",
+      "slots": "",
+      "date": "",
+      "time": "",
+      "id": 12
+    },
+    {
+      "title": "asdfasdfa",
+      "technology": "Javascript",
+      "coordinates": [
+        54.38455618940012,
+        18.62165451049805
+      ],
+      "description": "Put here description",
+      "slots": "",
+      "date": "212312-12-31",
+      "time": "",
+      "id": 13
+    },
+    {
+      "title": "bxcvbxcv",
+      "technology": "Javascript",
+      "coordinates": [
+        54.381457137270054,
+        18.574876785278324
+      ],
+      "description": "Put here description",
+      "slots": "",
+      "date": "",
+      "time": "",
+      "id": 14
+    },
+    {
+      "title": "bbbbb",
+      "technology": "Javascript",
+      "coordinates": [
+        54.382656798109785,
+        18.59719276428223
+      ],
+      "description": "Put here description",
+      "slots": "",
+      "date": "",
+      "time": "",
+      "id": 15
     }
   ]
 }

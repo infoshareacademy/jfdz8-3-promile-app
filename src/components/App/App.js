@@ -31,7 +31,7 @@ class App extends Component {
         <div>
           <input type="text" value={this.state.textValue}/>
         </div>
-        <NewEventDisplay getEvents={this.getEvents}/>
+        <NewEventDisplay events={this.state.events} getEvents={this.getEvents}/>
       </div>
     );
   }
