@@ -28,7 +28,8 @@ class MainMap extends Component {
       iconUrl: icon,
       shadowUrl: iconShadow,
       iconSize: [24, 36],
-      iconAnchor: [12, 12]
+      iconAnchor: [12, 36],
+      popupAnchor: [0, -25]
     });
 
     L.Marker.prototype.options.icon = DefaultIcon;
