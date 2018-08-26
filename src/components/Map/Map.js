@@ -24,7 +24,7 @@ class MainMap extends Component {
       iconUrl: icon,
       shadowUrl: iconShadow,
       iconSize: [24, 36],
-      iconAnchor: [12, 36]
+      iconAnchor: [12, 12]
     });
 
     L.Marker.prototype.options.icon = DefaultIcon;
@@ -42,7 +42,10 @@ class MainMap extends Component {
           />
 
           {this.props.events.map((event, id) =>
-            <Marker key={`marker-${id}`} position={event.coordinates}>
+            <Marker key={`marker-${id}`}
+                    position={event.coordinates}
+                    onClick={() => console.log(event.id)}
+            >
               <Popup>
                 <div className="popup">
                   <h1>{event.title}</h1>

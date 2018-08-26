@@ -34,9 +34,7 @@ class App extends Component {
         </div>
         <div className="events-list">
           <h1>Events</h1>
-          {this.state.events.map(event =>
-            <ListItem singleEvent={event}/>)
-          }
+            <ListItem eventsList={this.state.events}/>
         </div>
         <NewEventDisplay events={this.state.events} getEvents={this.getEvents}/>
       </div>
