@@ -46,11 +46,7 @@ class MainMap extends Component {
               <Popup>
                 <div className="popup">
                   <h1>{event.title}</h1>
-                  <p>{event.description}</p>
                   <p>Technology: {event.technology}</p>
-                  <p>When? {event.date}</p>
-                  <p>What time? {event.time}</p>
-                  <p>Number of attendees: {event.slots}</p>
                   <button>Join</button>
                 </div>
               </Popup>
