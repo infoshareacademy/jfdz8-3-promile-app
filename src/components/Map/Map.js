@@ -18,6 +18,10 @@ class MainMap extends Component {
     }
   };
 
+  handleClickCallback = data => {
+    this.props.handleCallback(data)
+  };
+
   render() {
     const position = [54.40, 18.60];
     let DefaultIcon = L.icon({
@@ -44,7 +48,7 @@ class MainMap extends Component {
           {this.props.events.map((event, id) =>
             <Marker key={`marker-${id}`}
                     position={event.coordinates}
-                    onClick={() => console.log(event.id)}
+                    onClick={() => this.handleClickCallback(event.id)}
             >
               <Popup>
                 <div className="popup">

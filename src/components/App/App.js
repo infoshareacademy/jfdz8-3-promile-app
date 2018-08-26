@@ -7,7 +7,8 @@ class App extends Component {
 
   state = {
     textValue: '',
-    events: []
+    events: [],
+    clickedEvent: ''
   };
 
   getEvents = () => {
@@ -26,6 +27,12 @@ class App extends Component {
     this.getEvents()
   }
 
+  handleCallback = (data) => {
+    this.setState({
+      clickedEvent: data
+    })
+  };
+
   render() {
     return (
       <div className="App">
@@ -34,9 +41,12 @@ class App extends Component {
         </div>
         <div className="events-list">
           <h1>Events</h1>
-            <ListItem eventsList={this.state.events}/>
+          <ListItem eventsList={this.state.events}/>
         </div>
-        <NewEventDisplay events={this.state.events} getEvents={this.getEvents}/>
+          <NewEventDisplay events={this.state.events}
+                           getEvents={this.getEvents}
+                           callback={this.handleCallback}
+          />
       </div>
     );
   }
