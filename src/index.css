@@ -27,6 +27,7 @@ button {
 
 .events-list {
   float: left;
+  width: 25%;
 }
 
 .single-event{
