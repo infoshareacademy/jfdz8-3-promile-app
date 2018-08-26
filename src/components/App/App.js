@@ -50,7 +50,9 @@ class App extends Component {
           <ListItem eventsList={
             this.state.events.filter(event => this.state.clickedEvent === '' ? this.state.events : (
               event.id === this.state.clickedEvent
-            ))}
+              )
+            )
+          }
                     revertView={this.handleRevertView}
                     eventClicked={this.state.clickedEvent}
           />
