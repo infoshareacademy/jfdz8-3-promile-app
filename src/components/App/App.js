@@ -39,7 +39,7 @@ class App extends Component {
 
   handleSearchCriteria = (event) => {
     this.setState({
-    search: event
+    search: event.toLowerCase()
     })}
 
   render() {
