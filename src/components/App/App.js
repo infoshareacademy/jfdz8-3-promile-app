@@ -6,7 +6,7 @@ import ListItem from "../ListItem/ListItem";
 class App extends Component {
 
   state = {
-    textValue: '',
+    search: '',
     events: [],
     clickedEvent: ''
   };
@@ -41,7 +41,7 @@ class App extends Component {
 
   handleSearchCriteria = (event) => {
     this.setState({
-    textValue: event
+    search: event
   })
   };
 
@@ -52,6 +52,7 @@ class App extends Component {
           <input
               type="text"
               placeholder = 'Search'
+              value={this.state.search}
               onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
         </div>
