@@ -45,12 +45,8 @@ class App extends Component {
   render() {
       const searchCriteria = this.state.events.filter(
           (event) => {
-              return event.technology.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+              return event.technology.indexOf(this.state.search) !== -1
           })
-      searchCriteria.map((event) => {
-          console.log(event)
-          return <ListItem event={event} key={event.id}/>
-      })
     return (
       <div className="App">
         <div>
@@ -61,16 +57,22 @@ class App extends Component {
               onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
         </div>
-        <div className="events-list">
-          <h1>Events</h1>
-          <ListItem eventsList={
-                this.state.events.filter(event => this.state.clickedEvent === '' ? this.state.events : (
-                event.id === this.state.clickedEvent
-                 ))}
-                    revertView={this.handleRevertView}
-                    eventClicked={this.state.clickedEvent}
-          />
-        </div>
+          <div className="events-list">
+              <h1>Events</h1>
+              {searchCriteria.map((event) => {
+                  return <ListItem
+                      event={event}
+                      key={event.id}
+                      eventsList={
+                          searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
+                                  event.id === this.state.clickedEvent
+                              )
+                          )}
+                      revertView={this.handleRevertView}
+                      eventClicked={this.state.clickedEvent}
+                  />
+              })}
+          </div>
           <NewEventDisplay events={this.state.events}
                            getEvents={this.getEvents}
                            callback={this.handleCallback}
