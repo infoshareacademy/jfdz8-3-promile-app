@@ -45,7 +45,7 @@ class App extends Component {
   render() {
       const searchCriteria = this.state.events.filter(
           (event) => {
-              return event.technology.indexOf(this.state.search) !== -1
+              return event.technology.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
           })
       searchCriteria.map((event) => {
           console.log(event)
