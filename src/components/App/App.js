@@ -6,7 +6,7 @@ import ListItem from "../ListItem/ListItem";
 class App extends Component {
 
   state = {
-    textValue: '',
+    search: '',
     events: [],
     clickedEvent: ''
   };
@@ -30,33 +30,45 @@ class App extends Component {
   handleCallback = (data) => {
     this.setState({
       clickedEvent: data
-    })
-  };
+    })}
 
   handleRevertView = () => {
     this.setState({
       clickedEvent: ''
-    })
-  };
+    })}
+
+  handleSearchCriteria = (event) => {
+    this.setState({
+    search: event.toLowerCase()
+    })}
 
   render() {
+      const searchCriteria = this.state.events.filter(
+          (event) => {
+              return event.technology.toLowerCase().indexOf(this.state.search) !== -1
+          })
     return (
       <div className="App">
         <div>
-          <input type="text" value={this.state.textValue}/>
-        </div>
-        <div className="events-list">
-          <h1>Events</h1>
-          <ListItem eventsList={
-            this.state.events.filter(event => this.state.clickedEvent === '' ? this.state.events : (
-              event.id === this.state.clickedEvent
-              )
-            )
-          }
-                    revertView={this.handleRevertView}
-                    eventClicked={this.state.clickedEvent}
+          <input
+              type="text"
+              placeholder = 'Search'
+              value={this.state.search}
+              onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
         </div>
+          <div className="events-list">
+              <h1>Events</h1>
+                  <ListItem
+                      eventsList={
+                          searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
+                                  event.id === this.state.clickedEvent
+                              )
+                          )}
+                      revertView={this.handleRevertView}
+                      eventClicked={this.state.clickedEvent}
+                  />
+          </div>
           <NewEventDisplay events={this.state.events}
                            getEvents={this.getEvents}
                            callback={this.handleCallback}
