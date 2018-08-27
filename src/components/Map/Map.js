@@ -3,11 +3,11 @@ import {Map, Marker, Popup, TileLayer} from 'react-leaflet'
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import pyIcon from 'leaflet/src/images/python.png'
-import jsIcon from 'leaflet/src/images/js.png'
-import javaIcon from 'leaflet/src/images/java.png'
-import dbIcon from 'leaflet/src/images/database.png'
-import phpIcon from 'leaflet/src/images/php.png'
+import pyIcon from '../../images/technologies_logo/python.png'
+import jsIcon from '../../images/technologies_logo/js.png'
+import javaIcon from '../../images/technologies_logo/java.png'
+import dbIcon from '../../images/technologies_logo/database.png'
+import phpIcon from '../../images/technologies_logo/php.png'
 
 const markers = {
   Python: pyIcon,
