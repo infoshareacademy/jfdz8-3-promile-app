@@ -39,11 +39,21 @@ class App extends Component {
     })
   };
 
+  handleSearchCriteria = (event) => {
+    this.setState({
+    textValue: event
+  })
+  };
+
   render() {
     return (
       <div className="App">
         <div>
-          <input type="text" value={this.state.textValue}/>
+          <input
+              type="text"
+              placeholder = 'Search'
+              onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
+          />
         </div>
         <div className="events-list">
           <h1>Events</h1>
