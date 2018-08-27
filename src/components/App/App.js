@@ -45,7 +45,7 @@ class App extends Component {
   render() {
       const searchCriteria = this.state.events.filter(
           (event) => {
-              return event.technology.indexOf(this.state.search) !== -1
+              return event.technology.toLowerCase().indexOf(this.state.search) !== -1
           })
     return (
       <div className="App">
@@ -59,10 +59,7 @@ class App extends Component {
         </div>
           <div className="events-list">
               <h1>Events</h1>
-              {searchCriteria.map((event) => {
-                  return <ListItem
-                      event={event}
-                      key={event.id}
+                  <ListItem
                       eventsList={
                           searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
                                   event.id === this.state.clickedEvent
@@ -71,7 +68,6 @@ class App extends Component {
                       revertView={this.handleRevertView}
                       eventClicked={this.state.clickedEvent}
                   />
-              })}
           </div>
           <NewEventDisplay events={this.state.events}
                            getEvents={this.getEvents}
