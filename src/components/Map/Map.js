@@ -67,6 +67,7 @@ class MainMap extends Component {
           center={this.state.userCoordinates}
           zoom={13}
           onClick={this.clickHandler}
+          inertiaDeceleration={2500}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
