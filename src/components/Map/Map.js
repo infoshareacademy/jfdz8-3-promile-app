@@ -35,6 +35,14 @@ class MainMap extends Component {
     this.props.handleCallback(data)
   };
 
+  findLocation = () => {
+    if ('geolocation' in navigator) {
+    (navigator.geolocation.getCurrentPosition(function(position) {
+          alert(position.coords.latitude + ' ' + position.coords.longitude);
+      }))
+    }
+  }
+
   render() {
     const position = [54.40, 18.60];
     let DefaultIcon = L.icon({
@@ -86,6 +94,7 @@ class MainMap extends Component {
             )
           }
         </Map>
+          <button onClick={this.findLocation}>Geolocation</button>
       </div>
     );
   }
