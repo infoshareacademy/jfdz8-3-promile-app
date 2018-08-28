@@ -20,7 +20,7 @@ const markers = {
 class MainMap extends Component {
   state = {
     userMarkers: [],
-    userCoordinates: [54.40, 18.60]
+    userCoordinates: [54.40315833, 18.56952222]
   };
 
   clickHandler = (e) => {
@@ -36,13 +36,17 @@ class MainMap extends Component {
     this.props.handleCallback(data)
   };
 
+  showUserPosition = (coords) => {
+    this.setState ({
+        userCoordinates: coords
+    })}
+
+
   findLocation = () => {
     if ('geolocation' in navigator) {
-    (navigator.geolocation.getCurrentPosition(function(position) {
-      this.setState({
-          userCoordinates: [position.coords.latitude,position.coords.longitude]
+    navigator.geolocation.getCurrentPosition(position => {
+        this.showUserPosition([position.coords.latitude, position.coords.longitude])
       })
-      }))
     }
   }
 
