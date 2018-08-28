@@ -39,7 +39,8 @@ class NewEventDisplay extends Component {
       description: this.state.description,
       slots: this.state.slots,
       date: this.state.date,
-      time: this.state.time
+      time: this.state.time,
+      tags: this.state.tags
     };
     fetch(
       'http://localhost:3000/events', {
@@ -104,7 +105,7 @@ class NewEventDisplay extends Component {
 
   addTags = (event) => {
     this.setState({
-        tags: event.target.value.split(",")
+        tags: event.target.value.split(",").map(tag => tag.trim())
     })
   }
 
