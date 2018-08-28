@@ -19,7 +19,8 @@ const markers = {
 
 class MainMap extends Component {
   state = {
-    userMarkers: []
+    userMarkers: [],
+    userCoordinates: [54.40, 18.60]
   };
 
   clickHandler = (e) => {
@@ -38,13 +39,14 @@ class MainMap extends Component {
   findLocation = () => {
     if ('geolocation' in navigator) {
     (navigator.geolocation.getCurrentPosition(function(position) {
-          alert(position.coords.latitude + ' ' + position.coords.longitude);
+      this.setState({
+          userCoordinates: [position.coords.latitude,position.coords.longitude]
+      })
       }))
     }
   }
 
   render() {
-    const position = [54.40, 18.60];
     let DefaultIcon = L.icon({
       iconUrl: icon,
       shadowUrl: iconShadow,
@@ -58,7 +60,7 @@ class MainMap extends Component {
     return (
       <div>
         <Map
-          center={position}
+          center={this.state.userCoordinates}
           zoom={13}
           onClick={this.clickHandler}
         >
