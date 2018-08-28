@@ -19,7 +19,8 @@ const markers = {
 
 class MainMap extends Component {
   state = {
-    userMarkers: []
+    userMarkers: [],
+    userCoordinates: [54.40315833, 18.56952222]
   };
 
   clickHandler = (e) => {
@@ -35,8 +36,21 @@ class MainMap extends Component {
     this.props.handleCallback(data)
   };
 
+  showUserPosition = (coords) => {
+    this.setState ({
+        userCoordinates: coords
+    })}
+
+
+  findLocation = () => {
+    if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(position => {
+        this.showUserPosition([position.coords.latitude, position.coords.longitude])
+      })
+    }
+  }
+
   render() {
-    const position = [54.40, 18.60];
     let DefaultIcon = L.icon({
       iconUrl: icon,
       shadowUrl: iconShadow,
@@ -50,9 +64,10 @@ class MainMap extends Component {
     return (
       <div>
         <Map
-          center={position}
+          center={this.state.userCoordinates}
           zoom={13}
           onClick={this.clickHandler}
+          inertiaDeceleration={2500}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -86,6 +101,7 @@ class MainMap extends Component {
             )
           }
         </Map>
+          <button onClick={this.findLocation}>Geolocation</button>
       </div>
     );
   }
