@@ -57,6 +57,19 @@
       "date": "2018-08-09",
       "time": "13:00",
       "id": 4
+    },
+    {
+      "title": "New",
+      "technology": "Python",
+      "coordinates": [
+        54.40754184937338,
+        18.579082489013675
+      ],
+      "description": "Description",
+      "slots": "2",
+      "date": "2018-08-09",
+      "time": "13:00",
+      "id": 5
     }
   ]
 }

@@ -8,13 +8,14 @@ class NewEventDisplay extends Component {
     visible: false,
     mapBlocked: false,
     title: 'New',
-    technology: 'JavaScript',
+    technology: '',
     coordinates: [],
     slots: '2',
     arePlacesAvailable: true,
     description: 'Description',
     date: '2018-08-09',
     time: '13:00',
+    tags: []
 };
 
   showNewEventPanel = () => {
@@ -91,7 +92,7 @@ class NewEventDisplay extends Component {
 
   changeSelect = (event) => {
     this.setState({
-      technology: event.target.value,
+      technology: event.target.value
     })
   };
 
@@ -100,6 +101,12 @@ class NewEventDisplay extends Component {
       title: event.target.value
     })
   };
+
+  addTags = (event) => {
+    this.setState({
+        tags: event.target.value.split(",")
+    })
+  }
 
   render() {
 
@@ -134,7 +141,8 @@ class NewEventDisplay extends Component {
           <div>
             <input type="text"
                    placeholder="Type event tags ie. JavaScript"
-                   value={this.state.technology}
+                   value={this.state.tags}
+                   onChange={this.addTags}
             />
           </div>
           <textarea value={this.state.description} onChange={this.changeDescription} rows="5" cols="50"/>
