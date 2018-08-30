@@ -9,6 +9,7 @@ import javaIcon from '../../images/technologies_logo/java.png'
 import dbIcon from '../../images/technologies_logo/database.png'
 import phpIcon from '../../images/technologies_logo/php.png'
 
+
 const markers = {
   Python: pyIcon,
   SQL: dbIcon,
@@ -18,9 +19,11 @@ const markers = {
 };
 
 class MainMap extends Component {
+
   state = {
     userMarkers: [],
-    userCoordinates: [54.40315833, 18.56952222]
+    userCoordinates: [54.40315833, 18.56952222],
+    activeEvent: ''
   };
 
   clickHandler = (e) => {
@@ -34,7 +37,16 @@ class MainMap extends Component {
 
   handleClickCallback = data => {
     this.props.handleCallback(data)
+    this.setState({
+      activeEvent: this.props.clickedEvent
+    })
   };
+
+  componentWillReceiveProps () {
+    this.setState({
+      activeEvent: this.props.clickedEvent
+    })
+  }
 
   showUserPosition = (coords) => {
     this.setState ({
@@ -81,7 +93,8 @@ class MainMap extends Component {
                     icon={Object.assign(Object.create(Object.getPrototypeOf(DefaultIcon)), DefaultIcon, {
                       options: {
                         ...DefaultIcon.options,
-                        iconUrl: markers[event.technology]
+                        iconUrl: markers[event.technology],
+                        iconSize: event.id === this.state.activeEvent ? [60, 60] : [30, 30]
                       }})
                     }
                     onClick={() => this.handleClickCallback(event.id)}
