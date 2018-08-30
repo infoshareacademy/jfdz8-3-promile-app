@@ -119,7 +119,7 @@ class NewEventDisplay extends Component {
           newMarker={this.state.mapBlocked}
           getCoordinates={this.getCoordinates}
           handleCallback={this.props.callback}
-          clickedEvent={this.props.clickedEvent}
+          clicked={this.props.clickedEvent}
         />
         <div>
           <button onClick={this.showNewEventPanel}>Create new Event</button>

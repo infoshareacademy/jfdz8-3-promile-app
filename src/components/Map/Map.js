@@ -23,7 +23,7 @@ class MainMap extends Component {
   state = {
     userMarkers: [],
     userCoordinates: [54.40315833, 18.56952222],
-    activeEvent: ''
+    activeEvent: this.props.clicked
   };
 
   clickHandler = (e) => {
@@ -38,20 +38,22 @@ class MainMap extends Component {
   handleClickCallback = data => {
     this.props.handleCallback(data)
     this.setState({
-      activeEvent: this.props.clickedEvent
+      activeEvent: this.props.clicked
     })
   };
-
-  componentWillReceiveProps () {
-    this.setState({
-      activeEvent: this.props.clickedEvent
-    })
-  }
 
   showUserPosition = (coords) => {
     this.setState ({
         userCoordinates: coords
-    })}
+    })};
+
+  componentDidUpdate(nextProps) {
+    if (nextProps.clicked !== this.props.clicked) {
+      this.setState({
+        activeEvent: this.props.clicked
+      })
+    }
+  }
 
 
   findLocation = () => {
@@ -60,7 +62,7 @@ class MainMap extends Component {
         this.showUserPosition([position.coords.latitude, position.coords.longitude])
       })
     }
-  }
+  };
 
   render() {
     let DefaultIcon = L.icon({
