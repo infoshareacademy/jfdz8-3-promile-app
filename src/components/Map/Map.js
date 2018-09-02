@@ -22,8 +22,10 @@ class MainMap extends Component {
 
   state = {
     userMarkers: [],
-    userCoordinates: [54.40315833, 18.56952222],
-    activeEvent: this.props.clicked
+    userCoordinates: [54.5, 18.5],
+    activeEvent: this.props.clicked,
+    zoom: 6
+    // mapKey: Date.now()
   };
 
   clickHandler = (e) => {
@@ -44,7 +46,9 @@ class MainMap extends Component {
 
   showUserPosition = (coords) => {
     this.setState ({
-        userCoordinates: coords
+        userCoordinates: coords,
+        zoom: 12
+        // mapKey: Date.now()
     })};
 
   componentDidUpdate(nextProps) {
@@ -78,10 +82,13 @@ class MainMap extends Component {
     return (
       <div>
         <Map
+          // key={this.state.mapKey}
           center={this.state.userCoordinates}
-          zoom={13}
+          zoom={this.state.zoom}
           onClick={this.clickHandler}
           inertiaDeceleration={2500}
+          useFlyTo={true}
+          viewport={this.state.userCoordinates}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
