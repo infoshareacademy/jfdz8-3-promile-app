@@ -10,6 +10,7 @@ import dbIcon from '../../images/technologies_logo/database.png'
 import phpIcon from '../../images/technologies_logo/php.png'
 
 
+
 const markers = {
   Python: pyIcon,
   SQL: dbIcon,
