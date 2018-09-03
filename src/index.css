@@ -12,6 +12,14 @@ body {
   border: 2px solid black;
 }
 
+.freeSlot {
+  height: 20px;
+  width: 20px;
+  background: grey;
+  display: inline-block;
+  margin: 0 5%
+}
+
 .unvisible {
   display: none;
 }
@@ -36,3 +44,6 @@ button {
   background: burlywood;
   padding: 10px;
 }
+
+
+
