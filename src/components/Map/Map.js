@@ -106,7 +106,7 @@ class MainMap extends Component {
                         iconSize: event.id === this.state.activeEvent.id ? [60, 60] : [30, 30]
                       }})
                     }
-                    onClick={() => this.handleClickCallback(event.id)}
+                    onClick={() => this.handleClickCallback(event)}
             >
               <Popup>
                 <div className="popup">

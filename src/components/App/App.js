@@ -63,7 +63,7 @@ class App extends Component {
                   <ListItem
                       eventsList={
                           searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
-                                  event.id === this.state.clickedEvent
+                                  event.id === this.state.clickedEvent.id
                               )
                           )}
                       revertView={this.handleRevertView}
