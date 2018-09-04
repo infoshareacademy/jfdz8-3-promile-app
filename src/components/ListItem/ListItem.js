@@ -4,26 +4,26 @@ import EventDetails from '../EventDetails/EventDetails'
 class ListItem extends Component {
 
   state = {
-    toggler: true
-  }
+    clicked: false
+  };
 
   handleRevertView = () => {
-    this.props.revertView()
+    this.props.revertView();
     this.setState({
-      toggler: false
+      clicked: false
     })
   };
 
   handleClickCallback = (data) => {
     this.props.handleCallback(data);
-    this.toggleClick()
-    };
+    this.toggleClicked()
+  };
 
-    toggleClick = () => {
-      this.setState({
-        toggler: !this.state.toggler
-      })
-    }
+  toggleClicked = () => {
+    this.setState({
+      clicked: !this.state.clicked
+    })
+  }
 
   render() {
     return(
@@ -32,13 +32,13 @@ class ListItem extends Component {
             {this.props.eventsList.map(event =>
             <li key={event.id}
                 className="single-event"
-                onClick={() => this.handleClickCallback((event.id))}
+                onClick={() => this.handleClickCallback(event.id)}
             >
               <h2>{event.title}</h2>
               <p>{event.technology}</p>
               <EventDetails singleEvent={event}
-                            visible={this.state.toggler}
-              
+                            clicked={this.state.clicked}
+
               />
             </li>
             )}
