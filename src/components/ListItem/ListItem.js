@@ -32,13 +32,12 @@ class ListItem extends Component {
             {this.props.eventsList.map(event =>
             <li key={event.id}
                 className="single-event"
-                onClick={() => this.state.clicked ? false: this.handleClickCallback(event.id)}
+                onClick={() => this.state.clicked ? false: this.handleClickCallback(event)}
             >
               <h2>{event.title}</h2>
               <p>{event.technology}</p>
               <EventDetails singleEvent={event}
                             clicked={this.state.clicked}
-
               />
             </li>
             )}
