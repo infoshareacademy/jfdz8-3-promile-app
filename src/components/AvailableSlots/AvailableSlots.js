@@ -1,14 +1,6 @@
 import React, {Component} from 'react'
 
 class AvailableSlots extends Component {
-    //
-    // componentDidUpdate(nextProps) {
-    //   if (nextProps.visibility !== this.props.visibility) {
-    //     this.setState({
-    //       visible: this.props.visibility
-    //     })
-    //   }
-    // }
 
     render() {
         const freeSlotsNumber = this.props.plannedSlots;

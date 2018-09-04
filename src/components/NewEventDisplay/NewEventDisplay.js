@@ -72,14 +72,12 @@ class NewEventDisplay extends Component {
   };
 
   changeDate = (event) => {
-    console.log(event.target.value);
     this.setState({
       date: event.target.value
     })
   };
 
   changeTime = (event) => {
-    console.log(event);
     this.setState({
       time: event.target.value
     })

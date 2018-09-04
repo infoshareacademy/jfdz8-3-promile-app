@@ -26,7 +26,6 @@ class MainMap extends Component {
     userCoordinates: [54.5, 18.5],
     activeEvent: this.props.clicked,
     zoom: 6
-    // mapKey: Date.now()
   };
 
   clickHandler = (e) => {
@@ -49,7 +48,6 @@ class MainMap extends Component {
     this.setState ({
         userCoordinates: coords,
         zoom: 12
-        // mapKey: Date.now()
     })};
 
   componentDidUpdate(nextProps) {
@@ -83,7 +81,6 @@ class MainMap extends Component {
     return (
       <div>
         <Map
-          // key={this.state.mapKey}
           center={this.state.userCoordinates}
           zoom={this.state.zoom}
           onClick={this.clickHandler}

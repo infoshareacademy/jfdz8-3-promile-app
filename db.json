@@ -60,6 +60,24 @@
         "python"
       ],
       "id": 4
+    },
+    {
+      "title": "Yeti Event",
+      "technology": "JavaScript",
+      "coordinates": [
+        51.39093159326464,
+        21.22514523326933
+      ],
+      "description": "Snow for everyone",
+      "slots": "5",
+      "date": "2018-08-09",
+      "time": "13:00",
+      "tags": [
+        "javascript",
+        "webdeveloping",
+        "internet"
+      ],
+      "id": 5
     }
   ]
 }
