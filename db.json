@@ -78,6 +78,22 @@
         "internet"
       ],
       "id": 5
+    },
+    {
+      "title": "JSosnowiec",
+      "technology": "Java",
+      "coordinates": [
+        50.275298611425185,
+        19.138183593750004
+      ],
+      "description": "Description",
+      "slots": "2",
+      "date": "2018-08-09",
+      "time": "13:00",
+      "tags": [
+        "Sosnowiec"
+      ],
+      "id": 6
     }
   ]
 }
