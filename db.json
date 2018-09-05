@@ -20,80 +20,19 @@
       ]
     },
     {
-      "title": "Better event",
-      "technology": "SQL",
-      "coordinates": [
-        54.39235276942759,
-        18.57444226741791
-      ],
-      "description": "Description",
-      "slots": "2",
-      "date": "2018-08-09",
-      "time": "13:00",
-      "id": 2
-    },
-    {
-      "title": "The best event ever",
+      "title": "test",
       "technology": "PHP",
       "coordinates": [
-        54.39974815563759,
-        18.592410385608677
-      ],
-      "description": "Only PHP",
-      "slots": "2",
-      "date": "2018-08-09",
-      "time": "13:00",
-      "id": 3
-    },
-    {
-      "title": "Superb",
-      "technology": "Python",
-      "coordinates": [
-        53.495398754476376,
-        18.77700805664063
-      ],
-      "description": "The best ever made. ",
-      "slots": "3",
-      "date": "2018-08-09",
-      "time": "13:00",
-      "tags": [
-        "python"
-      ],
-      "id": 4
-    },
-    {
-      "title": "Yeti Event",
-      "technology": "JavaScript",
-      "coordinates": [
-        51.39093159326464,
-        21.22514523326933
-      ],
-      "description": "Snow for everyone",
-      "slots": "5",
-      "date": "2018-08-09",
-      "time": "13:00",
-      "tags": [
-        "javascript",
-        "webdeveloping",
-        "internet"
-      ],
-      "id": 5
-    },
-    {
-      "title": "JSosnowiec",
-      "technology": "Java",
-      "coordinates": [
-        50.275298611425185,
-        19.138183593750004
+        53.735715745326395,
+        21.70173933699323
       ],
       "description": "Description",
-      "slots": "2",
+      "slots": "7",
+      "freeSlots": 3,
       "date": "2018-08-09",
       "time": "13:00",
-      "tags": [
-        "Sosnowiec"
-      ],
-      "id": 6
+      "tags": [],
+      "id": 2
     }
   ]
 }

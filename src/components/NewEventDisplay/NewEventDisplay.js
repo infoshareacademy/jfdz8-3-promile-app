@@ -38,6 +38,7 @@ class NewEventDisplay extends Component {
       coordinates: this.state.coordinates,
       description: this.state.description,
       slots: this.state.slots,
+      freeSlots: this.state.slots,
       date: this.state.date,
       time: this.state.time,
       tags: this.state.tags
