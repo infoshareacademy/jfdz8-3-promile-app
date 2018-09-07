@@ -53,7 +53,9 @@ class MainMap extends Component {
   componentDidUpdate(nextProps) {
     if (nextProps.clicked !== this.props.clicked) {
       this.setState({
-        activeEvent: this.props.clicked
+        activeEvent: this.props.clicked,
+        userCoordinates: this.props.clicked.coordinates,
+        zoom: 15
       })
     }
   }
@@ -101,10 +103,10 @@ class MainMap extends Component {
                       options: {
                         ...DefaultIcon.options,
                         iconUrl: markers[event.technology],
-                        iconSize: event.id === this.state.activeEvent ? [60, 60] : [30, 30]
+                        iconSize: event.id === this.state.activeEvent.id ? [60, 60] : [30, 30]
                       }})
                     }
-                    onClick={() => this.handleClickCallback(event.id)}
+                    onClick={() => this.handleClickCallback(event)}
             >
               <Popup>
                 <div className="popup">
