@@ -3,6 +3,7 @@ import './App.css';
 import '../AvailableSlots/AvailableSlots.css'
 import NewEventDisplay from '../NewEventDisplay/NewEventDisplay'
 import ListItem from "../ListItem/ListItem";
+import database from '../'
 
 class App extends Component {
 
