@@ -32,45 +32,6 @@ class App extends Component {
     })
   };
 
-  send = () => {
-      this.eventsList.forEach(event => database.ref('/events').push(event))
-  };
-
-  eventsList = [
-    {
-      "title": "Great event",
-      "slots": "4",
-      "freeSlots": 2,
-      "coordinates": [
-        54.405,
-        18.61
-      ],
-      "description": "xyz",
-      "technology": "JavaScript",
-      "date": "2018-09-30",
-      "time": "18:00:00",
-      "tags": [
-        "js",
-        "webdev",
-        "html"
-      ]
-    },
-    {
-      "title": "test",
-      "technology": "PHP",
-      "coordinates": [
-        53.735715745326395,
-        21.70173933699323
-      ],
-      "description": "Description",
-      "slots": "7",
-      "freeSlots": 3,
-      "date": "2018-08-09",
-      "time": "13:00",
-      "tags": [],
-    }
-  ];
-
   componentDidMount() {
     this.getEvents()
   }

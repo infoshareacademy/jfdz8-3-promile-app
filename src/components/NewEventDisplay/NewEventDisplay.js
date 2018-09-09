@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import MainMap from '../Map/Map'
+import React, { Component } from 'react';
+import MainMap from '../Map/Map';
+import { database } from '../FirebaseConfig/FirebaseConfig';
 
 class NewEventDisplay extends Component {
 
@@ -43,15 +44,11 @@ class NewEventDisplay extends Component {
       time: this.state.time,
       tags: this.state.tags
     };
-    fetch(
-      'http://localhost:3000/events', {
-        method: 'POST',
-        body: JSON.stringify(newEvent),
-        headers: {
-          'Content-type': 'application/json'
-        }
-      }
-    ).then(() => {
+
+    database.ref('/events')
+      .push(newEvent)
+
+    .then(() => {
       this.setState({
         visible: false
       });
