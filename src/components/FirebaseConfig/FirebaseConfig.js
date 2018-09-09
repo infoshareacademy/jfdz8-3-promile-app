@@ -10,6 +10,7 @@ const config = {
 };
 
 const db = firebase.initializeApp(config);
+
 export const database = db.database();
 export const auth = db.auth();
 export const providers = {
