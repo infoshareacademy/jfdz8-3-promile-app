@@ -15,10 +15,8 @@ class App extends Component {
 
   getEvents = () => {
     database.ref('/events')
-    .once('value')
-      .then(snapshot => {
+    .on('value', (snapshot) => {
         const value = snapshot.val();
-
         const list = (value && Object.entries(value)
           .map(item => {
             return {

@@ -60,7 +60,6 @@ class NewEventDisplay extends Component {
     this.setState({
       coordinates: [event.latlng.lat, event.latlng.lng]
     })
-
   };
 
   changeDescription = (event) => {

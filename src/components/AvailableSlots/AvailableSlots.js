@@ -1,23 +1,11 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import { database } from "../FirebaseConfig/FirebaseConfig";
 
 class AvailableSlots extends Component {
 
   state = {
     event: this.props.event
-  }
-
-  updateSlotsNumber = (id) => {
-    const updatedEvent = this.state.event 
-    fetch(
-      `http://localhost:3000/events/${id}`, {
-       method:'PUT',
-       body: JSON.stringify(updatedEvent),
-       headers: {
-        'Content-Type': 'application/json'
-      }
-      })
-
-    };
+  };
 
     handleEventSlots = (id) => {
       this.setState({
@@ -25,9 +13,10 @@ class AvailableSlots extends Component {
           ...this.state.event,
           freeSlots: this.state.event.freeSlots - 1
         }
-      })
-      this.updateSlotsNumber(id)
-    }
+      });
+      database.ref(`/events/${id}`)
+        .set(this.state.event)
+    };
 
     render() {
         const freeSlotsNumber = this.state.event.freeSlots;
