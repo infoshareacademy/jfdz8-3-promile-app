@@ -1,4 +1,4 @@
-import firebase from '../FirebaseConfig/FirebaseConfig'
+import firebase from 'firebase'
 
 const config = {
   apiKey: "AIzaSyCodMZvm6h_ssMv-_LoijUxLi1mG5TBkn0",
@@ -11,3 +11,7 @@ const config = {
 
 const db = firebase.initializeApp(config);
 export const database = db.database();
+export const auth = db.auth();
+export const providers = {
+  google: new firebase.auth.GoogleAuthProvider()
+};

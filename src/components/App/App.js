@@ -3,7 +3,7 @@ import './App.css';
 import '../AvailableSlots/AvailableSlots.css'
 import NewEventDisplay from '../NewEventDisplay/NewEventDisplay'
 import ListItem from "../ListItem/ListItem";
-import database from '../'
+import database from '../../FirebaseConfig/FirebaseConfig'
 
 class App extends Component {
 
