@@ -38,6 +38,7 @@ class ListItem extends Component {
               <p>{event.technology}</p>
               <EventDetails singleEvent={event}
                             clicked={this.state.clicked}
+                            handleChange={this.props.handleChange}
               />
             </li>
             )}

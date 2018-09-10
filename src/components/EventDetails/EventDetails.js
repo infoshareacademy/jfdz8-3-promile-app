@@ -23,7 +23,9 @@ class EventDetails extends Component {
           <p>{this.props.singleEvent.description}</p>
           <p>{this.props.singleEvent.date}</p>
           <p>{this.props.singleEvent.time}</p>
-          <AvailableSlots event={this.props.singleEvent} />
+          <AvailableSlots event={this.props.singleEvent}
+                          handleChange={this.props.handleChange}
+          />
         </div>
         }
       </div>
