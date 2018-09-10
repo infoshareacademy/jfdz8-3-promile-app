@@ -39,10 +39,6 @@ class App extends Component {
       clickedEvent: data,
     })};
 
-  handleChange = () => {
-    this.getEvents();
-  };
-
   handleRevertView = () => {
     this.setState({
       clickedEvent: ''
@@ -79,7 +75,6 @@ class App extends Component {
                       revertView={this.handleRevertView}
                       eventClicked={this.state.clickedEvent}
                       handleCallback={this.handleCallback}
-                      handleChange={this.handleChange}
                   />
           </div>
           <NewEventDisplay events={this.state.events}

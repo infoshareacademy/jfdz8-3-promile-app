@@ -58,7 +58,6 @@ class MainMap extends Component {
     }
   }
 
-
   findLocation = () => {
     if ('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition(position => {

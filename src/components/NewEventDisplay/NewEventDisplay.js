@@ -102,7 +102,7 @@ class NewEventDisplay extends Component {
     this.setState({
         tags: event.target.value.split(",").map(tag => tag.trim())
     })
-  }
+  };
 
   render() {
 
