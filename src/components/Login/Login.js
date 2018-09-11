@@ -10,13 +10,13 @@ class Login extends Component {
      
   }
 
-    // registerNewUser = () => {
-    //     database.auth().createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
-    //       const errorCode = error.code;
-    //       const errorMessage = error.message;
-    //       alert(errorCode)
-    //     })
-    // }
+    registerNewUser = (event) => {
+          event.preventDefault()
+          auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
+          const errorCode = error.code;
+          alert(errorCode)
+        })
+    }
 
     logIn = (event) => {
         event.preventDefault()
@@ -42,7 +42,7 @@ class Login extends Component {
                     value={this.state.password}
                 />
                 <button onClick={(event) => this.logIn(event)}>Login</button>
-                <button>Register</button>
+                <button onClick={(event) => this.registerNewUser(event)}>Register</button>
                 <button>Logout</button>
             </form>
         </div>
