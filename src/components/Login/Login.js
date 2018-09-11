@@ -24,7 +24,14 @@ class Login extends Component {
         this.setState({
           logged: true
         })
-        alert("LOGGED")
+    }
+
+    logOut = (event) => {
+        event.preventDefault()
+        auth.signOut()
+        this.setState({
+          logged: false
+        })
     }
 
   render() {
@@ -43,7 +50,7 @@ class Login extends Component {
                 />
                 <button onClick={(event) => this.logIn(event)}>Login</button>
                 <button onClick={(event) => this.registerNewUser(event)}>Register</button>
-                <button>Logout</button>
+                <button onClick={(event) => this.logOut(event)}>Logout</button>
             </form>
         </div>
     )
