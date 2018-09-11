@@ -6,9 +6,18 @@ class Login extends Component {
   state = {
     username: '',
     password: '',
-    logged: false  
-     
+    logged: false,  
+    user: null 
   }
+
+    componentDidMount = () => {
+            auth.onAuthStateChanged((user) => {
+              this.setState({
+                user: user
+              })
+            }
+          ); 
+    }
 
     registerNewUser = (event) => {
           event.preventDefault()
