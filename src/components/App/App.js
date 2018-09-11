@@ -3,6 +3,7 @@ import './App.css';
 import '../AvailableSlots/AvailableSlots.css'
 import NewEventDisplay from '../NewEventDisplay/NewEventDisplay'
 import ListItem from "../ListItem/ListItem";
+import Login from "../Login/Login"
 import { database } from '../FirebaseConfig/FirebaseConfig'
 
 class App extends Component {
@@ -64,6 +65,7 @@ class App extends Component {
               onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
         </div>
+        <Login />
           <div className="events-list">
               <h1>Events</h1>
                   <ListItem
