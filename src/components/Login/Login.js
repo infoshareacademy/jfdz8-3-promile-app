@@ -10,11 +10,22 @@ class Login extends Component {
     user: null 
   }
 
+  addUserToDb = () => {
+    const user = this.state.user
+    console.log(user.uid)
+    database.ref(`users/${user.uid}`)
+    .set({
+      email: user.email,
+      id: user.uid
+    })
+  }
+
     componentDidMount = () => {
             auth.onAuthStateChanged((user) => {
               this.setState({
                 user: user
               })
+              this.addUserToDb()
             }
           ); 
     }
@@ -43,6 +54,9 @@ class Login extends Component {
         })
     }
 
+
+
+
   render() {
     return (
         <div>
@@ -60,6 +74,7 @@ class Login extends Component {
                 <button onClick={(event) => this.logIn(event)}>Login</button>
                 <button onClick={(event) => this.registerNewUser(event)}>Register</button>
                 <button onClick={(event) => this.logOut(event)}>Logout</button>
+                <button onClick={(event) => this.check(event)}>Check</button>
             </form>
         </div>
     )
