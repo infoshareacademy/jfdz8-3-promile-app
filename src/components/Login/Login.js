@@ -20,42 +20,39 @@ class Login extends Component {
     })
   }
 
-    componentDidMount = () => {
-            auth.onAuthStateChanged((user) => {
-              this.setState({
-                user: user
-              })
-              this.addUserToDb()
-            }
-          ); 
-    }
-
-    registerNewUser = (event) => {
-          event.preventDefault()
-          auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
-          const errorCode = error.code;
-          alert(errorCode)
-        })
-    }
-
-    logIn = (event) => {
-        event.preventDefault()
-        auth.signInWithEmailAndPassword(this.state.username, this.state.password)
+  componentDidMount = () => {
+      auth.onAuthStateChanged((user) => {
         this.setState({
-          logged: true
+          user: user
         })
-    }
+        this.addUserToDb()
+      }
+    );
+  }
 
-    logOut = (event) => {
+  registerNewUser = (event) => {
         event.preventDefault()
-        auth.signOut()
-        this.setState({
-          logged: false
-        })
-    }
+        auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
+        const errorCode = error.code;
+        alert(errorCode)
+      })
+  }
 
+  logIn = (event) => {
+      event.preventDefault()
+      auth.signInWithEmailAndPassword(this.state.username, this.state.password)
+      this.setState({
+        logged: true
+      })
+  }
 
-
+  logOut = (event) => {
+      event.preventDefault()
+      auth.signOut()
+      this.setState({
+        logged: false
+      })
+  }
 
   render() {
     return (
