@@ -6,13 +6,12 @@ class Login extends Component {
   state = {
     username: '',
     password: '',
-    logged: false,  
-    user: null 
+    logged: false,
+    user: null
   }
 
   addUserToDb = () => {
     const user = this.state.user
-    console.log(user.uid)
     database.ref(`users/${user.uid}`)
     .set({
       email: user.email,
@@ -68,10 +67,20 @@ class Login extends Component {
                     onChange={(event) => this.setState({password: event.target.value})}
                     value={this.state.password}
                 />
-                <button onClick={(event) => this.logIn(event)}>Login</button>
-                <button onClick={(event) => this.registerNewUser(event)}>Register</button>
-                <button onClick={(event) => this.logOut(event)}>Logout</button>
-                <button onClick={(event) => this.check(event)}>Check</button>
+                {
+                  !this.state.user &&
+                  <div>
+                    <button onClick={(event) => this.logIn(event)}>Login</button>
+                    <button onClick={(event) => this.registerNewUser(event)}>Register</button>
+                  </div>
+                }
+
+                {
+                  this.state.user &&
+                    <button onClick={(event) => this.logOut(event)}>Logout</button>
+                }
+
+
             </form>
         </div>
     )
