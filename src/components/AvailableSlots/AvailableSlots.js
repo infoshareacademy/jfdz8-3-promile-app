@@ -14,8 +14,6 @@ class AvailableSlots extends Component {
       .set(this.state.event.freeSlots - 1);
     database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
       .set(id)
-    database.ref(`/users/${this.state.user.uid}/subscribed`)
-    .on('value', snapshot => console.log(snapshot.val()))  
   };
 
   componentDidUpdate(nextProps) {
@@ -35,9 +33,6 @@ class AvailableSlots extends Component {
         {slots.map(item =>
           <div
           onClick={() => this.handleEventSlots(this.state.event.id)} className="freeSlot">
-          <p>
-            {this.state.user.subscribed}
-          </p>
           </div>
         )}
       </div>

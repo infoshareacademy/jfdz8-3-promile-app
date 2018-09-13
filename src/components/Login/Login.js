@@ -12,7 +12,7 @@ class Login extends Component {
   addUserToDb = () => {
     const user = this.state.user
     database.ref(`users/${user.uid}`)
-    .set({
+    .update({
       email: user.email,
     })
   }
