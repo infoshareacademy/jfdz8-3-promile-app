@@ -51,6 +51,12 @@ class App extends Component {
     search: event.toLowerCase()
     })};
 
+  handleUser = (user) => {
+    this.setState({
+      user: user
+    })
+  }
+
   render() {
       const searchCriteria = this.state.events.filter(
           (event) => {
@@ -66,7 +72,9 @@ class App extends Component {
               onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
         </div>
-        <Login />
+        <Login getUser={this.handleUser}
+        
+        />
           <div className="events-list">
               <h1>Events</h1>
                   <ListItem

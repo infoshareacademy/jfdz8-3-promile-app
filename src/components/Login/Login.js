@@ -14,7 +14,6 @@ class Login extends Component {
     database.ref(`users/${user.uid}`)
     .set({
       email: user.email,
-      id: user.uid
     })
   }
 
@@ -23,6 +22,8 @@ class Login extends Component {
         this.setState({
           user: user
         })
+        this.state.user &&
+        this.getLoggedUser() &&
         this.addUserToDb()
       }
     );
@@ -31,7 +32,6 @@ class Login extends Component {
   registerNewUser = (event) => {
         event.preventDefault()
         auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
-        const errorCode = error.code;
       })
   }
 
@@ -43,6 +43,11 @@ class Login extends Component {
   logOut = (event) => {
       event.preventDefault()
       auth.signOut()
+  }
+
+  getLoggedUser = () => {
+    const user = this.state.user
+    this.props.getUser(user)
   }
 
   render() {
