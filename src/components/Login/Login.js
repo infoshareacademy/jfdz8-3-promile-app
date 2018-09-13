@@ -6,7 +6,6 @@ class Login extends Component {
   state = {
     username: '',
     password: '',
-    logged: false,
     user: null
   }
 
@@ -33,24 +32,17 @@ class Login extends Component {
         event.preventDefault()
         auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
         const errorCode = error.code;
-        alert(errorCode)
       })
   }
 
   logIn = (event) => {
       event.preventDefault()
       auth.signInWithEmailAndPassword(this.state.username, this.state.password)
-      this.setState({
-        logged: true
-      })
   }
 
   logOut = (event) => {
       event.preventDefault()
       auth.signOut()
-      this.setState({
-        logged: false
-      })
   }
 
   render() {
@@ -79,7 +71,6 @@ class Login extends Component {
                   this.state.user &&
                     <button onClick={(event) => this.logOut(event)}>Logout</button>
                 }
-
 
             </form>
         </div>

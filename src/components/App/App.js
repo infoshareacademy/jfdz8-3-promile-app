@@ -11,7 +11,8 @@ class App extends Component {
   state = {
     search: '',
     events: [],
-    clickedEvent: ''
+    clickedEvent: '',
+    user: null
   };
 
   getEvents = () => {
