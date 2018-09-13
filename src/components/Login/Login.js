@@ -23,8 +23,8 @@ class Login extends Component {
           user: user
         })
         this.state.user &&
-        this.getLoggedUser() &&
         this.addUserToDb()
+        this.getLoggedUser()
       }
     );
   }

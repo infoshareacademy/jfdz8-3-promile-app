@@ -86,6 +86,7 @@ class App extends Component {
                       revertView={this.handleRevertView}
                       eventClicked={this.state.clickedEvent}
                       handleCallback={this.handleCallback}
+                      user={this.state.user}
                   />
           </div>
           <NewEventDisplay events={this.state.events}

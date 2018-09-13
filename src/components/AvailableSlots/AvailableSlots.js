@@ -4,12 +4,16 @@ import { database } from "../FirebaseConfig/FirebaseConfig";
 class AvailableSlots extends Component {
 
   state = {
-    event: this.props.event
+    event: this.props.event,
+    clicked: false,
+    user: this.props.user
   };
 
   handleEventSlots = (id) => {
     database.ref(`/events/${id}/freeSlots`)
       .set(this.state.event.freeSlots - 1);
+    database.ref(`/users/${this.state.user.uid}/subscribed`)
+      .set(id)
   };
 
   componentDidUpdate(nextProps) {
@@ -28,7 +32,7 @@ class AvailableSlots extends Component {
       <div>
         {slots.map(item =>
           <div
-          onClick={() => this.handleEventSlots(this.state.event.id)} className="freeSlot">
+          onClick={this.state.clicked ? false : () => this.handleEventSlots(this.state.event.id)} className="freeSlot">
           </div>
         )}
       </div>
