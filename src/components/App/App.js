@@ -72,9 +72,7 @@ class App extends Component {
               onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
         </div>
-        <Login getUser={this.handleUser}
-        
-        />
+        <Login getUser={this.handleUser}/>
           <div className="events-list">
               <h1>Events</h1>
                   <ListItem
