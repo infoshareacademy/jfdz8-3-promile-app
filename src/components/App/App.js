@@ -12,7 +12,7 @@ class App extends Component {
     search: '',
     events: [],
     clickedEvent: '',
-    user: null
+    user: null,
   };
 
   getEvents = () => {

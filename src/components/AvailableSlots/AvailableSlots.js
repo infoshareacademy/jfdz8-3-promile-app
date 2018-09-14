@@ -6,7 +6,7 @@ class AvailableSlots extends Component {
   state = {
     event: this.props.event,
     clicked: false,
-    user: this.props.user
+    user: this.props.user,
   };
 
   handleEventSlots = (id) => {
