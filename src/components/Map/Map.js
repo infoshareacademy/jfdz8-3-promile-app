@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {Map, Marker, Popup, TileLayer} from 'react-leaflet'
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import pyIcon from '../../images/technologies_logo/python.png'
 import jsIcon from '../../images/technologies_logo/js.png'
 import javaIcon from '../../images/technologies_logo/java.png'
@@ -36,7 +35,7 @@ class MainMap extends Component {
   };
 
   handleClickCallback = data => {
-    this.props.handleCallback(data)
+    this.props.handleCallback(data);
     this.setState({
       activeEvent: this.props.clicked
     })
@@ -69,7 +68,6 @@ class MainMap extends Component {
   render() {
     let DefaultIcon = L.icon({
       iconUrl: icon,
-      shadowUrl: iconShadow,
       iconSize: [30, 30],
       iconAnchor: [12, 36],
       popupAnchor: [0, -25],
