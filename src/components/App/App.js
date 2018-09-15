@@ -33,20 +33,10 @@ class App extends Component {
   };
 
   getUserEvents = () => {
-    database.ref('/events')
-      .on('value', (snapshot) => {
-        const value = snapshot.val();
-        const list = (value && Object.entries(value)
-          .map(item => {
-            return {
-              ...item[1],
-              id: item[0],
-            }
-          })) || [];
-        const usersEvents = list.filter(event => event.creator === this.state.user.uid);
-        this.setState({
-          events: usersEvents
-        })
+    const events = this.state.events;
+    const usersEvents = events.filter(event => event.creator === this.state.user.uid);
+    this.setState({
+      events: usersEvents
     })
   };
 
