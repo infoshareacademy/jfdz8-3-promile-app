@@ -42,7 +42,8 @@ class NewEventDisplay extends Component {
       freeSlots: this.state.slots,
       date: this.state.date,
       time: this.state.time,
-      tags: this.state.tags
+      tags: this.state.tags,
+      creator: this.props.user.uid
     };
 
     database.ref('/events')
