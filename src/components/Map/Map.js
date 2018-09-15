@@ -98,7 +98,8 @@ class MainMap extends Component {
                       options: {
                         ...DefaultIcon.options,
                         iconUrl: markers[event.technology],
-                        iconSize: event.id === this.state.activeEvent.id ? [60, 60] : [30, 30]
+                        iconSize: event.id === this.state.activeEvent.id ? [60, 60] : [30, 30],
+                        iconAnchor: event.id === this.state.activeEvent.id ? [30, 30] : [15, 15]
                       }})
                     }
                     onClick={() => this.handleClickCallback(event)}
