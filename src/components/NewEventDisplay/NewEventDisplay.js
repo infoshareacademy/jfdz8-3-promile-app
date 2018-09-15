@@ -46,15 +46,17 @@ class NewEventDisplay extends Component {
       creator: this.props.user.uid
     };
 
-    database.ref('/events')
-      .push(newEvent)
-
-    .then(() => {
-      this.setState({
-        visible: false
-      });
-      alert('ADDED')
-    }).then(this.toggleMapBlock).then(this.props.getEvents)
+  const db = database.ref('/events');
+  const dbRef = db.push(newEvent);
+  database.ref(`/users/${this.props.user.uid}/created/${dbRef.key}`)
+    .set(dbRef.key)
+  .then(() => {
+    this.setState({
+      visible: false
+    });
+    alert('ADDED')
+  }).then(this.toggleMapBlock)
+    .then(this.props.getEvents)
   };
 
   getCoordinates = (event) => {
@@ -106,7 +108,6 @@ class NewEventDisplay extends Component {
   };
 
   render() {
-
     const visibility = this.state.visible ? "visible" : "unvisible";
     return (
       <div>
