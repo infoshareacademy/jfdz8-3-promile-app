@@ -39,6 +39,7 @@ class App extends Component {
   getUserCreatedEvents = () => {
     const events = this.state.events;
     const usersEvents = events.filter(event => event.creator === this.state.user.uid);
+    usersEvents.length === 0 ? alert ('No events created!') :
     this.setState({
       events: usersEvents,
       userCreatedEvents: true
@@ -48,13 +49,18 @@ class App extends Component {
   getEventsUserAttend = () => {
     database.ref(`/users/${this.state.user.uid}/subscribed`)
       .on('value', snapshot => {
-        const value = Object.keys(snapshot.val());
-        const events = this.state.events;
-        const userAttends = events.filter(event => value.indexOf(event.id) > -1);
-        this.setState({
-          events: userAttends,
-          userAttendedEvents: true
-        })
+        if (snapshot.exists()) {
+          const value = Object.keys(snapshot.val()) || this.state.events;
+          const events = this.state.events;
+          const userAttends = events.filter(event => value.indexOf(event.id) > -1);
+          this.setState({
+            events: userAttends,
+            userAttendedEvents: true
+          })
+        }
+        else {
+          alert ('No events subscribed!')
+        }
       })
   };
 
