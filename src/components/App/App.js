@@ -91,6 +91,7 @@ class App extends Component {
                            getEvents={this.getEvents}
                            callback={this.handleCallback}
                            clickedEvent={this.state.clickedEvent}
+                           user={this.state.user}
           />
       </div>
     );

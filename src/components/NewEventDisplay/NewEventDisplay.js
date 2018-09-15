@@ -117,7 +117,10 @@ class NewEventDisplay extends Component {
           clicked={this.props.clickedEvent}
         />
         <div>
-          <button onClick={this.showNewEventPanel}>Create new Event</button>
+          {
+            this.props.user &&
+            <button onClick={this.showNewEventPanel}>Create new Event</button>
+          }
         </div>
         <div className={`new-event ${visibility}`}>
           <input type="text" value={this.state.title} placeholder="Name your event" onChange={this.changeTitle}/>
