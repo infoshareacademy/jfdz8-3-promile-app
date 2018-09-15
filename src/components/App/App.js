@@ -13,6 +13,7 @@ class App extends Component {
     events: [],
     clickedEvent: '',
     user: null,
+    userEvents: false
   };
 
   getEvents = () => {
@@ -27,7 +28,8 @@ class App extends Component {
             };
           })) || [];
         this.setState({
-          events: list
+          events: list,
+          userEvents: false
         })
     })
   };
@@ -36,7 +38,8 @@ class App extends Component {
     const events = this.state.events;
     const usersEvents = events.filter(event => event.creator === this.state.user.uid);
     this.setState({
-      events: usersEvents
+      events: usersEvents,
+      userEvents: true
     })
   };
 
@@ -61,7 +64,7 @@ class App extends Component {
 
   handleUser = (user) => {
     this.setState({
-      user: user
+      user: user,
     })
   };
 
@@ -81,7 +84,7 @@ class App extends Component {
           />
         </div>
         <Login getUser={this.handleUser}/>
-        <button onClick={() => this.getUserEvents()}>Show my events</button>
+        <button onClick={() => this.state.userEvents ? this.getEvents() : this.getUserEvents() }>Show my events</button>
           <div className="events-list">
               <h1>Events</h1>
                   <ListItem
