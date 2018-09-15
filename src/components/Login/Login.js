@@ -63,6 +63,7 @@ class Login extends Component {
                     placeholder="password"
                     onChange={(event) => this.setState({password: event.target.value})}
                     value={this.state.password}
+                    type="password"
                 />
                 {
                   !this.state.user &&

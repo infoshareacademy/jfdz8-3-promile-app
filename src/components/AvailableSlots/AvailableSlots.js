@@ -30,8 +30,8 @@ class AvailableSlots extends Component {
 
     return(
       <div>
-        {slots.map(item =>
-          <div
+        {slots.map((item, index) =>
+          <div key={index}
           onClick={() => this.handleEventSlots(this.state.event.id)} className="freeSlot">
           </div>
         )}
