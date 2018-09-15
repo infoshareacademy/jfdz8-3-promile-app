@@ -84,7 +84,11 @@ class App extends Component {
           />
         </div>
         <Login getUser={this.handleUser}/>
-        <button onClick={() => this.state.userEvents ? this.getEvents() : this.getUserEvents() }>Show my events</button>
+        {
+          this.state.user &&
+          <button onClick={() => this.state.userEvents ? this.getEvents() : this.getUserEvents() }>Show my events</button>
+        }
+
           <div className="events-list">
               <h1>Events</h1>
                   <ListItem
