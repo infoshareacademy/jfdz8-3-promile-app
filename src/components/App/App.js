@@ -13,7 +13,8 @@ class App extends Component {
     events: [],
     clickedEvent: '',
     user: null,
-    userEvents: false
+    userCreatedEvents: false,
+    userAttendedEvents: false
   };
 
   getEvents = () => {
@@ -29,18 +30,32 @@ class App extends Component {
           })) || [];
         this.setState({
           events: list,
-          userEvents: false
+          userCreatedEvents: false,
+          userAttendedEvents: false
         })
     })
   };
 
-  getUserEvents = () => {
+  getUserCreatedEvents = () => {
     const events = this.state.events;
     const usersEvents = events.filter(event => event.creator === this.state.user.uid);
     this.setState({
       events: usersEvents,
-      userEvents: true
+      userCreatedEvents: true
     })
+  };
+
+  getEventsUserAttend = () => {
+    database.ref(`/users/${this.state.user.uid}/subscribed`)
+      .on('value', snapshot => {
+        const value = Object.keys(snapshot.val());
+        const events = this.state.events;
+        const userAttends = events.filter(event => value.indexOf(event.id) > -1);
+        this.setState({
+          events: userAttends,
+          userAttendedEvents: true
+        })
+      })
   };
 
   componentDidMount() {
@@ -86,7 +101,10 @@ class App extends Component {
         <Login getUser={this.handleUser}/>
         {
           this.state.user &&
-          <button onClick={() => this.state.userEvents ? this.getEvents() : this.getUserEvents() }>Show my events</button>
+            <div>
+              <button onClick={() => this.state.userCreatedEvents ? this.getEvents() : this.getUserCreatedEvents() }>Show events I created</button>
+              <button onClick={() => this.state.userAttendedEvents ? this.getEvents() : this.getEventsUserAttend() }>Show event I attend to</button>
+            </div>
         }
 
           <div className="events-list">

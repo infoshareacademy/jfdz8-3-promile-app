@@ -16,7 +16,7 @@ class NewEventDisplay extends Component {
     description: 'Description',
     date: '2018-08-09',
     time: '13:00',
-    tags: []
+    tags: [],
 };
 
   showNewEventPanel = () => {
