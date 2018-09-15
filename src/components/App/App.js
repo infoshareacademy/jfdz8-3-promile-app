@@ -32,6 +32,24 @@ class App extends Component {
     })
   };
 
+  getUserEvents = () => {
+    database.ref('/events')
+      .on('value', (snapshot) => {
+        const value = snapshot.val();
+        const list = (value && Object.entries(value)
+          .map(item => {
+            return {
+              ...item[1],
+              id: item[0],
+            }
+          })) || [];
+        const usersEvents = list.filter(event => event.creator === this.state.user.uid);
+        this.setState({
+          events: usersEvents
+        })
+    })
+  };
+
   componentDidMount() {
     this.getEvents()
   }
@@ -55,7 +73,7 @@ class App extends Component {
     this.setState({
       user: user
     })
-  }
+  };
 
   render() {
       const searchCriteria = this.state.events.filter(
@@ -73,6 +91,7 @@ class App extends Component {
           />
         </div>
         <Login getUser={this.handleUser}/>
+        <button onClick={() => this.getUserEvents()}>Show my events</button>
           <div className="events-list">
               <h1>Events</h1>
                   <ListItem
