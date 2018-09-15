@@ -29,20 +29,30 @@ class Login extends Component {
     );
   }
 
+  clearInputs = () => {
+    this.setState({
+      username: '',
+      password: ''
+    })
+  }
+
   registerNewUser = (event) => {
         event.preventDefault()
         auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
       })
+    this.clearInputs()
   }
 
   logIn = (event) => {
       event.preventDefault()
       auth.signInWithEmailAndPassword(this.state.username, this.state.password)
+    this.clearInputs()
   }
 
   logOut = (event) => {
       event.preventDefault()
       auth.signOut()
+    this.clearInputs()
   }
 
   getLoggedUser = () => {
