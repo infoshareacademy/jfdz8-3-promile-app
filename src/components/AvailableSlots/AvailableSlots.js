@@ -27,7 +27,7 @@ class AvailableSlots extends Component {
 
   render() {
     const eventSlots = this.state.event.slots;
-    const slots = Array(parseInt(eventSlots)).fill(0);
+    const slots = Array(parseInt(eventSlots, 10)).fill(0);
 
     return(
       <div>
