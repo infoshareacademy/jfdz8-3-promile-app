@@ -5,6 +5,7 @@ import NewEventDisplay from '../NewEventDisplay/NewEventDisplay'
 import ListItem from "../ListItem/ListItem";
 import Login from "../Login/Login"
 import { database } from '../FirebaseConfig/FirebaseConfig'
+import ButtonsUserEvents from "../ButtonsUserEvents/ButtonsUserEvents";
 
 class App extends Component {
 
@@ -107,10 +108,12 @@ class App extends Component {
         <Login getUser={this.handleUser}/>
         {
           this.state.user &&
-            <div>
-              <button onClick={() => this.state.userCreatedEvents ? this.getEvents() : this.getUserCreatedEvents() }>Show events I created</button>
-              <button onClick={() => this.state.userAttendedEvents ? this.getEvents() : this.getEventsUserAttend() }>Show event I attend to</button>
-            </div>
+          <ButtonsUserEvents getUserCreatedEvents={this.getUserCreatedEvents}
+                             getEventsUserAttend={this.getEventsUserAttend}
+                             getAllEvents={this.getEvents}
+                             userEvents={this.state.userCreatedEvents}
+                             userAttend={this.state.userAttendedEvents}
+          />
         }
 
           <div className="events-list">
