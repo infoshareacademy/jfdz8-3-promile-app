@@ -42,7 +42,11 @@ class AvailableSlots extends Component {
       <div>
         {slots.map((item, index) =>
           <div key={index}
-          onClick={() => this.handleEventSlots(this.state.event.id)} className="freeSlot">
+               className="freeSlot"
+               onClick={() => this.state.userSubscribed ?
+                              alert('Already subscribed') :
+                              this.handleEventSlots(this.state.event.id)}
+          >
           </div>
         )}
       </div>
