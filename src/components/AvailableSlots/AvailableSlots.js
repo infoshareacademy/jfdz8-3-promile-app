@@ -15,6 +15,7 @@ class AvailableSlots extends Component {
       .set(this.state.event.freeSlots - 1);
     database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
       .set(id);
+    alert('Subscribed!')
   };
 
   handleIfSubscrubed = () => {
@@ -31,7 +32,9 @@ class AvailableSlots extends Component {
   }
 
   componentDidMount() {
-    this.handleIfSubscrubed()
+    if (this.state.user) {
+      this.handleIfSubscrubed()
+    }
   }
 
   render() {
@@ -43,7 +46,7 @@ class AvailableSlots extends Component {
         {slots.map((item, index) =>
           <div key={index}
                className="freeSlot"
-               onClick={() => this.state.userSubscribed ?
+               onClick={() => this.state.userSubscribed || !this.state.user ?
                               alert('Already subscribed') :
                               this.handleEventSlots(this.state.event.id)}
           >
