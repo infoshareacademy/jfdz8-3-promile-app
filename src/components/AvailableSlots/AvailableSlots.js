@@ -7,6 +7,7 @@ class AvailableSlots extends Component {
     event: this.props.event,
     clicked: false,
     user: this.props.user,
+    userSubscribed: false
   };
 
   handleEventSlots = (id) => {
@@ -14,7 +15,11 @@ class AvailableSlots extends Component {
       .set(this.state.event.freeSlots - 1);
     database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
       .set(id);
-    //database.ref(`/events/${id}/attendees/${this.state.user.uid}`)
+  };
+
+  handleIfSubscrubed = () => {
+    database.ref(`/users/${this.state.user.uid}/subscribed/${this.state.event.id}`)
+      .on('value', snapshot => !snapshot.val() ? false : this.setState({ userSubscribed: true }))
   };
 
   componentDidUpdate(nextProps) {
@@ -23,6 +28,10 @@ class AvailableSlots extends Component {
         event: this.props.event
       })
     }
+  }
+
+  componentDidMount() {
+    this.handleIfSubscrubed()
   }
 
   render() {
