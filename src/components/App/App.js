@@ -5,6 +5,7 @@ import NewEventDisplay from '../NewEventDisplay/NewEventDisplay'
 import ListItem from "../ListItem/ListItem";
 import Login from "../Login/Login"
 import { database } from '../FirebaseConfig/FirebaseConfig'
+import ButtonsUserEvents from "../ButtonsUserEvents/ButtonsUserEvents";
 
 class App extends Component {
 
@@ -13,7 +14,8 @@ class App extends Component {
     events: [],
     clickedEvent: '',
     user: null,
-    userEvents: false
+    userCreatedEvents: false,
+    userAttendedEvents: false
   };
 
   getEvents = () => {
@@ -29,18 +31,38 @@ class App extends Component {
           })) || [];
         this.setState({
           events: list,
-          userEvents: false
+          userCreatedEvents: false,
+          userAttendedEvents: false
         })
     })
   };
 
-  getUserEvents = () => {
+  getUserCreatedEvents = () => {
     const events = this.state.events;
     const usersEvents = events.filter(event => event.creator === this.state.user.uid);
+    usersEvents.length === 0 ? alert ('No events created!') :
     this.setState({
       events: usersEvents,
-      userEvents: true
+      userCreatedEvents: true
     })
+  };
+
+  getEventsUserAttend = () => {
+    database.ref(`/users/${this.state.user.uid}/subscribed`)
+      .on('value', snapshot => {
+        if (snapshot.exists()) {
+          const value = Object.keys(snapshot.val()) || this.state.events;
+          const events = this.state.events;
+          const userAttends = events.filter(event => value.indexOf(event.id) > -1);
+          this.setState({
+            events: userAttends,
+            userAttendedEvents: true
+          })
+        }
+        else {
+          alert ('No events subscribed!')
+        }
+      })
   };
 
   componentDidMount() {
@@ -86,7 +108,12 @@ class App extends Component {
         <Login getUser={this.handleUser}/>
         {
           this.state.user &&
-          <button onClick={() => this.state.userEvents ? this.getEvents() : this.getUserEvents() }>Show my events</button>
+          <ButtonsUserEvents getUserCreatedEvents={this.getUserCreatedEvents}
+                             getEventsUserAttend={this.getEventsUserAttend}
+                             getAllEvents={this.getEvents}
+                             userEvents={this.state.userCreatedEvents}
+                             userAttend={this.state.userAttendedEvents}
+          />
         }
 
           <div className="events-list">
