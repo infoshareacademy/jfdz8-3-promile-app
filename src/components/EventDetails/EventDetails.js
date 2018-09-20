@@ -14,7 +14,7 @@ class EventDetails extends Component {
   };
 
   componentDidUpdate(nextProps) {
-    if (nextProps.clicked !== this.props.clicked) {
+    if (nextProps.clicked !== this.props.clicked || nextProps.user !== this.props.user) {
       this.setState({
         active: this.props.clicked,
         user: this.props.user

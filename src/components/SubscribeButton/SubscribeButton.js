@@ -9,8 +9,8 @@ class SubscribeButton extends Component {
   render () {
     return (
       <div>
-        <button onClick={() => this.props.userSubscribed || !this.props.user ?
-                               alert('Already subscribed') :
+        <button onClick={() => !this.props.user ? alert('Register first!') :
+                               this.props.userSubscribed ? alert('Already subscribed') :
                                this.handleEventSlots(this.props.eventId)}
         >
           Subscribe event!
