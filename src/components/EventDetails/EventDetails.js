@@ -30,12 +30,6 @@ class EventDetails extends Component {
       .on('value', snapshot => !snapshot.val() ? false : this.setState({ userSubscribed: true }))
   };
 
-  // componentDidMount() {
-  //   if (this.state.user) {
-  //     this.handleIfSubscribed()
-  //   }
-  // }
-
   handleEventSlots = (id) => {
     debugger
     database.ref(`/events/${id}/freeSlots`)
