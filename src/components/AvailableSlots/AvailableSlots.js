@@ -1,27 +1,6 @@
 import React, { Component } from 'react';
-import { database } from "../FirebaseConfig/FirebaseConfig";
 
 class AvailableSlots extends Component {
-
-  state = {
-    event: this.props.event,
-    clicked: false,
-    user: this.props.user,
-    userSubscribed: false
-  };
-
-  handleEventSlots = (id) => {
-    database.ref(`/events/${id}/freeSlots`)
-      .set(this.state.event.freeSlots - 1);
-    database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
-      .set(id);
-    alert('Subscribed!')
-  };
-
-  handleIfSubscrubed = () => {
-    database.ref(`/users/${this.state.user.uid}/subscribed/${this.state.event.id}`)
-      .on('value', snapshot => !snapshot.val() ? false : this.setState({ userSubscribed: true }))
-  };
 
   componentDidUpdate(nextProps) {
     if (nextProps.event !== this.props.event) {
@@ -31,24 +10,15 @@ class AvailableSlots extends Component {
     }
   }
 
-  componentDidMount() {
-    if (this.state.user) {
-      this.handleIfSubscrubed()
-    }
-  }
-
   render() {
-    const eventSlots = this.state.event.slots;
-    const slots = Array(parseInt(eventSlots, 10)).fill(0);
+    const freeSlots = this.props.event.freeSlots;
+    const slots = Array(parseInt(freeSlots, 10)).fill(0);
 
     return(
       <div>
         {slots.map((item, index) =>
           <div key={index}
                className="freeSlot"
-               onClick={() => this.state.userSubscribed || !this.state.user ?
-                              alert('Already subscribed') :
-                              this.handleEventSlots(this.state.event.id)}
           >
           </div>
         )}
