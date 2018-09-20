@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 
 class AvailableSlots extends Component {
 
-  // state = {
-  //
-  //   user: this.props.user,
-  // };
-
   componentDidUpdate(nextProps) {
     if (nextProps.event !== this.props.event) {
       this.setState({
