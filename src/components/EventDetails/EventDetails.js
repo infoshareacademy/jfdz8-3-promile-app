@@ -10,14 +10,15 @@ class EventDetails extends Component {
     event: this.props.singleEvent,
     active: false,
     userSubscribed: '',
-    clicked: false
   };
 
   componentDidUpdate(nextProps) {
-    if (nextProps.clicked !== this.props.clicked || nextProps.user !== this.props.user) {
+    if (nextProps.clicked !== this.props.clicked || nextProps.user !== this.props.user
+      || nextProps.singleEvent.freeSlots !== this.props.singleEvent.freeSlots) {
       this.setState({
         active: this.props.clicked,
         user: this.props.user,
+        event: this.props.singleEvent
       });
     }
   }
@@ -34,6 +35,7 @@ class EventDetails extends Component {
   };
 
   handleEventSlots = (id) => {
+    console.log(this.state.event.freeSlots)
     if (!this.state.userSubscribed) {
       database.ref(`/events/${id}/freeSlots`)
         .set(this.state.event.freeSlots - 1);
