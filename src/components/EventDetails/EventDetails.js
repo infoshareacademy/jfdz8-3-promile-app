@@ -31,11 +31,20 @@ class EventDetails extends Component {
   };
 
   handleEventSlots = (id) => {
-    database.ref(`/events/${id}/freeSlots`)
-      .set(this.state.event.freeSlots - 1);
-    database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
-      .set(id);
-    alert('Subscribed!')
+    if (!this.state.userSubscribed) {
+      database.ref(`/events/${id}/freeSlots`)
+        .set(this.state.event.freeSlots - 1);
+      database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
+        .set(id);
+      alert('Subscribed!')
+    } else {
+      alert('You\re about to leave the event!');
+      database.ref(`/events/${id}/freeSlots`)
+        .set(this.state.event.freeSlots + 1);
+      database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
+        .remove();
+      alert('Unsubscribed!')
+    }
   };
 
   render() {
