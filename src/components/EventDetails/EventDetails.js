@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AvailableSlots from '../AvailableSlots/AvailableSlots';
+import SubscribeButton from "../SubscribeButton/SubscribeButton";
 
 class EventDetails extends Component {
 
@@ -26,6 +27,7 @@ class EventDetails extends Component {
           <AvailableSlots event={this.props.singleEvent}
                           user={this.props.user}
           />
+          <SubscribeButton />
         </div>
         }
       </div>

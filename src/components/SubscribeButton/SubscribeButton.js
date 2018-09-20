@@ -4,7 +4,9 @@ class SubscribeButton extends Component {
   render () {
     return (
       <div>
-
+        <button>
+          Subscribe event!
+        </button>
       </div>
     )
   }
