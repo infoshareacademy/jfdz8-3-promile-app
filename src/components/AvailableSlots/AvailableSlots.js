@@ -18,7 +18,7 @@ class AvailableSlots extends Component {
     alert('Subscribed!')
   };
 
-  handleIfSubscrubed = () => {
+  handleIfSubscribed = () => {
     database.ref(`/users/${this.state.user.uid}/subscribed/${this.state.event.id}`)
       .on('value', snapshot => !snapshot.val() ? false : this.setState({ userSubscribed: true }))
   };
@@ -33,7 +33,7 @@ class AvailableSlots extends Component {
 
   componentDidMount() {
     if (this.state.user) {
-      this.handleIfSubscrubed()
+      this.handleIfSubscribed()
     }
   }
 
