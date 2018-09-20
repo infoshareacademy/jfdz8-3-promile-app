@@ -9,7 +9,7 @@ class EventDetails extends Component {
     user: this.props.user,
     event: this.props.singleEvent,
     active: false,
-    userSubscribed: false,
+    userSubscribed: '',
     clicked: false
   };
 
