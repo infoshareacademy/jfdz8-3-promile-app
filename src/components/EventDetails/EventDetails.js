@@ -17,12 +17,13 @@ class EventDetails extends Component {
     if (nextProps.clicked !== this.props.clicked || nextProps.user !== this.props.user) {
       this.setState({
         active: this.props.clicked,
-        user: this.props.user
+        user: this.props.user,
       });
-      if (this.state.user) {
-        this.handleIfSubscribed()
-      }
     }
+  }
+
+  componentDidMount() {
+    this.handleIfSubscribed()
   }
 
   handleIfSubscribed = () => {
@@ -36,14 +37,20 @@ class EventDetails extends Component {
         .set(this.state.event.freeSlots - 1);
       database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
         .set(id);
+      this.setState({
+        userSubscribed: true
+      });
       alert('Subscribed!')
     } else {
-      alert('You\re about to leave the event!');
-      database.ref(`/events/${id}/freeSlots`)
-        .set(this.state.event.freeSlots + 1);
-      database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
-        .remove();
-      alert('Unsubscribed!')
+        alert('You\'re about to leave the event!');
+        database.ref(`/events/${id}/freeSlots`)
+          .set(this.state.event.freeSlots + 1);
+        database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
+          .remove();
+        this.setState({
+          userSubscribed: false
+        });
+        alert('Unsubscribed!')
     }
   };
 
