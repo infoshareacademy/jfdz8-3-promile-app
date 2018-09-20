@@ -23,7 +23,9 @@ class EventDetails extends Component {
   }
 
   componentDidMount() {
-    this.handleIfSubscribed()
+    if (this.state.user) {
+      this.handleIfSubscribed()
+    }
   }
 
   handleIfSubscribed = () => {
@@ -52,6 +54,7 @@ class EventDetails extends Component {
         });
         alert('Unsubscribed!')
     }
+    this.handleIfSubscribed()
   };
 
   render() {
