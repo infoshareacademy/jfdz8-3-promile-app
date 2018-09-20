@@ -13,7 +13,11 @@ class SubscribeButton extends Component {
                                this.props.userSubscribed ? alert('Already subscribed') :
                                this.handleEventSlots(this.props.eventId)}
         >
-          Subscribe event!
+          {
+            !this.props.user? 'Register to subscribe!':
+             this.props.userSubscribed? 'Unsubscribe event!' :
+               'Subscribe Event!'
+          }
         </button>
       </div>
     )
