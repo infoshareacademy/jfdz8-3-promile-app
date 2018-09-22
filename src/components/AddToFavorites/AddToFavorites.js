@@ -4,18 +4,19 @@ import { database } from '../FirebaseConfig/FirebaseConfig'
 class AddToFavorites extends Component {
 
     state = {
-        userFavoriteEvent: true
+        userFavoriteEvent: false
     }
 
     toggleFavorite = () => {
         this.setState({
             userFavoriteEvent: !this.state.userFavoriteEvent
         })
+        this.toggleFavoriteInDatabase(!this.state.userFavoriteEvent)
     }
 
-    toggleFavoriteInDatabase = () => {
+    toggleFavoriteInDatabase = (currentState) => {
         console.log("udalo sie pobrac" + this.props.eventId + "???" +  this.props.user.uid)
-        if(this.state.userFavoriteEvent) {
+        if(currentState) {
             console.log("wszedlem do ifa" + this.props.eventId + "???" +  this.props.user.uid)
             database.ref(`/users/${this.props.user.uid}/favorite/${this.props.eventId}`)
                 .set(this.props.eventId)
@@ -23,11 +24,8 @@ class AddToFavorites extends Component {
         } else {
             database.ref(`/users/${this.props.user.uid}/favorite/${this.props.eventId}`)
                 .remove()
+            console.log("udalo sie usunac" + this.props.eventId + "???" +  this.props.user.uid)
         }
-    }
-
-    componentDidMount() {
-        this.toggleFavoriteInDatabase()
     }
 
     render() {
