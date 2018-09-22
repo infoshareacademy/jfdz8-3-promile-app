@@ -97,7 +97,7 @@ class App extends Component {
           });
     return (
       <div className="App">
-        <div>
+        <div class="top_bar">
           <input
               type="text"
               placeholder = 'Search'
