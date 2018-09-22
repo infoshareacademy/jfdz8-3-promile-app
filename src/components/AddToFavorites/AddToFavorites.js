@@ -7,6 +7,11 @@ class AddToFavorites extends Component {
         userFavoriteEvent: false
     }
 
+    componentDidMount() {
+        database.ref(`/users/${this.props.user.uid}/favorite/${this.props.eventId}`)
+            .on('value', snapshot => !snapshot.val() ? false : this.setState({userFavoriteEvent: true}))
+    }
+
     toggleFavorite = () => {
         this.setState({
             userFavoriteEvent: !this.state.userFavoriteEvent
@@ -15,16 +20,12 @@ class AddToFavorites extends Component {
     }
 
     toggleFavoriteInDatabase = (currentState) => {
-        console.log("udalo sie pobrac" + this.props.eventId + "???" +  this.props.user.uid)
         if(currentState) {
-            console.log("wszedlem do ifa" + this.props.eventId + "???" +  this.props.user.uid)
             database.ref(`/users/${this.props.user.uid}/favorite/${this.props.eventId}`)
                 .set(this.props.eventId)
-            console.log("udalo sie dodac" + this.props.eventId + "???" +  this.props.user.uid)
         } else {
             database.ref(`/users/${this.props.user.uid}/favorite/${this.props.eventId}`)
                 .remove()
-            console.log("udalo sie usunac" + this.props.eventId + "???" +  this.props.user.uid)
         }
     }
 
