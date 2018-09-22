@@ -16,7 +16,6 @@ class App extends Component {
     user: null,
     userCreatedEvents: false,
     userAttendedEvents: false,
-
   };
 
   getEvents = () => {
@@ -95,7 +94,7 @@ class App extends Component {
       const searchCriteria = this.state.events.filter(
           (event) => {
               return event.technology.toLowerCase().indexOf(this.state.search) !== -1
-  });
+        });
     return (
       <div className="App">
         <div>
