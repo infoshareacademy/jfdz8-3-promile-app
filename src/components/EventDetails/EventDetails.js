@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AvailableSlots from '../AvailableSlots/AvailableSlots';
 import SubscribeButton from "../SubscribeButton/SubscribeButton";
 import {database} from "../FirebaseConfig/FirebaseConfig";
+import EventTags from "../EventTags/EventTags";
 
 class EventDetails extends Component {
 
@@ -76,6 +77,9 @@ class EventDetails extends Component {
                            eventId={this.state.event.id}
                            user={this.state.user}
                            handleEventSlots={this.handleEventSlots}
+
+          />
+          <EventTags tags={this.state.event.tags}
 
           />
         </div>
