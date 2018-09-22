@@ -78,7 +78,7 @@ class EventDetails extends Component {
 
           />
           <AddToFavorites eventId={this.state.event.id}
-
+                          user={this.state.user}
           />
         </div>
         }
