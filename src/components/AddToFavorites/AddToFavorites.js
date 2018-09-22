@@ -6,8 +6,7 @@ class AddToFavorites extends Component {
         userFavoriteEvent: false
     }
 
-    addNewFavorite = (eventId) => {
-        console.log(this.props.eventId)
+    toggleFavorite = () => {
         this.setState({
             userFavoriteEvent: !this.state.userFavoriteEvent
         })
@@ -18,7 +17,11 @@ class AddToFavorites extends Component {
     render() {
         return(
             <div>
-                <button onClick={() => this.addNewFavorite(this.props.eventId)}>Add to favorites</button>
+                <button
+                    onClick={() => this.toggleFavorite(this.props.eventId)}
+                >
+                    {this.state.userFavoriteEvent ? "Remove from favorites" : "Add to favorites"}
+                </button>
             </div>
         )
     }
