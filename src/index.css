@@ -31,11 +31,13 @@ body {
 
 button {
   display: block;
-  margin: 1% auto;
-  position: absolute;
+  margin: 20px 40px;
+  z-index: 1100;
+  position: relative;
+  float: right;
 }
 
-.events-list {
+.list_container {
   float: left;
   width: 30%;
   overflow:scroll;
@@ -58,7 +60,71 @@ form{
   background: #343434;
 }
 
+.event_search-input {
+    height: 30px;
+    background: #cacaca;
+    width: 14rem;
+    margin: 13px auto;
+    border-radius: 30px;
+    text-align: center;
+}
 
+.login_button {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-right: 30px;
+    margin-top: 13px;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    height: 30px;
+    width: 140px;
+    float: right;
+    padding-top: 5px;
+}
 
+.login_button:hover {
+    text-decoration: none;
+    text-transform: uppercase;
+    background: #959595;
+    color: #ffffff;
+    margin-right: 30px;
+    margin-top: 13px;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    height: 30px;
+    width: 140px;
+    float: right;
+    padding-top: 5px;
+}
+
+.list_container ul {
+    padding: 0;
+}
+
+.single-event {
+    display: flex;
+    text-decoration: none;
+    min-width: 0;
+    height: 100%;
+    font-size: 11px;
+    align-items: center;
+    flex: 1;
+    border-radius: 10px;
+}
+
+.add_event {
+    height: 60px;
+    width: 60px;
+    font-size: 40px;
+    position: relative;
+    z-index: 1100;
+    text-decoration: none;
+    background: #cacaca;
+    border-radius: 50%;
+    float: right;
+    bottom: 0;
+    box-shadow: 2px 2px 4px #000000;
+}
 
 

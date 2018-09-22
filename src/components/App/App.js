@@ -99,11 +99,13 @@ class App extends Component {
       <div className="App">
         <div class="top_bar">
           <input
-              type="text"
-              placeholder = 'Search'
+              class = "event_search-input"
+              type = "text"
+              placeholder = 'Search...'
               value={this.state.search}
               onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
+            <a class="login_button" href="">Sign in</a>
         </div>
         <Login getUser={this.handleUser}/>
         {
@@ -116,8 +118,7 @@ class App extends Component {
           />
         }
 
-          <div className="events-list">
-              <h1>Events</h1>
+          <div className="list_container">
                   <ListItem
                       eventsList={
                           searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (

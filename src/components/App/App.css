@@ -20,9 +20,14 @@
   overflow: hidden;
 }
 
-.events-list {
+.list_container {
   height: 93vh;
   overflow:scroll;
   overflow-x:hidden;
   background: #959595;
 }
+
+.leaflet-left {
+    right: 0;
+}
+
