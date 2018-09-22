@@ -77,9 +77,13 @@ class EventDetails extends Component {
                            handleEventSlots={this.handleEventSlots}
 
           />
-          <AddToFavorites eventId={this.state.event.id}
-                          user={this.state.user}
-          />
+          {
+            this.state.user &&
+            <AddToFavorites eventId={this.state.event.id}
+                            user={this.state.user}
+            />
+          }
+
         </div>
         }
       </div>
