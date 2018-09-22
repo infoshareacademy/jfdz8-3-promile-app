@@ -1,19 +1,24 @@
 import React, {Component} from 'react'
-import {database} from "../FirebaseConfig/FirebaseConfig";
 
 class AddToFavorites extends Component {
 
     state = {
-        addFavourite: false
+        userFavoriteEvent: false
     }
 
-    addNewFavorite = () => {
-    console.log(this.state.addFavourite)
+    addNewFavorite = (eventId) => {
+        console.log(this.props.eventId)
+        this.setState({
+            userFavoriteEvent: !this.state.userFavoriteEvent
+        })
+        console.log(this.state.userFavoriteEvent)
     }
+
+
     render() {
         return(
             <div>
-                <button onClick={() => this.addNewFavorite}>Add to favorites</button>
+                <button onClick={() => this.addNewFavorite(this.props.eventId)}>Add to favorites</button>
             </div>
         )
     }
