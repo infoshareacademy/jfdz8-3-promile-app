@@ -68,7 +68,7 @@ class EventDetails extends Component {
           <p>{this.props.singleEvent.description}</p>
           <p>{this.props.singleEvent.date}</p>
           <p>{this.props.singleEvent.time}</p>
-          <p>Maximal number of attendees: {this.props.singleEvent.slots}</p>
+          <p>Max number of attendees: {this.props.singleEvent.slots}</p>
           <p>Free places left:</p>
           <AvailableSlots event={this.props.singleEvent}
                           user={this.props.user}
