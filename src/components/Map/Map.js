@@ -2,13 +2,11 @@ import React, {Component} from 'react'
 import {Map, Marker, Popup, TileLayer} from 'react-leaflet'
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import pyIcon from '../../images/technologies_logo/python.png'
 import jsIcon from '../../images/technologies_logo/js.png'
 import javaIcon from '../../images/technologies_logo/java.png'
 import dbIcon from '../../images/technologies_logo/database.png'
 import phpIcon from '../../images/technologies_logo/php.png'
-
 
 const markers = {
   Python: pyIcon,
@@ -22,8 +20,9 @@ class MainMap extends Component {
 
   state = {
     userMarkers: [],
-    userCoordinates: [54.40315833, 18.56952222],
-    activeEvent: this.props.clicked
+    userCoordinates: [54.5, 18.5],
+    activeEvent: this.props.clicked,
+    zoom: 6
   };
 
   clickHandler = (e) => {
@@ -36,7 +35,7 @@ class MainMap extends Component {
   };
 
   handleClickCallback = data => {
-    this.props.handleCallback(data)
+    this.props.handleCallback(data);
     this.setState({
       activeEvent: this.props.clicked
     })
@@ -44,17 +43,19 @@ class MainMap extends Component {
 
   showUserPosition = (coords) => {
     this.setState ({
-        userCoordinates: coords
+        userCoordinates: coords,
+        zoom: 12
     })};
 
   componentDidUpdate(nextProps) {
     if (nextProps.clicked !== this.props.clicked) {
       this.setState({
-        activeEvent: this.props.clicked
+        activeEvent: this.props.clicked,
+        userCoordinates: this.props.clicked.coordinates,
+        zoom: 15
       })
     }
   }
-
 
   findLocation = () => {
     if ('geolocation' in navigator) {
@@ -67,7 +68,6 @@ class MainMap extends Component {
   render() {
     let DefaultIcon = L.icon({
       iconUrl: icon,
-      shadowUrl: iconShadow,
       iconSize: [30, 30],
       iconAnchor: [12, 36],
       popupAnchor: [0, -25],
@@ -79,9 +79,11 @@ class MainMap extends Component {
       <div>
         <Map
           center={this.state.userCoordinates}
-          zoom={13}
+          zoom={this.state.zoom}
           onClick={this.clickHandler}
           inertiaDeceleration={2500}
+          useFlyTo={true}
+          viewport={this.state.userCoordinates}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -96,10 +98,11 @@ class MainMap extends Component {
                       options: {
                         ...DefaultIcon.options,
                         iconUrl: markers[event.technology],
-                        iconSize: event.id === this.state.activeEvent ? [60, 60] : [30, 30]
+                        iconSize: event.id === this.state.activeEvent.id ? [60, 60] : [30, 30],
+                        iconAnchor: event.id === this.state.activeEvent.id ? [30, 30] : [15, 15]
                       }})
                     }
-                    onClick={() => this.handleClickCallback(event.id)}
+                    onClick={() => this.handleClickCallback(event)}
             >
               <Popup>
                 <div className="popup">

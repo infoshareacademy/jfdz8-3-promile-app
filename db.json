@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Great event",
-      "slots": 3,
+      "slots": "4",
       "freeSlots": 2,
       "coordinates": [
         54.405,
@@ -20,110 +20,19 @@
       ]
     },
     {
-      "title": "Better event",
-      "technology": "SQL",
+      "title": "test",
+      "technology": "PHP",
       "coordinates": [
-        54.39235276942759,
-        18.57444226741791
+        53.735715745326395,
+        21.70173933699323
       ],
       "description": "Description",
-      "slots": "2",
+      "slots": "7",
+      "freeSlots": 3,
       "date": "2018-08-09",
       "time": "13:00",
+      "tags": [],
       "id": 2
-    },
-    {
-      "title": "The best event ever",
-      "technology": "PHP",
-      "coordinates": [
-        54.39974815563759,
-        18.592410385608677
-      ],
-      "description": "Only PHP",
-      "slots": "2",
-      "date": "2018-08-09",
-      "time": "13:00",
-      "id": 3
-    },
-    {
-      "title": "Never ever go there",
-      "technology": "Java",
-      "coordinates": [
-        54.409433844857325,
-        18.561927080154422
-      ],
-      "description": "Only JavaScript",
-      "slots": "2",
-      "date": "2018-08-09",
-      "time": "13:00",
-      "id": 4
-    },
-    {
-      "title": "New",
-      "technology": "Python",
-      "coordinates": [
-        54.40754184937338,
-        18.579082489013675
-      ],
-      "description": "Description",
-      "slots": "2",
-      "date": "2018-08-09",
-      "time": "13:00",
-      "id": 5
-    },
-    {
-      "title": "New",
-      "technology": "PHP",
-      "coordinates": [
-        54.4029457476126,
-        18.57086508596246
-      ],
-      "description": "Description",
-      "slots": "2",
-      "date": "2018-08-09",
-      "time": "13:00",
-      "tags": [
-        "AleJaja"
-      ],
-      "id": 6
-    },
-    {
-      "title": "New",
-      "technology": "Java",
-      "coordinates": [
-        54.42392375993735,
-        18.612400060989128
-      ],
-      "description": "Description",
-      "slots": "2",
-      "date": "2018-08-09",
-      "time": "13:00",
-      "tags": [
-        "React",
-        " Aangular",
-        " Vue",
-        " Cokolwiek"
-      ],
-      "id": 7
-    },
-    {
-      "title": "New",
-      "technology": "SQL",
-      "coordinates": [
-        54.42811807442924,
-        18.522362837376466
-      ],
-      "description": "Description",
-      "slots": "2",
-      "date": "2018-08-09",
-      "time": "13:00",
-      "tags": [
-        "Git",
-        "Angular",
-        "React",
-        "PHP"
-      ],
-      "id": 8
     }
   ]
 }

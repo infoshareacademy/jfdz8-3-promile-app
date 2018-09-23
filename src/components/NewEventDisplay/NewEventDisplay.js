@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import MainMap from '../Map/Map'
+import React, { Component } from 'react';
+import MainMap from '../Map/Map';
+import { database } from '../FirebaseConfig/FirebaseConfig';
 
 class NewEventDisplay extends Component {
 
@@ -15,7 +16,7 @@ class NewEventDisplay extends Component {
     description: 'Description',
     date: '2018-08-09',
     time: '13:00',
-    tags: []
+    tags: [],
 };
 
   showNewEventPanel = () => {
@@ -38,31 +39,30 @@ class NewEventDisplay extends Component {
       coordinates: this.state.coordinates,
       description: this.state.description,
       slots: this.state.slots,
+      freeSlots: this.state.slots,
       date: this.state.date,
       time: this.state.time,
-      tags: this.state.tags
+      tags: this.state.tags,
+      creator: this.props.user.uid
     };
-    fetch(
-      'http://localhost:3000/events', {
-        method: 'POST',
-        body: JSON.stringify(newEvent),
-        headers: {
-          'Content-type': 'application/json'
-        }
-      }
-    ).then(() => {
-      this.setState({
-        visible: false
-      });
-      alert('ADDED')
-    }).then(this.toggleMapBlock).then(this.props.getEvents)
+
+  const db = database.ref('/events');
+  const dbRef = db.push(newEvent);
+  database.ref(`/users/${this.props.user.uid}/created/${dbRef.key}`)
+    .set(dbRef.key)
+  .then(() => {
+    this.setState({
+      visible: false
+    });
+    alert('ADDED')
+  }).then(this.toggleMapBlock)
+    .then(this.props.getEvents)
   };
 
   getCoordinates = (event) => {
     this.setState({
       coordinates: [event.latlng.lat, event.latlng.lng]
     })
-
   };
 
   changeDescription = (event) => {
@@ -72,14 +72,12 @@ class NewEventDisplay extends Component {
   };
 
   changeDate = (event) => {
-    console.log(event.target.value);
     this.setState({
       date: event.target.value
     })
   };
 
   changeTime = (event) => {
-    console.log(event);
     this.setState({
       time: event.target.value
     })
@@ -107,10 +105,9 @@ class NewEventDisplay extends Component {
     this.setState({
         tags: event.target.value.split(",").map(tag => tag.trim())
     })
-  }
+  };
 
   render() {
-
     const visibility = this.state.visible ? "visible" : "unvisible";
     return (
       <div>
@@ -122,7 +119,10 @@ class NewEventDisplay extends Component {
           clicked={this.props.clickedEvent}
         />
         <div>
-          <button onClick={this.showNewEventPanel}>Create new Event</button>
+          {
+            this.props.user &&
+            <button onClick={this.showNewEventPanel}>Create new Event</button>
+          }
         </div>
         <div className={`new-event ${visibility}`}>
           <input type="text" value={this.state.title} placeholder="Name your event" onChange={this.changeTitle}/>
