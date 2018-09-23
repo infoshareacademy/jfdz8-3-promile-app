@@ -54,6 +54,23 @@ class NewEventDisplay extends Component {
     return time
   };
 
+  validateInputs = (event) => {
+    const textInputs = Array.of(
+      this.state.slots,
+      this.state.description,
+      this.state.title
+    );
+    const arrayInputs = Array.of(
+      this.state.coordinates,
+      this.state.tags
+    );
+    const textInputsCheck = textInputs.filter(item => item === '').length;
+    const arrayInputsCheck = arrayInputs.filter(item => item.length === 0).length
+    return textInputsCheck || arrayInputsCheck ?
+      toast.error('Some of the form fields are not filled!') :
+      this.addEvent(event)
+      ;
+  };
 
   showNewEventPanel = () => {
     this.setState({
@@ -185,7 +202,7 @@ class NewEventDisplay extends Component {
           </div>
           <textarea value={this.state.description} onChange={this.changeDescription} rows="5" cols="50"/>
           <button onClick={this.toggleMapBlock}>Add Event on map</button>
-          <button onClick={this.addEvent}>Create Event!</button>
+          <button onClick={this.validateInputs}>Create Event!</button>
         </div>
     </div>
     )
