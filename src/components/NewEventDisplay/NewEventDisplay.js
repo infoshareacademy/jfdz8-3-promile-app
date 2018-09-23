@@ -16,13 +16,14 @@ class NewEventDisplay extends Component {
     arePlacesAvailable: true,
     description: 'Description',
     date: '',
-    time: '13:00',
+    time: '',
     tags: [],
 };
 
   componentDidMount() {
     this.setState({
-      date: this.defaultDate()
+      date: this.defaultDate(),
+      time: this.defaultTime()
     })
   }
 
@@ -40,6 +41,17 @@ class NewEventDisplay extends Component {
     }
     const dateNow = `${year + '-' + month + '-' + day}`;
     return dateNow
+  };
+
+  defaultTime = () => {
+    const date = new Date();
+    const hours = date.getHours();
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = "0" + minutes
+    }
+    const time = `${hours + ':' + minutes}`;
+    return time
   };
 
 
