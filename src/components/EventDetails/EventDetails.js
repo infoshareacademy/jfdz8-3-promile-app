@@ -47,7 +47,7 @@ class EventDetails extends Component {
       this.setState({
         userSubscribed: true
       });
-      toast.success("Subscribed!")
+      toast.success("Event subscribed!")
     } else {
         toast.warn('You\'re about to leave the event!');
         database.ref(`/events/${id}/freeSlots`)
@@ -57,7 +57,7 @@ class EventDetails extends Component {
         this.setState({
           userSubscribed: false
         });
-        toast.info('Unsubsribed')
+        toast.info('Event unsubscribed...')
     }
     this.handleIfSubscribed()
   };
