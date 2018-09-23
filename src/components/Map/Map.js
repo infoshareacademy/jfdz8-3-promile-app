@@ -77,7 +77,7 @@ class MainMap extends Component {
     L.Marker.prototype.options.icon = DefaultIcon;
 
     return (
-      <div class="map_area">
+      <div className="map_area">
         <Map
           center={this.state.userCoordinates}
           zoom={this.state.zoom}
@@ -120,7 +120,7 @@ class MainMap extends Component {
             )
           }
             <button onClick={this.findLocation}>Geolocation</button>
-            <a class = "add_event" href="">+</a>
+            <a className = "add_event" href="">+</a>
         </Map>
       </div>
     );

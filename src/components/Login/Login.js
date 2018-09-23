@@ -97,7 +97,13 @@ class Login extends Component {
 
                 {
                   this.state.user &&
-                    <button onClick={(event) => this.logOut(event)}>Logout</button>
+                    <div className="logout_button_container">
+                    <button
+                      className="logout_button"
+                      onClick={(event) => this.logOut(event)}>
+                      Logout
+                    </button>
+                    </div>
                 }
 
             </form>

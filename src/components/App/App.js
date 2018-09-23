@@ -6,6 +6,7 @@ import ListItem from "../ListItem/ListItem";
 import Login from "../Login/Login"
 import { database } from '../FirebaseConfig/FirebaseConfig'
 import ButtonsUserEvents from "../ButtonsUserEvents/ButtonsUserEvents";
+import Logo from "../../images/logo/LOGO1.png";
 
 class App extends Component {
 
@@ -97,9 +98,11 @@ class App extends Component {
           });
     return (
       <div className="App">
-        <div class="top_bar">
+        <div className="top_bar">
+          <img alt="logo" className="top_bar_logo" src={Logo}/>
+          <span className="logo_text">We got <span className="logo_text_it">it</span></span>
           <input
-              class = "event_search-input"
+              className = "event_search-input"
               type = "text"
               placeholder = 'Search...'
               value={this.state.search}

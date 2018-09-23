@@ -2,8 +2,14 @@
   box-sizing: border-box;
 }
 
+#root {
+    height: 100%;
+    width: 100%;
+}
+
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .popup {
@@ -14,17 +20,10 @@
 
 .leaflet-container {
   position: relative;
-  height: 93vh;
+  height: 90vh;
   width: inherit;
   margin: 0;
   overflow: hidden;
-}
-
-.list_container {
-  height: 93vh;
-  overflow:scroll;
-  overflow-x:hidden;
-  background: #959595;
 }
 
 .leaflet-left {
