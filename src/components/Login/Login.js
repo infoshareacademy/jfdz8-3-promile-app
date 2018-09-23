@@ -88,12 +88,12 @@ class Login extends Component {
                     <button
                       className="login_button"
                       onClick={(event) => this.logIn(event)}>
-                      Login
+                      Zaloguj się
                     </button>
                     <button
                       className="register_button"
                       onClick={(event) => this.registerNewUser(event)}>
-                      Register
+                      Zarejestruj się
                     </button>
                   </div>
                 </Fragment>
@@ -106,7 +106,7 @@ class Login extends Component {
                     <button
                       className="logout_button"
                       onClick={(event) => this.logOut(event)}>
-                      Logout
+                      Wyloguj się
                     </button>
                     </div>
                 }

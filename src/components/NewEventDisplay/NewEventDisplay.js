@@ -67,7 +67,7 @@ class NewEventDisplay extends Component {
     const textInputsCheck = textInputs.filter(item => item === '').length;
     const arrayInputsCheck = arrayInputs.filter(item => item.length === 0).length
     return textInputsCheck || arrayInputsCheck ?
-      toast.error('Some of the form fields are not filled!') :
+      toast.error('Niektóre pola nie zostały wypełnione!') :
       this.addEvent(event)
       ;
   };
@@ -178,7 +178,7 @@ class NewEventDisplay extends Component {
           }
         </div>
         <div className={`new-event ${visibility}`}>
-          <input type="text" value={this.state.title} placeholder="Name your event" onChange={this.changeTitle}/>
+          <input type="text" value={this.state.title} placeholder="Nazwij wydarzenie" onChange={this.changeTitle}/>
           <select value={this.state.value} onChange={this.changeSelect}>
             <option value="JavaScript">JavaScript</option>
             <option value="Python">Python</option>
@@ -191,11 +191,11 @@ class NewEventDisplay extends Component {
             <input type="time" value={this.state.time} onChange={this.changeTime} />
           </div>
           <div className="numberOfSlots">
-            <input type="text" placeholder="Number of attendees" value={this.state.slots} onChange={this.addAttendees}/>
+            <input type="text" placeholder="Liczba uczestników" value={this.state.slots} onChange={this.addAttendees}/>
           </div>
           <div>
             <input type="text"
-                   placeholder="Type event tags ie. JavaScript"
+                   placeholder="Tagi po przecinku"
                    value={this.state.tags}
                    onChange={this.addTags}
             />
