@@ -1,0 +1,11 @@
+.tags-container {
+    margin-top: 1em;
+}
+
+.tag {
+    font-size: 1em;
+    padding: 0.5em;
+    background: #9c9c9c;
+    margin: 0 5px;
+    border-radius: 0.4em;
+}

@@ -45,11 +45,3 @@ button {
   background: burlywood;
   padding: 10px;
 }
-
-.toast-top-right {
-  top: 0;
-  left:0;
-  position: absolute;
-}
-
-

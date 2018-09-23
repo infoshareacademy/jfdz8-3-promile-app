@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import AvailableSlots from '../AvailableSlots/AvailableSlots';
 import SubscribeButton from "../SubscribeButton/SubscribeButton";
 import AddToFavorites from "../AddToFavorites/AddToFavorites"
+import {database} from "../FirebaseConfig/FirebaseConfig";
+import EventTags from "../EventTags/EventTags";
 import { toast } from 'react-toastify'
-import { database } from "../FirebaseConfig/FirebaseConfig";
 
 class EventDetails extends Component {
 
@@ -69,6 +70,8 @@ class EventDetails extends Component {
           <p>{this.props.singleEvent.description}</p>
           <p>{this.props.singleEvent.date}</p>
           <p>{this.props.singleEvent.time}</p>
+          <p>Max number of attendees: {this.props.singleEvent.slots}</p>
+          <p>Free places left:</p>
           <AvailableSlots event={this.props.singleEvent}
                           user={this.props.user}
           />
@@ -84,7 +87,9 @@ class EventDetails extends Component {
                             user={this.state.user}
             />
           }
+          <EventTags tags={this.state.event.tags}
 
+          />
         </div>
         }
       </div>

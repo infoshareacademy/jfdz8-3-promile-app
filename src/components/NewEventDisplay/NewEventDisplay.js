@@ -20,6 +20,8 @@ class NewEventDisplay extends Component {
     tags: [],
 };
 
+
+
   showNewEventPanel = () => {
     this.setState({
       visible: !this.state.visible

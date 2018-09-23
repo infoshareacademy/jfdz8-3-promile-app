@@ -7,6 +7,7 @@ import jsIcon from '../../images/technologies_logo/js.png'
 import javaIcon from '../../images/technologies_logo/java.png'
 import dbIcon from '../../images/technologies_logo/database.png'
 import phpIcon from '../../images/technologies_logo/php.png'
+import './Map.css'
 import { toast } from 'react-toastify'
 
 const markers = {
@@ -66,6 +67,8 @@ class MainMap extends Component {
     }
   };
 
+
+
   render() {
     let DefaultIcon = L.icon({
       iconUrl: icon,
@@ -75,6 +78,10 @@ class MainMap extends Component {
     });
 
     L.Marker.prototype.options.icon = DefaultIcon;
+
+    const popupStyle = {
+      background: '#b35a5a'
+    }
 
     return (
       <div>
@@ -105,11 +112,10 @@ class MainMap extends Component {
                     }
                     onClick={() => this.handleClickCallback(event)}
             >
-              <Popup>
-                <div className="popup">
+              <Popup className="pop">
+                <div>
                   <h1>{event.title}</h1>
                   <p>Technology: {event.technology}</p>
-                  <button>Join</button>
                 </div>
               </Popup>
             </Marker>
