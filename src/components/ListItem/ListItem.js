@@ -1,5 +1,18 @@
 import React, { Component } from 'react'
 import EventDetails from '../EventDetails/EventDetails'
+import pyIcon from '../../images/technologies_logo/python.png'
+import jsIcon from '../../images/technologies_logo/js.png'
+import javaIcon from '../../images/technologies_logo/java.png'
+import dbIcon from '../../images/technologies_logo/database.png'
+import phpIcon from '../../images/technologies_logo/php.png'
+
+const icons = {
+  Python: pyIcon,
+  SQL: dbIcon,
+  Java: javaIcon,
+  PHP: phpIcon,
+  JavaScript: jsIcon
+};
 
 class ListItem extends Component {
 
@@ -36,6 +49,7 @@ class ListItem extends Component {
           >
             <h2>{event.title}</h2>
             <p>{event.technology}</p>
+            <span><img src={icons[event.technology]} /></span>
             <EventDetails singleEvent={event}
                           clicked={this.state.clicked}
                           user={this.props.user}
