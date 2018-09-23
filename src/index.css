@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .new-event {
@@ -39,15 +39,9 @@ body {
   float: left;
   width: 30%;
   height: 90vh;
-  overflow:scroll;
-  overflow-x:hidden;
-}
-
-.single-event{
-  margin: 5%;
-  list-style: none;
-  background: burlywood;
-  padding: 10px;
+  background: #f3f1f8;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .top_bar {
@@ -135,7 +129,7 @@ body {
 }
 
 .single-event {
-    margin: 5%;
+    margin: 3%;
     list-style: none;
     padding: 10px;
     display: flex;
@@ -145,10 +139,37 @@ body {
     font-size: 11px;
     align-items: center;
     flex: 1;
-    background: #5EA3FF;
+    background: #c0c0c0;
     border-radius: 20px;
-    box-shadow: 1px 1px 2px #000000;
+    box-shadow: 4px 4px 4px #4f6b86;
 }
+
+.event_title {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+}
+
+.event_technology {
+
+}
+
+.event_title p {
+    font-size: 1.8em;
+}
+
+.event_technology {
+    margin-right: 20px;
+    background: #ffffff;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.event_technology p {
+    font-size: 1.2em;
+}
+
 
 .single-event:hover {
     box-shadow: 1px 1px 2px #000000, 0 0 25px #5EA3FF, 0 0 5px #4661ff;
