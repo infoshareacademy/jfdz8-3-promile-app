@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { toast } from 'react-toastify'
 
 class SubscribeButton extends Component {
 
@@ -16,7 +15,6 @@ class SubscribeButton extends Component {
   render () {
     return (
       <div>
-         <ToastContainer/>
         <button onClick={this.userNotLoggedNotification}
         >
           {

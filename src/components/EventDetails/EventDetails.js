@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AvailableSlots from '../AvailableSlots/AvailableSlots';
 import SubscribeButton from "../SubscribeButton/SubscribeButton";
 import AddToFavorites from "../AddToFavorites/AddToFavorites"
+import { toast } from 'react-toastify'
 import {database} from "../FirebaseConfig/FirebaseConfig";
 
 class EventDetails extends Component {
@@ -45,9 +46,9 @@ class EventDetails extends Component {
       this.setState({
         userSubscribed: true
       });
-      alert('Subscribed!')
+      toast.success("Subscribed!")
     } else {
-        alert('You\'re about to leave the event!');
+        toast.warn('You\'re about to leave the event!');
         database.ref(`/events/${id}/freeSlots`)
           .set(this.state.event.freeSlots + 1);
         database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
@@ -55,7 +56,7 @@ class EventDetails extends Component {
         this.setState({
           userSubscribed: false
         });
-        alert('Unsubscribed!')
+        toast.info('Unsubsribed')
     }
     this.handleIfSubscribed()
   };

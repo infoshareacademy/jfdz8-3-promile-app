@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MainMap from '../Map/Map';
 import { database } from '../FirebaseConfig/FirebaseConfig';
+import { toast } from 'react-toastify'
 
 class NewEventDisplay extends Component {
 
@@ -54,7 +55,7 @@ class NewEventDisplay extends Component {
     this.setState({
       visible: false
     });
-    alert('ADDED')
+    toast.success("Dodano wydarzenie")
   }).then(this.toggleMapBlock)
     .then(this.props.getEvents)
   };
