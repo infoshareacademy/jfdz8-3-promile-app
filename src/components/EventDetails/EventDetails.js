@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AvailableSlots from '../AvailableSlots/AvailableSlots';
 import SubscribeButton from "../SubscribeButton/SubscribeButton";
+import AddToFavorites from "../AddToFavorites/AddToFavorites"
 import {database} from "../FirebaseConfig/FirebaseConfig";
 
 class EventDetails extends Component {
@@ -76,6 +77,13 @@ class EventDetails extends Component {
                            handleEventSlots={this.handleEventSlots}
 
           />
+          {
+            this.state.user &&
+            <AddToFavorites eventId={this.state.event.id}
+                            user={this.state.user}
+            />
+          }
+
         </div>
         }
       </div>
