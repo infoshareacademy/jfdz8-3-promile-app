@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MainMap from '../Map/Map';
 import { database } from '../FirebaseConfig/FirebaseConfig';
+import { toast } from 'react-toastify'
 
 class NewEventDisplay extends Component {
 
@@ -9,7 +10,7 @@ class NewEventDisplay extends Component {
     visible: false,
     mapBlocked: false,
     title: 'New',
-    technology: '',
+    technology: 'JavaScript',
     coordinates: [],
     slots: '2',
     arePlacesAvailable: true,
@@ -18,6 +19,8 @@ class NewEventDisplay extends Component {
     time: '13:00',
     tags: [],
 };
+
+
 
   showNewEventPanel = () => {
     this.setState({
@@ -54,7 +57,7 @@ class NewEventDisplay extends Component {
     this.setState({
       visible: false
     });
-    alert('ADDED')
+    toast.success("Dodano wydarzenie")
   }).then(this.toggleMapBlock)
     .then(this.props.getEvents)
   };

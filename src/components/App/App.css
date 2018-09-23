@@ -12,12 +12,6 @@
   height: 100%;
 }
 
-.popup {
-  height: 300px;
-  width: 250px;
-  background: lightblue;
-}
-
 .leaflet-container {
   position: relative;
   height: 90vh;
@@ -29,4 +23,5 @@
 .leaflet-left {
     right: 0;
 }
+
 

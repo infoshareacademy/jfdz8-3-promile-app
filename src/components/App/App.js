@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'react-toastify/dist/ReactToastify.css'
 import './App.css';
 import '../AvailableSlots/AvailableSlots.css'
 import NewEventDisplay from '../NewEventDisplay/NewEventDisplay'
@@ -6,6 +7,7 @@ import ListItem from "../ListItem/ListItem";
 import Login from "../Login/Login"
 import { database } from '../FirebaseConfig/FirebaseConfig'
 import ButtonsUserEvents from "../ButtonsUserEvents/ButtonsUserEvents";
+import { ToastContainer, toast } from 'react-toastify'
 import Logo from "../../images/logo/LOGO1.png";
 
 class App extends Component {
@@ -16,7 +18,7 @@ class App extends Component {
     clickedEvent: '',
     user: null,
     userCreatedEvents: false,
-    userAttendedEvents: false
+    userAttendedEvents: false,
   };
 
   getEvents = () => {
@@ -41,7 +43,7 @@ class App extends Component {
   getUserCreatedEvents = () => {
     const events = this.state.events;
     const usersEvents = events.filter(event => event.creator === this.state.user.uid);
-    usersEvents.length === 0 ? alert ('No events created!') :
+    usersEvents.length === 0 ? toast.error("No events created") :
     this.setState({
       events: usersEvents,
       userCreatedEvents: true
@@ -61,7 +63,7 @@ class App extends Component {
           })
         }
         else {
-          alert ('No events subscribed!')
+          toast.error('No events subscribed to!')
         }
       })
   };
@@ -95,7 +97,7 @@ class App extends Component {
       const searchCriteria = this.state.events.filter(
           (event) => {
               return event.technology.toLowerCase().indexOf(this.state.search) !== -1
-          });
+        });
     return (
       <div className="App">
         <div className="top_bar">
@@ -139,6 +141,7 @@ class App extends Component {
                            clickedEvent={this.state.clickedEvent}
                            user={this.state.user}
           />
+          <ToastContainer/>
       </div>
     );
   }
