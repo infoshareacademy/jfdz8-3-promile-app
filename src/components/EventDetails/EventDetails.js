@@ -39,7 +39,6 @@ class EventDetails extends Component {
   };
 
   handleEventSlots = (id) => {
-    console.log(this.state.event.freeSlots)
     if (!this.state.userSubscribed) {
       database.ref(`/events/${id}/freeSlots`)
         .set(this.state.event.freeSlots - 1);
@@ -48,9 +47,9 @@ class EventDetails extends Component {
       this.setState({
         userSubscribed: true
       });
-      toast.success("Event subscribed!")
+      toast.success("Zapisałeś się na wydarzenie")
     } else {
-        toast.warn('You\'re about to leave the event!');
+        toast.warn('Za chwilę wypiszesz się z wydarzenia');
         database.ref(`/events/${id}/freeSlots`)
           .set(this.state.event.freeSlots + 1);
         database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
@@ -58,7 +57,7 @@ class EventDetails extends Component {
         this.setState({
           userSubscribed: false
         });
-        toast.info('Event unsubscribed...')
+        toast.info('Nie uczestniczysz już w wydarzeniu...')
     }
     this.handleIfSubscribed()
   };
