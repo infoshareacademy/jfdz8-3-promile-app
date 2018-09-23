@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { database, auth } from '../FirebaseConfig/FirebaseConfig';
+import { toast } from 'react-toastify'
 
 class Login extends Component {
 
@@ -40,6 +41,7 @@ class Login extends Component {
         event.preventDefault()
         auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
       })
+    toast.success('User registered and logged!')
     this.clearInputs()
   }
 
