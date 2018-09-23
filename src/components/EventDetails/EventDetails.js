@@ -3,7 +3,7 @@ import AvailableSlots from '../AvailableSlots/AvailableSlots';
 import SubscribeButton from "../SubscribeButton/SubscribeButton";
 import AddToFavorites from "../AddToFavorites/AddToFavorites"
 import { toast } from 'react-toastify'
-import {database} from "../FirebaseConfig/FirebaseConfig";
+import { database } from "../FirebaseConfig/FirebaseConfig";
 
 class EventDetails extends Component {
 

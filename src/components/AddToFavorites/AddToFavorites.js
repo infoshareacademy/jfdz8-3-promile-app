@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { database } from '../FirebaseConfig/FirebaseConfig'
+import { toast } from 'react-toastify'
 
 class AddToFavorites extends Component {
 
@@ -23,9 +24,11 @@ class AddToFavorites extends Component {
         if(currentState) {
             database.ref(`/users/${this.props.user.uid}/favorite/${this.props.eventId}`)
                 .set(this.props.eventId)
+                toast.info("You are now watching this event")
         } else {
             database.ref(`/users/${this.props.user.uid}/favorite/${this.props.eventId}`)
                 .remove()
+                toast.info("You are no longer watching this event")
         }
     }
 
