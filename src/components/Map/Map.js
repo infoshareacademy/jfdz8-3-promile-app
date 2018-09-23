@@ -10,7 +10,6 @@ import phpIcon from '../../images/technologies_logo/php.png'
 import './Map.css'
 import { toast } from 'react-toastify'
 
-
 const markers = {
   Python: pyIcon,
   SQL: dbIcon,
@@ -68,8 +67,6 @@ class MainMap extends Component {
     }
   };
 
-
-
   render() {
     let DefaultIcon = L.icon({
       iconUrl: icon,
@@ -79,10 +76,6 @@ class MainMap extends Component {
     });
 
     L.Marker.prototype.options.icon = DefaultIcon;
-
-    const popupStyle = {
-      background: '#b35a5a'
-    }
 
     return (
       <div className="map_area">
