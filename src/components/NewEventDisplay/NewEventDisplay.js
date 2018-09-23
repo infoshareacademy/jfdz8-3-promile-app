@@ -15,11 +15,32 @@ class NewEventDisplay extends Component {
     slots: '2',
     arePlacesAvailable: true,
     description: 'Description',
-    date: '2018-08-09',
+    date: '',
     time: '13:00',
     tags: [],
 };
 
+  componentDidMount() {
+    this.setState({
+      date: this.defaultDate()
+    })
+  }
+
+  defaultDate = () => {
+    const date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = "0" + month;
+    }
+    if (day < 10) {
+      day = "0" + day
+    }
+    const dateNow = `${year + '-' + month + '-' + day}`;
+    return dateNow
+  };
 
 
   showNewEventPanel = () => {
