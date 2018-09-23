@@ -1,11 +1,27 @@
+*{
+  box-sizing: border-box;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .leaflet-container {
-  height: 500px;
-  width: 60%;
-  margin: 0 auto;
-  border: 3px solid green;
+  position: relative;
+  height: 90vh;
+  width: inherit;
+  margin: 0;
+  overflow: hidden;
 }
+
+.leaflet-left {
+    right: 0;
+}
+
 

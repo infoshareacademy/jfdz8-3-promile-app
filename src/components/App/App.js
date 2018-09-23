@@ -8,6 +8,7 @@ import Login from "../Login/Login"
 import { database } from '../FirebaseConfig/FirebaseConfig'
 import ButtonsUserEvents from "../ButtonsUserEvents/ButtonsUserEvents";
 import { ToastContainer, toast } from 'react-toastify'
+import Logo from "../../images/logo/LOGO1.png";
 
 class App extends Component {
 
@@ -99,15 +100,18 @@ class App extends Component {
         });
     return (
       <div className="App">
-        <div>
+        <div className="top_bar">
+          <img alt="logo" className="top_bar_logo" src={Logo}/>
+          <span className="logo_text">We got <span className="logo_text_it">it</span></span>
           <input
-              type="text"
-              placeholder = 'Search'
+              className = "event_search-input"
+              type = "text"
+              placeholder = 'Search...'
               value={this.state.search}
               onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
+          <Login getUser={this.handleUser}/>
         </div>
-        <Login getUser={this.handleUser}/>
         {
           this.state.user &&
           <ButtonsUserEvents getUserCreatedEvents={this.getUserCreatedEvents}
@@ -118,8 +122,7 @@ class App extends Component {
           />
         }
 
-          <div className="events-list">
-              <h1>Events</h1>
+          <div className="list_container">
                   <ListItem
                       eventsList={
                           searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (

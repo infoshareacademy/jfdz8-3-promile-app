@@ -62,30 +62,48 @@ class Login extends Component {
 
   render() {
     return (
-        <div>
-            <form>
+        <div className="login_container">
+            <form className="form_container">
+              <div className="login_inputs">
                 <input
+                  className="input_username"
                     placeholder="username"
                     onChange={(event) => this.setState({username: event.target.value})}
                     value={this.state.username}
                 />
                 <input
+                  className="input_password"
                     placeholder="password"
                     onChange={(event) => this.setState({password: event.target.value})}
                     value={this.state.password}
                     type="password"
                 />
+              </div>
                 {
                   !this.state.user &&
-                  <div>
-                    <button onClick={(event) => this.logIn(event)}>Login</button>
-                    <button onClick={(event) => this.registerNewUser(event)}>Register</button>
+                  <div className="login_button_container">
+                    <button
+                      className="login_button"
+                      onClick={(event) => this.logIn(event)}>
+                      Login
+                    </button>
+                    <button
+                      className="register_button"
+                      onClick={(event) => this.registerNewUser(event)}>
+                      Register
+                    </button>
                   </div>
                 }
 
                 {
                   this.state.user &&
-                    <button onClick={(event) => this.logOut(event)}>Logout</button>
+                    <div className="logout_button_container">
+                    <button
+                      className="logout_button"
+                      onClick={(event) => this.logOut(event)}>
+                      Logout
+                    </button>
+                    </div>
                 }
 
             </form>

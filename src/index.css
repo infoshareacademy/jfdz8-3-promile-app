@@ -1,12 +1,12 @@
+/**{*/
+  /*outline: 1px solid red;*/
+/*}*/
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
-
-/*div {*/
-  /*outline: 1px solid red;*/
-/*}*/
 
 .new-event {
   border: 2px solid black;
@@ -29,14 +29,18 @@ body {
   display: inline-block;
 }
 
-button {
-  display: block;
-  margin: 1% auto;
-}
+/*button {*/
+  /*display: block;*/
+  /*z-index: 1100;*/
+  /*position: absolute;*/
+/*}*/
 
-.events-list {
+.list_container {
   float: left;
-  width: 25%;
+  width: 30%;
+  height: 90vh;
+  overflow:scroll;
+  overflow-x:hidden;
 }
 
 .single-event{
@@ -45,3 +49,178 @@ button {
   background: burlywood;
   padding: 10px;
 }
+
+.top_bar {
+  height: 90px;
+  background: #4f6b86;
+}
+
+.event_search-input {
+    height: 50px;
+    background: #ffffff;
+    width: 20rem;
+    margin: 18px auto;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.login_button {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000000;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    height: 30px;
+    width: 120px;
+
+}
+
+.login_button:hover {
+    text-decoration: none;
+    text-transform: uppercase;
+    background: #959595;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    height: 30px;
+    width: 120px;
+}
+
+.logout_button {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000000;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    height: 30px;
+    width: 120px;
+
+}
+
+.logout_button:hover {
+    text-decoration: none;
+    text-transform: uppercase;
+    background: #959595;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    height: 30px;
+    width: 120px;
+}
+
+.register_button {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000000;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    height: 30px;
+    width: 120px;
+}
+
+.register_button:hover {
+    text-decoration: none;
+    text-transform: uppercase;
+    background: #959595;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    height: 30px;
+    width: 120px;
+}
+
+.list_container ul {
+    padding: 0;
+}
+
+.single-event {
+    display: flex;
+    text-decoration: none;
+    min-width: 0;
+    height: 100%;
+    font-size: 11px;
+    align-items: center;
+    flex: 1;
+    border-radius: 10px;
+}
+
+.add_event {
+    height: 60px;
+    width: 60px;
+    font-size: 40px;
+    position: relative;
+    z-index: 1100;
+    text-decoration: none;
+    background: #cacaca;
+    border-radius: 50%;
+    float: right;
+    bottom: 0;
+    box-shadow: 2px 2px 4px #000000;
+}
+
+.login_container {
+    float: right;
+    height: 90px;
+    width: 30%;
+}
+
+.login_inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.login_button_container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 50px;
+}
+
+.logout_button_container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 50px;
+}
+
+.form_container {
+    height: inherit;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.input_username, .input_password {
+    height: 30px;
+    background: #ffffff;
+    border-radius: 30px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.top_bar_logo {
+    height: inherit;
+    float: left;
+}
+
+.logo_text {
+    float: left;
+    text-transform: uppercase;
+    color: #fefefe;
+    font-weight: 900;
+    text-shadow: 1px 2px #4f6b86;
+    font-size: 2em;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+.logo_text_it {
+    color: #5EA3FF;
+    border: 2px solid #5EA3FF;
+    padding: 5px 10px;
+}
+

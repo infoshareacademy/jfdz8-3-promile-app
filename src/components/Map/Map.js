@@ -10,6 +10,7 @@ import phpIcon from '../../images/technologies_logo/php.png'
 import './Map.css'
 import { toast } from 'react-toastify'
 
+
 const markers = {
   Python: pyIcon,
   SQL: dbIcon,
@@ -84,7 +85,7 @@ class MainMap extends Component {
     }
 
     return (
-      <div>
+      <div className="map_area">
         <Map
           center={this.state.userCoordinates}
           zoom={this.state.zoom}
@@ -125,8 +126,9 @@ class MainMap extends Component {
               position =>  <Marker key={position.toString()} position={position} />
             )
           }
+            <button onClick={this.findLocation}>Geolocation</button>
+            <a className = "add_event" href="">+</a>
         </Map>
-          <button onClick={this.findLocation}>Geolocation</button>
       </div>
     );
   }
