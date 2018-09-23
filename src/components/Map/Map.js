@@ -8,6 +8,7 @@ import javaIcon from '../../images/technologies_logo/java.png'
 import dbIcon from '../../images/technologies_logo/database.png'
 import phpIcon from '../../images/technologies_logo/php.png'
 import './Map.css'
+import { toast } from 'react-toastify'
 
 const markers = {
   Python: pyIcon,
@@ -31,7 +32,7 @@ class MainMap extends Component {
       this.setState({userMarkers: [[e.latlng.lat, e.latlng.lng]]});
       this.props.getCoordinates(e)
     } else {
-      alert('MAP IS BLOCKED')
+      toast.error("Mapa jest zablokowana")
     }
   };
 

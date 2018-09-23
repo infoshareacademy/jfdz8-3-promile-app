@@ -4,6 +4,7 @@ import SubscribeButton from "../SubscribeButton/SubscribeButton";
 import AddToFavorites from "../AddToFavorites/AddToFavorites"
 import {database} from "../FirebaseConfig/FirebaseConfig";
 import EventTags from "../EventTags/EventTags";
+import { toast } from 'react-toastify'
 
 class EventDetails extends Component {
 
@@ -46,9 +47,9 @@ class EventDetails extends Component {
       this.setState({
         userSubscribed: true
       });
-      alert('Subscribed!')
+      toast.success("Subscribed!")
     } else {
-        alert('You\'re about to leave the event!');
+        toast.warn('You\'re about to leave the event!');
         database.ref(`/events/${id}/freeSlots`)
           .set(this.state.event.freeSlots + 1);
         database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
@@ -56,7 +57,7 @@ class EventDetails extends Component {
         this.setState({
           userSubscribed: false
         });
-        alert('Unsubscribed!')
+        toast.info('Unsubsribed')
     }
     this.handleIfSubscribed()
   };
@@ -82,7 +83,7 @@ class EventDetails extends Component {
           />
           {
             this.state.user &&
-            <AddToFavorites eventId={this.state.event.id}
+            <AddToFavorites event={this.state.event}
                             user={this.state.user}
             />
           }
