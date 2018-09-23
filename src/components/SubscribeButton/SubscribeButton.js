@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 class SubscribeButton extends Component {
 
@@ -6,11 +8,16 @@ class SubscribeButton extends Component {
     this.props.handleEventSlots(id)
   };
 
+  userNotLoggedNotification = () => {if (this.props.user) {
+      toast.success("You are already logged")
+  } else {
+      toast.warn("You gotta be logged")
+  } }
   render () {
     return (
       <div>
-        <button onClick={() => !this.props.user ? alert('Register first!') :
-                               this.handleEventSlots(this.props.eventId)}
+         <ToastContainer/>
+        <button onClick={this.userNotLoggedNotification}
         >
           {
             !this.props.user? 'Register to subscribe!':

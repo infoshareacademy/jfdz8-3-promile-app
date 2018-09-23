@@ -136,6 +136,7 @@ class App extends Component {
                            clickedEvent={this.state.clickedEvent}
                            user={this.state.user}
           />
+
       </div>
     );
   }
