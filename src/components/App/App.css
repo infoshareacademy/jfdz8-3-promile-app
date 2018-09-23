@@ -1,12 +1,5 @@
-
 .App {
   text-align: center;
-}
-
-.popup {
-  height: 300px;
-  width: 250px;
-  background: lightblue;
 }
 
 .leaflet-container {
@@ -15,3 +8,4 @@
   margin: 0 auto;
   border: 3px solid green;
 }
+
