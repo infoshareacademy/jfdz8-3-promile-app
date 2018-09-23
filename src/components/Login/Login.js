@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import { database, auth } from '../FirebaseConfig/FirebaseConfig';
 import { toast } from 'react-toastify'
 
@@ -68,25 +68,22 @@ class Login extends Component {
             <form className="form_container">
               {
                 !this.state.user &&
-                <div className="login_inputs">
-                  <input
-                    className="input_username"
-                    placeholder="username"
-                    onChange={(event) => this.setState({username: event.target.value})}
-                    value={this.state.username}
-                  />
-                  <input
-                    className="input_password"
-                    placeholder="password"
-                    onChange={(event) => this.setState({password: event.target.value})}
-                    value={this.state.password}
-                    type="password"
-                  />
-                </div>
-              }
-
-                {
-                  !this.state.user &&
+                <Fragment>
+                  <div className="login_inputs">
+                    <input
+                      className="input_username"
+                      placeholder="username"
+                      onChange={(event) => this.setState({username: event.target.value})}
+                      value={this.state.username}
+                    />
+                    <input
+                      className="input_password"
+                      placeholder="password"
+                      onChange={(event) => this.setState({password: event.target.value})}
+                      value={this.state.password}
+                      type="password"
+                    />
+                  </div>
                   <div className="login_button_container">
                     <button
                       className="login_button"
@@ -99,6 +96,8 @@ class Login extends Component {
                       Register
                     </button>
                   </div>
+                </Fragment>
+
                 }
 
                 {
