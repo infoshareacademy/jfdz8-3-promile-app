@@ -7,7 +7,6 @@ import jsIcon from '../../images/technologies_logo/js.png'
 import javaIcon from '../../images/technologies_logo/java.png'
 import dbIcon from '../../images/technologies_logo/database.png'
 import phpIcon from '../../images/technologies_logo/php.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 const markers = {

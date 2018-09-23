@@ -51,10 +51,6 @@ button {
   padding: 10px;
 }
 
-form{
-  display: none
-}
-
 .top_bar {
   height: 60px;
   background: #343434;
@@ -126,5 +122,10 @@ form{
     bottom: 0;
     box-shadow: 2px 2px 4px #000000;
 }
+
+.login_inputs {
+    float: right;
+}
+
 
 

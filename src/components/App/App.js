@@ -105,9 +105,8 @@ class App extends Component {
               value={this.state.search}
               onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
-            <a class="login_button" href="">Sign in</a>
+          <Login getUser={this.handleUser}/>
         </div>
-        <Login getUser={this.handleUser}/>
         {
           this.state.user &&
           <ButtonsUserEvents getUserCreatedEvents={this.getUserCreatedEvents}
