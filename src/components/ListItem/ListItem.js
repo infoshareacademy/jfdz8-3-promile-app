@@ -47,9 +47,11 @@ class ListItem extends Component {
               className="single-event"
               onClick={() => this.state.clicked ? false: this.handleClickCallback(event)}
           >
+            <div className="event_short_view">
               <div className="event_title"><p>{event.title}</p></div>
               <div className="event_technology"><p>{event.technology}</p></div>
-            <span><img src={icons[event.technology]} /></span>
+            <span className="technology_logo"><img src={icons[event.technology]} /></span>
+            </div>
             <EventDetails singleEvent={event}
                           clicked={this.state.clicked}
                           user={this.props.user}
