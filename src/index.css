@@ -133,6 +133,7 @@ body {
     list-style: none;
     padding: 10px;
     display: flex;
+    flex-direction: column;
     text-decoration: none;
     min-width: 0;
     height: 100%;
@@ -154,15 +155,13 @@ body {
     justify-content: space-around;
 }
 
-.event_technology {
-
-}
-
 .event_title p {
     font-size: 1.8em;
 }
 
 .event_technology {
+    display: flex;
+    flex: 1;
     margin-right: 20px;
     background: #ffffff;
     height: 60px;

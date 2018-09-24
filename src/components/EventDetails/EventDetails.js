@@ -66,7 +66,7 @@ class EventDetails extends Component {
     return (
       <div>
         {this.state.active &&
-        <div>
+        <div className="event_details">
           <p>{this.props.singleEvent.description}</p>
           <p>{this.props.singleEvent.date}</p>
           <p>{this.props.singleEvent.time}</p>
