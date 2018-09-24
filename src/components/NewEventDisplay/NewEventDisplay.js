@@ -15,12 +15,62 @@ class NewEventDisplay extends Component {
     slots: '2',
     arePlacesAvailable: true,
     description: 'Description',
-    date: '2018-08-09',
-    time: '13:00',
+    date: '',
+    time: '',
     tags: [],
 };
 
+  componentDidMount() {
+    this.setState({
+      date: this.defaultDate(),
+      time: this.defaultTime()
+    })
+  }
 
+  defaultDate = () => {
+    const date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = "0" + month;
+    }
+    if (day < 10) {
+      day = "0" + day
+    }
+    const dateNow = `${year + '-' + month + '-' + day}`;
+    return dateNow
+  };
+
+  defaultTime = () => {
+    const date = new Date();
+    const hours = date.getHours();
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = "0" + minutes
+    }
+    const time = `${hours + ':' + minutes}`;
+    return time
+  };
+
+  validateInputs = (event) => {
+    const textInputs = Array.of(
+      this.state.slots,
+      this.state.description,
+      this.state.title
+    );
+    const arrayInputs = Array.of(
+      this.state.coordinates,
+      this.state.tags
+    );
+    const textInputsCheck = textInputs.filter(item => item === '').length;
+    const arrayInputsCheck = arrayInputs.filter(item => item.length === 0).length
+    return textInputsCheck || arrayInputsCheck ?
+      toast.error('Niektóre pola nie zostały wypełnione!') :
+      this.addEvent(event)
+      ;
+  };
 
   showNewEventPanel = () => {
     this.setState({
@@ -128,7 +178,7 @@ class NewEventDisplay extends Component {
           }
         </div>
         <div className={`new-event ${visibility}`}>
-          <input type="text" value={this.state.title} placeholder="Name your event" onChange={this.changeTitle}/>
+          <input type="text" value={this.state.title} placeholder="Nazwij wydarzenie" onChange={this.changeTitle}/>
           <select value={this.state.value} onChange={this.changeSelect}>
             <option value="JavaScript">JavaScript</option>
             <option value="Python">Python</option>
@@ -141,18 +191,18 @@ class NewEventDisplay extends Component {
             <input type="time" value={this.state.time} onChange={this.changeTime} />
           </div>
           <div className="numberOfSlots">
-            <input type="text" placeholder="Number of attendees" value={this.state.slots} onChange={this.addAttendees}/>
+            <input type="text" placeholder="Liczba uczestników" value={this.state.slots} onChange={this.addAttendees}/>
           </div>
           <div>
             <input type="text"
-                   placeholder="Type event tags ie. JavaScript"
+                   placeholder="Tagi po przecinku"
                    value={this.state.tags}
                    onChange={this.addTags}
             />
           </div>
           <textarea value={this.state.description} onChange={this.changeDescription} rows="5" cols="50"/>
           <button onClick={this.toggleMapBlock}>Add Event on map</button>
-          <button onClick={this.addEvent}>Create Event!</button>
+          <button onClick={this.validateInputs}>Create Event!</button>
         </div>
     </div>
     )

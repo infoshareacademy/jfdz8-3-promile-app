@@ -4,7 +4,8 @@ import SubscribeButton from "../SubscribeButton/SubscribeButton";
 import AddToFavorites from "../AddToFavorites/AddToFavorites"
 import {database} from "../FirebaseConfig/FirebaseConfig";
 import EventTags from "../EventTags/EventTags";
-import { toast } from 'react-toastify'
+import { toast } from 'react-toastify';
+
 
 class EventDetails extends Component {
 
@@ -38,7 +39,6 @@ class EventDetails extends Component {
   };
 
   handleEventSlots = (id) => {
-    console.log(this.state.event.freeSlots)
     if (!this.state.userSubscribed) {
       database.ref(`/events/${id}/freeSlots`)
         .set(this.state.event.freeSlots - 1);
@@ -47,9 +47,9 @@ class EventDetails extends Component {
       this.setState({
         userSubscribed: true
       });
-      toast.success("Subscribed!")
+      toast.success("Zapisałeś się na wydarzenie")
     } else {
-        toast.warn('You\'re about to leave the event!');
+        toast.warn('Za chwilę wypiszesz się z wydarzenia');
         database.ref(`/events/${id}/freeSlots`)
           .set(this.state.event.freeSlots + 1);
         database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
@@ -57,7 +57,7 @@ class EventDetails extends Component {
         this.setState({
           userSubscribed: false
         });
-        toast.info('Unsubsribed')
+        toast.info('Nie uczestniczysz już w wydarzeniu...')
     }
     this.handleIfSubscribed()
   };
@@ -70,8 +70,8 @@ class EventDetails extends Component {
           <p>{this.props.singleEvent.description}</p>
           <p>{this.props.singleEvent.date}</p>
           <p>{this.props.singleEvent.time}</p>
-          <p>Max number of attendees: {this.props.singleEvent.slots}</p>
-          <p>Free places left:</p>
+          <p>Maksymalna liczba uczestników {this.props.singleEvent.slots}</p>
+          <p>Wolnych miejsc: </p>
           <AvailableSlots event={this.props.singleEvent}
                           user={this.props.user}
           />

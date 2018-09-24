@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import { database, auth } from '../FirebaseConfig/FirebaseConfig';
+import { toast } from 'react-toastify'
 
 class Login extends Component {
 
@@ -40,6 +41,7 @@ class Login extends Component {
         event.preventDefault()
         auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
       })
+    toast.success('User registered and logged!')
     this.clearInputs()
   }
 
@@ -64,35 +66,38 @@ class Login extends Component {
     return (
         <div className="login_container">
             <form className="form_container">
-              <div className="login_inputs">
-                <input
-                  className="input_username"
-                    placeholder="username"
-                    onChange={(event) => this.setState({username: event.target.value})}
-                    value={this.state.username}
-                />
-                <input
-                  className="input_password"
-                    placeholder="password"
-                    onChange={(event) => this.setState({password: event.target.value})}
-                    value={this.state.password}
-                    type="password"
-                />
-              </div>
-                {
-                  !this.state.user &&
+              {
+                !this.state.user &&
+                <Fragment>
+                  <div className="login_inputs">
+                    <input
+                      className="input_username"
+                      placeholder="username"
+                      onChange={(event) => this.setState({username: event.target.value})}
+                      value={this.state.username}
+                    />
+                    <input
+                      className="input_password"
+                      placeholder="password"
+                      onChange={(event) => this.setState({password: event.target.value})}
+                      value={this.state.password}
+                      type="password"
+                    />
+                  </div>
                   <div className="login_button_container">
                     <button
                       className="login_button"
                       onClick={(event) => this.logIn(event)}>
-                      Login
+                      Zaloguj się
                     </button>
                     <button
                       className="register_button"
                       onClick={(event) => this.registerNewUser(event)}>
-                      Register
+                      Zarejestruj się
                     </button>
                   </div>
+                </Fragment>
+
                 }
 
                 {
@@ -101,7 +106,7 @@ class Login extends Component {
                     <button
                       className="logout_button"
                       onClick={(event) => this.logOut(event)}>
-                      Logout
+                      Wyloguj się
                     </button>
                     </div>
                 }

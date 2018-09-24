@@ -139,9 +139,13 @@ body {
     font-size: 11px;
     align-items: center;
     flex: 1;
-    background: #c0c0c0;
+    background: #ffffff;
     border-radius: 20px;
-    box-shadow: 4px 4px 4px #4f6b86;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.single-event:hover {
+    box-shadow: 1px 1px 2px #000000, 0 0 25px #5EA3FF, 0 0 5px #4661ff;
 }
 
 .event_title {
@@ -168,11 +172,6 @@ body {
 
 .event_technology p {
     font-size: 1.2em;
-}
-
-
-.single-event:hover {
-    box-shadow: 1px 1px 2px #000000, 0 0 25px #5EA3FF, 0 0 5px #4661ff;
 }
 
 .add_event {

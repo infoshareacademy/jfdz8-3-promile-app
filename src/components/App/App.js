@@ -106,7 +106,7 @@ class App extends Component {
           <input
               className = "event_search-input"
               type = "text"
-              placeholder = 'Search...'
+              placeholder = 'Wyszukaj...'
               value={this.state.search}
               onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />

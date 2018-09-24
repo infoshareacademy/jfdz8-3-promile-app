@@ -24,11 +24,11 @@ class AddToFavorites extends Component {
         if(currentState) {
             database.ref(`/users/${this.props.user.uid}/favorite/${this.props.event.id}`)
                 .set(this.props.event.id)
-                toast.info("You are now watching this event")
+                toast.info("Dodano do obserwowanych")
         } else {
             database.ref(`/users/${this.props.user.uid}/favorite/${this.props.event.id}`)
                 .remove()
-                toast.info("You are no longer watching this event")
+                toast.info("Usunięto z obserwowanych")
         }
     }
 
@@ -38,7 +38,7 @@ class AddToFavorites extends Component {
                 <button
                     onClick={() => this.toggleFavorite()}
                 >
-                    {this.state.userFavoriteEvent ? "Remove from favorites" : "Add to favorites"}
+                    {this.state.userFavoriteEvent ? "Nie obserwuj" : "Obserwuj"}
                 </button>
             </div>
         )

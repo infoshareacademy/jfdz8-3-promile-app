@@ -20,13 +20,13 @@ class ButtonsUserEvents extends Component {
         <button onClick={ () => this.props.userEvents ?
                                 this.getEvents() :
                                 this.getUserCreatedEvents() }
-        >{this.props.userEvents ? 'Show All Events' : 'Show Events I created'}
+        >{this.props.userEvents ? 'Wszystkie wydarzenia' : 'Pokaż stworzone przeze mnie'}
         </button>
 
         <button onClick={ () => this.props.userAttend ?
                                 this.getEvents() :
                                 this.getEventsUserAttend() }
-        >{this.props.userAttend ? 'Show All Events' : 'Show Events I attend to'}
+        >{this.props.userAttend ? 'Wszystkie wydarzenia' : 'Pokaż w których uczestniczę'}
         </button>
       </div>
     )
