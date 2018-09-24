@@ -52,9 +52,10 @@ body {
 .event_search-input {
     height: 50px;
     background: #ffffff;
+    color: #4f6b86;
     width: 20rem;
     margin: 18px auto;
-    border-radius: 30px;
+    border-radius: 10px;
     text-align: center;
     font-size: 2em;
 }
@@ -62,66 +63,59 @@ body {
 .login_button {
     text-decoration: none;
     text-transform: uppercase;
-    color: #000000;
+    font-weight: bold;
+    background: #4f6b86;
+    color: #ffffff;
     border: 1px solid #ffffff;
-    border-radius: 30px;
+    border-radius: 10px;
     height: 30px;
-    width: 120px;
+    width: 140px;
 
 }
 
 .login_button:hover {
-    text-decoration: none;
-    text-transform: uppercase;
-    background: #959595;
-    color: #ffffff;
+    font-weight: bold;
+    background: #ffffff;
+    color: #4f6b86;
     border: 1px solid #ffffff;
-    border-radius: 30px;
-    height: 30px;
-    width: 120px;
 }
 
 .logout_button {
     text-decoration: none;
     text-transform: uppercase;
-    color: #000000;
+    font-weight: bold;
+    background: #4f6b86;
+    color: #ffffff;
     border: 1px solid #ffffff;
-    border-radius: 30px;
+    border-radius: 10px;
     height: 30px;
-    width: 120px;
-
+    width: 140px;
 }
 
 .logout_button:hover {
-    text-decoration: none;
-    text-transform: uppercase;
-    background: #959595;
-    color: #ffffff;
+    font-weight: bold;
+    background: #ffffff;
+    color: #4f6b86;
     border: 1px solid #ffffff;
-    border-radius: 30px;
-    height: 30px;
-    width: 120px;
 }
 
 .register_button {
     text-decoration: none;
     text-transform: uppercase;
-    color: #000000;
+    font-weight: bold;
+    background: #4f6b86;
+    color: #ffffff;
     border: 1px solid #ffffff;
-    border-radius: 30px;
+    border-radius: 10px;
     height: 30px;
-    width: 120px;
+    width: 140px;
 }
 
 .register_button:hover {
-    text-decoration: none;
-    text-transform: uppercase;
-    background: #959595;
-    color: #ffffff;
+    font-weight: bold;
+    background: #ffffff;
+    color: #4f6b86;
     border: 1px solid #ffffff;
-    border-radius: 30px;
-    height: 30px;
-    width: 120px;
 }
 
 .list_container ul {
@@ -149,10 +143,16 @@ body {
     box-shadow: 1px 1px 2px #000000, 0 0 25px #5EA3FF, 0 0 5px #4661ff;
 }
 
+.event_short_view {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
 .event_title {
     display: flex;
     flex: 1;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .event_title p {
@@ -225,7 +225,7 @@ body {
 .input_username, .input_password {
     height: 30px;
     background: #ffffff;
-    border-radius: 30px;
+    border-radius: 10px;
     text-align: center;
     margin-left: 5px;
 }
