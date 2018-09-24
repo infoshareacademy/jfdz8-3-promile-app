@@ -35,7 +35,8 @@ class App extends Component {
         this.setState({
           events: list,
           userCreatedEvents: false,
-          userAttendedEvents: false
+          userAttendedEvents: false,
+          userHasFavoriteEvents: false
         })
     })
   };
@@ -68,7 +69,26 @@ class App extends Component {
       })
   };
 
-  componentDidMount() {
+    getUsersFavoriteEvents = () => {
+        database.ref(`/users/${this.state.user.uid}/favorite/`)
+            .on('value', snapshot => {
+                if (snapshot.exists()) {
+                    const value = Object.keys(snapshot.val()) || this.state.events
+                    const events = this.state.events
+                    const userFavorites = events.filter(event => value.indexOf(event.id) > -1)
+                    this.setState({
+                        events: userFavorites,
+                        userHasFavoriteEvents: true
+                    })
+                }
+                else {
+                    toast.error(`There's no items you are observing`)
+                }
+            })
+    }
+
+
+    componentDidMount() {
     this.getEvents()
   }
 
@@ -116,9 +136,11 @@ class App extends Component {
           this.state.user &&
           <ButtonsUserEvents getUserCreatedEvents={this.getUserCreatedEvents}
                              getEventsUserAttend={this.getEventsUserAttend}
+                             getUsersFavoriteEvents={this.getUsersFavoriteEvents}
                              getAllEvents={this.getEvents}
                              userEvents={this.state.userCreatedEvents}
                              userAttend={this.state.userAttendedEvents}
+                             userHasFavorites={this.state.userHasFavoriteEvents}
           />
         }
 
