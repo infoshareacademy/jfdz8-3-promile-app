@@ -143,25 +143,25 @@ class App extends Component {
                              userHasFavorites={this.state.userHasFavoriteEvents}
           />
         }
-
           <div className="list_container">
-                  <ListItem
-                      eventsList={
-                          searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
-                                  event.id === this.state.clickedEvent.id
-                              )
-                          )}
-                      revertView={this.handleRevertView}
-                      eventClicked={this.state.clickedEvent}
-                      handleCallback={this.handleCallback}
-                      user={this.state.user}
-                  />
+              <ListItem
+                  eventsList={
+                      searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
+                              event.id === this.state.clickedEvent.id
+                          )
+                      )}
+                  revertView={this.handleRevertView}
+                  eventClicked={this.state.clickedEvent}
+                  handleCallback={this.handleCallback}
+                  user={this.state.user}
+              />
           </div>
-          <NewEventDisplay events={this.state.events}
-                           getEvents={this.getEvents}
-                           callback={this.handleCallback}
-                           clickedEvent={this.state.clickedEvent}
-                           user={this.state.user}
+          <NewEventDisplay
+               events={this.state.events}
+               getEvents={this.getEvents}
+               callback={this.handleCallback}
+               clickedEvent={this.state.clickedEvent}
+               user={this.state.user}
           />
           <ToastContainer/>
       </div>
