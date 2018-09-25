@@ -75,12 +75,13 @@ class EventDetails extends Component {
               <p className="event_description">{this.props.singleEvent.description}</p>
             </div>
             <div className="event_slots-container">
-              <p>Maksymalna liczba uczestników {this.props.singleEvent.slots}</p>
               <p>Wolnych miejsc: </p>
               <AvailableSlots event={this.props.singleEvent}
                                 user={this.props.user}
               />
-          </div>
+              <p>Maksymalna liczba uczestników {this.props.singleEvent.slots}</p>
+
+            </div>
           <SubscribeButton userSubscribed={this.state.userSubscribed}
                            eventId={this.state.event.id}
                            user={this.state.user}
