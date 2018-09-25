@@ -45,6 +45,10 @@ body {
 }
 
 .top_bar {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
   height: 90px;
   background: #4f6b86;
 }
@@ -144,23 +148,27 @@ body {
 }
 
 .event_short_view {
+    width: 100%;
     display: flex;
     flex: 1;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    margin-left: 3em;
+    margin-right: 2.5em;
 }
 
 .event_title {
     display: flex;
     flex: 1;
+    flex-direction: column;
     justify-content: space-between;
-    width: 300px;
-    font-size: 1.4em;
+    max-width: 300px;
 }
 
 .event_title p {
-    font-size: 1.8em;
+    font-size: 2em;
+    color: #4f6b86;
 }
 
 .event_technology {
@@ -168,14 +176,23 @@ body {
     flex-direction: column;
     flex: 1;
     margin-right: 20px;
-    background: #ffffff;
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
+    color: #ffffff;
+    background: #4f6b86;
+    border: 2px solid #4f6b86;
+    border-radius: 20px;
+    text-align: center;
 }
 
 .event_technology p {
     font-size: 1.3em;
+}
+
+.event_details {
+    width: 400px;
+    text-align: center;
+    background: #f3f1f8;
+    border-radius: 20px;
+    color: #4f6b86;
 }
 
 .technology_logo img {
