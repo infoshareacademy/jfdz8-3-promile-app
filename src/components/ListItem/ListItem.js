@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import EventDetails from '../EventDetails/EventDetails'
-import pyIcon from '../../images/technologies_logo/python.png'
-import jsIcon from '../../images/technologies_logo/js.png'
-import javaIcon from '../../images/technologies_logo/java.png'
-import dbIcon from '../../images/technologies_logo/database.png'
-import phpIcon from '../../images/technologies_logo/php.png'
+import pyIcon from '../../images/tech_icons/python_icon.png'
+import jsIcon from '../../images/tech_icons/js_icon.png'
+import javaIcon from '../../images/tech_icons/java_icon.png'
+import dbIcon from '../../images/tech_icons/database_icon.png'
+import phpIcon from '../../images/tech_icons/php_icon.png'
 
 const icons = {
   Python: pyIcon,
@@ -48,8 +48,16 @@ class ListItem extends Component {
               onClick={() => this.state.clicked ? false: this.handleClickCallback(event)}
           >
             <div className="event_short_view">
-              <div className="event_title"><p>{event.title}</p></div>
-              <div className="event_technology"><p>{event.technology}</p></div>
+                <div className="event_short_view-container">
+                  <div className="event_title">
+                      {event.title}
+                      <div className="event_technology">
+                          {event.technology}
+                      </div>
+                  </div>
+            </div>
+
+
             <span className="technology_logo"><img src={icons[event.technology]} /></span>
             </div>
             <EventDetails singleEvent={event}

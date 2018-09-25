@@ -147,12 +147,16 @@ body {
     display: flex;
     flex: 1;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .event_title {
     display: flex;
     flex: 1;
     justify-content: space-between;
+    width: 300px;
+    font-size: 1.4em;
 }
 
 .event_title p {
@@ -161,6 +165,7 @@ body {
 
 .event_technology {
     display: flex;
+    flex-direction: column;
     flex: 1;
     margin-right: 20px;
     background: #ffffff;
@@ -170,7 +175,12 @@ body {
 }
 
 .event_technology p {
-    font-size: 1.2em;
+    font-size: 1.3em;
+}
+
+.technology_logo img {
+    height: 5em;
+    width: 5em;
 }
 
 .add_event {

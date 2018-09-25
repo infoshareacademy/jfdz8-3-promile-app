@@ -2,11 +2,11 @@ import React, {Component} from 'react'
 import {Map, Marker, Popup, TileLayer} from 'react-leaflet'
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
-import pyIcon from '../../images/technologies_logo/python.png'
-import jsIcon from '../../images/technologies_logo/js.png'
-import javaIcon from '../../images/technologies_logo/java.png'
-import dbIcon from '../../images/technologies_logo/database.png'
-import phpIcon from '../../images/technologies_logo/php.png'
+import pyIcon from '../../images/tech_icons/python_icon.png'
+import jsIcon from '../../images/tech_icons/js_icon.png'
+import javaIcon from '../../images/tech_icons/java_icon.png'
+import dbIcon from '../../images/tech_icons/database_icon.png'
+import phpIcon from '../../images/tech_icons/php_icon.png'
 import './Map.css'
 import { toast } from 'react-toastify'
 
