@@ -67,14 +67,20 @@ class EventDetails extends Component {
       <div>
         {this.state.active &&
         <div className="event_details">
-          <p>{this.props.singleEvent.description}</p>
-          <p>{this.props.singleEvent.date}</p>
-          <p>{this.props.singleEvent.time}</p>
-          <p>Maksymalna liczba uczestników {this.props.singleEvent.slots}</p>
-          <p>Wolnych miejsc: </p>
-          <AvailableSlots event={this.props.singleEvent}
-                          user={this.props.user}
-          />
+          <div className="event_date_time-container">
+              <p>{this.props.singleEvent.date}</p>
+              <p>{this.props.singleEvent.time}</p>
+          </div>
+          <div className="event_description_container">
+              <p className="event_description">{this.props.singleEvent.description}</p>
+            </div>
+            <div className="event_slots-container">
+              <p>Maksymalna liczba uczestników {this.props.singleEvent.slots}</p>
+              <p>Wolnych miejsc: </p>
+              <AvailableSlots event={this.props.singleEvent}
+                                user={this.props.user}
+              />
+          </div>
           <SubscribeButton userSubscribed={this.state.userSubscribed}
                            eventId={this.state.event.id}
                            user={this.state.user}
