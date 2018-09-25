@@ -1,6 +1,6 @@
-*{
-  outline: 1px solid red;
-}
+/**{*/
+  /*outline: 1px solid red;*/
+/*}*/
 
 body {
   margin: 0;
@@ -237,6 +237,10 @@ body {
     background: #f3f1f8;
     border-radius: 20px;
     margin-top: 20px;
+}
+
+.event_go_back_button button{
+    text-align: center;
 }
 
 .technology_logo img {
