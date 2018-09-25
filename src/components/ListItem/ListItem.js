@@ -50,14 +50,12 @@ class ListItem extends Component {
             <div className="event_short_view">
                 <div className="event_short_view-container">
                   <div className="event_title">
-                      {event.title}
+                      <p>{event.title}</p>
                       <div className="event_technology">
                           {event.technology}
                       </div>
                   </div>
             </div>
-
-
             <span className="technology_logo"><img src={icons[event.technology]} /></span>
             </div>
             <EventDetails singleEvent={event}
