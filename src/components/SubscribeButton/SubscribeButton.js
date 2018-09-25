@@ -15,7 +15,7 @@ class SubscribeButton extends Component {
   render () {
     return (
       <div>
-        <button onClick={this.userNotLoggedNotification}
+        <button className="event_register_button" onClick={this.userNotLoggedNotification}
         >
           {
             !this.props.user? 'Zarejestruj się':
