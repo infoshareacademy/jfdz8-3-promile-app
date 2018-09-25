@@ -5,7 +5,7 @@
 .tag {
     font-size: 1em;
     padding: 0.5em;
-    background: #9c9c9c;
-    margin: 0 5px;
+    border: 2px solid #4f6b86;
+    margin: 0 6px;
     border-radius: 0.4em;
 }
