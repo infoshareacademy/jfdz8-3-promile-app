@@ -93,7 +93,6 @@ class MainMap extends Component {
           />
 
           {this.props.events.map((event, id) =>
-
             <Marker key={`marker-${id}`}
                     position={event.coordinates}
                     icon={Object.assign(Object.create(Object.getPrototypeOf(DefaultIcon)), DefaultIcon, {
@@ -119,8 +118,9 @@ class MainMap extends Component {
               position =>  <Marker key={position.toString()} position={position} />
             )
           }
-            <button onClick={this.findLocation}>Geolocation</button>
-            <a className = "add_event" href="">+</a>
+          <div className="geo_button-container">
+            <button className="geo_button" onClick={this.findLocation}>Geolocation</button>
+          </div>
         </Map>
       </div>
     );
