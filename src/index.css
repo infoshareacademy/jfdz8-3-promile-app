@@ -1,6 +1,6 @@
-/**{*/
-  /*outline: 1px solid red;*/
-/*}*/
+*{
+  outline: 1px solid red;
+}
 
 body {
   margin: 0;
@@ -181,8 +181,6 @@ body {
 .event_details {
     width: 100%;
     text-align: center;
-    background: #f3f1f8;
-    border-radius: 20px;
     color: #4f6b86;
     margin: 20px 0px;
 }
@@ -236,6 +234,9 @@ body {
 
 .event_details-container{
     width: 100%;
+    background: #f3f1f8;
+    border-radius: 20px;
+    margin-top: 20px;
 }
 
 .technology_logo img {
