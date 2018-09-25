@@ -62,6 +62,11 @@ class Login extends Component {
     this.props.getUser(user)
   }
 
+  getLoggedUsername = () => {
+      const username = this.state.user.email
+      return username.slice(0, username.indexOf("@"))
+  }
+
   render() {
     return (
         <div className="login_container">
@@ -103,6 +108,7 @@ class Login extends Component {
                 {
                   this.state.user &&
                     <div className="logout_button_container">
+                        <p>Witaj {this.getLoggedUsername()} !</p>
                     <button
                       className="logout_button"
                       onClick={(event) => this.logOut(event)}>
@@ -110,7 +116,6 @@ class Login extends Component {
                     </button>
                     </div>
                 }
-
             </form>
         </div>
     )
