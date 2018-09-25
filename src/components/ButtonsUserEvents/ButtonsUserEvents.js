@@ -10,6 +10,10 @@ class ButtonsUserEvents extends Component {
     this.props.getEventsUserAttend()
   };
 
+   getUsersFavoriteEvents = () => {
+    this.props.getUsersFavoriteEvents()
+    }
+
   getEvents = () => {
     this.props.getAllEvents()
   };
@@ -28,6 +32,12 @@ class ButtonsUserEvents extends Component {
                                 this.getEventsUserAttend() }
         >{this.props.userAttend ? 'Wszystkie wydarzenia' : 'Pokaż w których uczestniczę'}
         </button>
+          <button onClick={ () => this.props.userHasFavorites ?
+                                  this.getEvents() :
+                                  this.getUsersFavoriteEvents()}
+          >
+              {this.props.userHasFavorites ? 'Wszystkie wydarzenia' : 'Pokaż ulubione'}
+          </button>
       </div>
     )
   }
