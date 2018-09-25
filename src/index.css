@@ -179,6 +179,7 @@ body {
 }
 
 .event_details {
+    width: 100%;
     text-align: center;
     background: #f3f1f8;
     border-radius: 20px;
@@ -231,6 +232,10 @@ body {
     font-weight: bold;
     background: #4f6b86;
     color: #ffffff;
+}
+
+.event_details-container{
+    width: 100%;
 }
 
 .technology_logo img {

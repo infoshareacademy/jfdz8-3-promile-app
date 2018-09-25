@@ -64,7 +64,7 @@ class EventDetails extends Component {
 
   render() {
     return (
-      <div>
+      <div className="event_details-container">
         {this.state.active &&
         <div className="event_details">
           <div className="event_date_time-container">
