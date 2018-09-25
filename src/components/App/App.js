@@ -163,6 +163,14 @@ class App extends Component {
                clickedEvent={this.state.clickedEvent}
                user={this.state.user}
           />
+          <div className="bottom-bar">
+              <div className="add_event-container">
+                  {
+                      this.props.user &&
+                      <button className="add_event_button" onClick={this.showNewEventPanel}>Dodaj wydarzenie</button>
+                  }
+              </div>
+          </div>
           <ToastContainer/>
       </div>
     );

@@ -22,14 +22,14 @@ body {
 
 /*button {*/
   /*display: block;*/
-  /*z-index: 1100;*/
+  /*z-index: 9999;*/
   /*position: absolute;*/
 /*}*/
 
 .list_container {
   float: left;
   width: 30%;
-  height: 90vh;
+  height: 85vh;
   background: #f3f1f8;
   overflow: scroll;
   overflow-x: hidden;
@@ -327,3 +327,41 @@ body {
     padding: 5px 10px;
 }
 
+.bottom-bar {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 57px;
+    background: #4f6b86;
+}
+
+.leaflet-control {
+    float: right !important;
+    margin-right: 20px;
+}
+
+.geo_button-container {
+    float: right;
+    margin-right: 100px;
+}
+
+.geo_button {
+    z-index: 9999;
+    position: absolute;
+    float: right;
+    top: 100px;
+}
+
+.add_event-container {
+    float: right;
+    margin-right: 100px;
+}
+
+.add_event_button {
+    z-index: 9999;
+    position: absolute;
+    float: right;
+    bottom: 100px;
+    right: 20px;
+}
