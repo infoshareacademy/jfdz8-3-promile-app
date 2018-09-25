@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import EventDetails from '../EventDetails/EventDetails'
-import pyIcon from '../../images/technologies_logo/python.png'
-import jsIcon from '../../images/technologies_logo/js.png'
-import javaIcon from '../../images/technologies_logo/java.png'
-import dbIcon from '../../images/technologies_logo/database.png'
-import phpIcon from '../../images/technologies_logo/php.png'
+import pyIcon from '../../images/tech_icons/python_icon.png'
+import jsIcon from '../../images/tech_icons/js_icon.png'
+import javaIcon from '../../images/tech_icons/java_icon.png'
+import dbIcon from '../../images/tech_icons/database_icon.png'
+import phpIcon from '../../images/tech_icons/php_icon.png'
 
 const icons = {
   Python: pyIcon,
@@ -47,9 +47,17 @@ class ListItem extends Component {
               className="single-event"
               onClick={() => this.state.clicked ? false: this.handleClickCallback(event)}
           >
-            <h2>{event.title}</h2>
-            <p>{event.technology}</p>
-            <span><img src={icons[event.technology]} /></span>
+            <div className="event_short_view">
+                <div className="event_short_view-container">
+                  <div className="event_title">
+                      <p>{event.title}</p>
+                      <div className="event_technology">
+                          {event.technology}
+                      </div>
+                  </div>
+            </div>
+            <span className="technology_logo"><img src={icons[event.technology]} /></span>
+            </div>
             <EventDetails singleEvent={event}
                           clicked={this.state.clicked}
                           user={this.props.user}
@@ -57,7 +65,7 @@ class ListItem extends Component {
           </li>
           )}
           {this.props.eventClicked !== '' ?
-            <button onClick={this.handleRevertView}>Back</button>
+              <div className="event_go_back_button"><button onClick={this.handleRevertView}>Back</button></div>
             : false
           }
         </ul>
@@ -67,3 +75,6 @@ class ListItem extends Component {
 }
 
 export default ListItem
+
+
+
