@@ -8,7 +8,7 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.new-event {
+.new_event-container {
     border: 2px solid #f3f1f8;
     float: right;
     display: block;
@@ -22,6 +22,67 @@ body {
     background: #4f6b86;
     opacity: 0.8;
     text-align: center;
+}
+
+.add_event_buttons-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.add_event_on_map {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #4f6b86;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0.5rem 0;
+    width: 50%;
+}
+
+.add_event_create_event {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #4f6b86;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0.5rem 0;
+    width: 50%;
+}
+
+.add_event_on_map:hover {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #4f6b86;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+.add_event_create_event:hover {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #4f6b86;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+.new_event_details {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
 }
 
 .unvisible {
