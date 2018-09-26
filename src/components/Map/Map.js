@@ -38,9 +38,9 @@ class MainMap extends Component {
 
   state = {
     userMarkers: [],
-    userCoordinates: [54.5, 18.5],
+    userCoordinates: [52.23, 20.23],
     activeEvent: this.props.clicked,
-    zoom: 6
+    zoom: 7
   };
 
   clickHandler = (e) => {
@@ -70,7 +70,7 @@ class MainMap extends Component {
       this.setState({
         activeEvent: this.props.clicked,
         userCoordinates: this.props.clicked.coordinates,
-        zoom: 15
+        zoom: 13
       })
     }
   }
