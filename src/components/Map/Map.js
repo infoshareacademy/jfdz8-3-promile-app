@@ -109,17 +109,18 @@ class MainMap extends Component {
           />
 
           {this.props.events.map((event, id) =>
-            <Marker key={`marker-${id}`}
-                    position={event.coordinates}
-                    icon={Object.assign(Object.create(Object.getPrototypeOf(DefaultIcon)), DefaultIcon, {
-                      options: {
-                        ...DefaultIcon.options,
-                        iconUrl: markers[event.technology],
-                        iconSize: event.id === this.state.activeEvent.id ? [60, 60] : [30, 30],
-                        iconAnchor: event.id === this.state.activeEvent.id ? [30, 30] : [15, 15]
-                      }})
-                    }
-                    onClick={() => this.handleClickCallback(event)}
+            <Marker
+              key={`marker-${id}`}
+              position={event.coordinates}
+              icon={Object.assign(Object.create(Object.getPrototypeOf(DefaultIcon)), DefaultIcon, {
+                options: {
+                  ...DefaultIcon.options,
+                  iconUrl: markers[event.technology],
+                  iconSize: event.id === this.state.activeEvent.id ? [60, 60] : [30, 30],
+                  iconAnchor: event.id === this.state.activeEvent.id ? [30, 30] : [15, 15]
+                }})
+              }
+              onClick={() => this.handleClickCallback(event)}
             >
               <Popup className="pop">
                 <div>
