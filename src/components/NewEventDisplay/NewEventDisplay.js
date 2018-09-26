@@ -195,6 +195,12 @@ class NewEventDisplay extends Component {
                     <option value="Java">Java</option>
                     <option value="SQL">SQL</option>
                     <option value="PHP">PHP</option>
+                    <option value="Angular">Angular</option>
+                    <option value="Cplus">C++</option>
+                    <option value="GameDev">Game Development</option>
+                    <option value="Html">HTML</option>
+                    <option value="Node">NodeJS</option>
+                    <option value="Ruby">Ruby</option>
                 </select>
             </div>
           <div className="new_event_time_date_picker">
