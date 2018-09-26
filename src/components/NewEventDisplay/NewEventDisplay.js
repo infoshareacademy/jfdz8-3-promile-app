@@ -195,6 +195,7 @@ class NewEventDisplay extends Component {
                     <option value="Java">Java</option>
                     <option value="SQL">SQL</option>
                     <option value="PHP">PHP</option>
+                    <option value="React">React</option>
                     <option value="Angular">Angular</option>
                     <option value="Cplus">C++</option>
                     <option value="GameDev">Game Development</option>
@@ -202,7 +203,6 @@ class NewEventDisplay extends Component {
                     <option value="Node">NodeJS</option>
                     <option value="Ruby">Ruby</option>
                     <option value="CSS">UI/UX</option>
-                    <option value="React">React</option>
                 </select>
             </div>
           <div className="new_event_time_date_picker">
