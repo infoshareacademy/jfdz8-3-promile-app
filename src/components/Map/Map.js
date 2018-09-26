@@ -7,6 +7,14 @@ import jsIcon from '../../images/tech_icons/js_icon.png'
 import javaIcon from '../../images/tech_icons/java_icon.png'
 import dbIcon from '../../images/tech_icons/database_icon.png'
 import phpIcon from '../../images/tech_icons/php_icon.png'
+import angularIcon from '../../images/tech_icons/angular_logo.png'
+import cPlusIcon from '../../images/tech_icons/c_plus_logo.png'
+import gameIcon from '../../images/tech_icons/game_dev_icon.png'
+import htmlIcon from '../../images/tech_icons/html_icon.png'
+import nodeIcon from '../../images/tech_icons/node_icon.png'
+import rubyIcon from '../../images/tech_icons/ruby_icon.png'
+import cssIcon from '../../images/tech_icons/css_icon.png'
+import reactIcon from '../../images/tech_icons/react_icon.png'
 import './Map.css'
 import { toast } from 'react-toastify'
 
@@ -15,7 +23,15 @@ const markers = {
   SQL: dbIcon,
   Java: javaIcon,
   PHP: phpIcon,
-  JavaScript: jsIcon
+  JavaScript: jsIcon,
+  Angular: angularIcon,
+  Cplus: cPlusIcon,
+  GameDev: gameIcon,
+  Html: htmlIcon,
+  Node: nodeIcon,
+  Ruby: rubyIcon,
+  CSS: cssIcon,
+  React: reactIcon
 };
 
 class MainMap extends Component {
@@ -93,7 +109,6 @@ class MainMap extends Component {
           />
 
           {this.props.events.map((event, id) =>
-
             <Marker key={`marker-${id}`}
                     position={event.coordinates}
                     icon={Object.assign(Object.create(Object.getPrototypeOf(DefaultIcon)), DefaultIcon, {
@@ -119,8 +134,9 @@ class MainMap extends Component {
               position =>  <Marker key={position.toString()} position={position} />
             )
           }
-            <button onClick={this.findLocation}>Geolocation</button>
-            <a className = "add_event" href="">+</a>
+          <div className="geo_button-container">
+            <button className="geo_button" onClick={this.findLocation}></button>
+          </div>
         </Map>
       </div>
     );

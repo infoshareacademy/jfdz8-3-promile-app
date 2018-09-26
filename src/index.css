@@ -8,8 +8,122 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.new-event {
-  border: 2px solid black;
+.new_event-container {
+    border: 2px solid #f3f1f8;
+    float: right;
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    bottom: 180px;
+    right: 0;
+    border-radius: 10px;
+    height: 520px;
+    width: 400px;
+    background: #4f6b86;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.new_event-container input {
+    border-radius: 5px;
+}
+
+.new_event-container select {
+    border-radius: 5px;
+}
+
+.new_event_description textarea {
+    border-radius: 5px;
+}
+
+.new_event_technology-container p {
+    margin: 5px;
+    color: #ffffff;
+}
+
+.new_event_technology-container select {
+    background: #ffffff;
+}
+
+.new_event_time_date_picker p {
+    margin: 5px;
+    color: #ffffff;
+}
+
+.new_event_name-container p {
+    margin: 5px;
+    color: #ffffff;
+}
+
+.new_event_tags_and_slots-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0.5rem 0;
+}
+
+.new_event_tags_and_slots-container input {
+    width: 130px;
+    margin: 10px;
+}
+
+.add_event_buttons-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.add_event_on_map {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #4f6b86;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0.5rem 0;
+    width: 50%;
+}
+
+.add_event_create_event {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #4f6b86;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0.5rem 0;
+    width: 50%;
+}
+
+.add_event_on_map:hover {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #ffffff;
+    color: #4f6b86;
+    border: 1px solid #4f6b86;
+}
+
+.add_event_create_event:hover {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #ffffff;
+    color: #4f6b86;
+}
+
+.new_event_details {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
 }
 
 .unvisible {
@@ -22,17 +136,38 @@ body {
 
 /*button {*/
   /*display: block;*/
-  /*z-index: 1100;*/
+  /*z-index: 9999;*/
   /*position: absolute;*/
 /*}*/
 
 .list_container {
   float: left;
   width: 30%;
-  height: 90vh;
+  height: 85vh;
   background: #f3f1f8;
   overflow: scroll;
   overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5EA3FF;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4f6b86;
+}
+
+::-webkit-scrollbar-button {
+    background: #5EA3FF;
 }
 
 .top_bar {
@@ -83,8 +218,10 @@ body {
     color: #ffffff;
     border: 1px solid #ffffff;
     border-radius: 10px;
-    height: 30px;
+    height: 25px;
     width: 140px;
+    margin-right: 100px;
+    margin-bottom: 20px;
 }
 
 .logout_button:hover {
@@ -239,8 +376,39 @@ body {
     margin-top: 20px;
 }
 
-.event_go_back_button button{
+.event_go_back_button{
     text-align: center;
+}
+
+.event_go_back_button_cover{
+    height: 40px;
+    width: 40px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQubVNX86-cgbvu25fjQcoqvV9hZb4HhxdEX0n1cW0ujMbj215AlQ");
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.event_to_watch_button-container{
+
+}
+
+.event_to_watch_button {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #ffffff;
+    color: #4f6b86;
+    border-radius: 10px;
+    height: 30px;
+    width: 140px;
+    margin-bottom: 20px;
+    border: 1px solid #4f6b86
+}
+
+.event_to_watch_button:hover {
+    font-weight: bold;
+    background: #4f6b86;
+    color: #ffffff;
 }
 
 .technology_logo img {
@@ -288,6 +456,12 @@ body {
     flex-direction: column;
     justify-content: space-around;
     margin-left: 50px;
+    align-items: flex-end;
+}
+
+.logout_button_container p {
+    margin-right: 100px;
+    color: #ffffff;
 }
 
 .form_container {
@@ -327,3 +501,122 @@ body {
     padding: 5px 10px;
 }
 
+.bottom_bar {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 52px;
+    background: #4f6b86;
+}
+
+.bottom_bar-technology-logo-container{
+    height: inherit;
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+.bottom_bar-technology-logo-item img{
+    height: 30px;
+    width: 30px;
+}
+
+.leaflet-control {
+    float: right !important;
+    top: 25px;
+}
+
+.leaflet-control a {
+    background: #4f6b86 !important;
+    color: #ffffff !important;
+    opacity: 0.8;
+}
+
+.geo_button-container {
+    float: right;
+}
+
+.geo_button {
+    width: 33px;
+    height: 33px;
+    z-index: 9999;
+    position: absolute;
+    float: right;
+    right: 1px;
+    top: 106px;
+    background-image: url("https://image.freepik.com/free-icon/geolocation-symbol_318-39926.jpg");
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.geo_button:hover {
+    box-shadow: 2px 2px 2px 2px #f4f4f4;
+}
+
+.add_event-container {
+    float: right;
+    margin-right: 100px;
+}
+
+.add_event_button {
+    z-index: 9999;
+    position: absolute;
+    float: right;
+    bottom: 75px;
+    right: 20px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    font-size: 3em;
+    font-weight: bold;
+    background: #278619;
+    color: white;
+}
+
+.event_user_buttons-container{
+    width: 70%;
+    display: block;
+    position: absolute;
+    text-align: center;
+    top: 88px;
+    z-index: 9999;
+    left: 30%;
+    opacity: 0.8;
+}
+
+.event_user_button{
+    width: 25%;
+    height: 34px;
+    margin: 0px 20px;
+    border: 2px solid #4f6b86;
+    background: #f3f1f8;
+    color: #4f6b86;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.event_user_button:hover{
+    background: #4f6b86;
+    color: #ffffff;
+}
+
+.my_events:hover{
+    height: 40px;
+    transition: 0.3s;
+}
+
+.my_favourite_events:hover {
+    height: 40px;
+    transition: 0.3s;
+}
+
+.my_participation_events:hover {
+    height: 40px;
+    transition: 0.3s;
+}
