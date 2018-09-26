@@ -21,6 +21,7 @@ body {
     width: 400px;
     background: #4f6b86;
     opacity: 0.8;
+    text-align: center;
 }
 
 .unvisible {
@@ -403,12 +404,17 @@ body {
 
 .leaflet-control {
     float: right !important;
-    margin-right: 20px;
+    top: 25px;
+}
+
+.leaflet-control a {
+    background: #4f6b86 !important;
+    color: #ffffff !important;
+    opacity: 0.8;
 }
 
 .geo_button-container {
     float: right;
-    margin-right: 100px;
 }
 
 .geo_button {
@@ -417,8 +423,8 @@ body {
     z-index: 9999;
     position: absolute;
     float: right;
-    top: 91px;
-    right: 21px;
+    right: 1px;
+    top: 106px;
     background-image: url("https://image.freepik.com/free-icon/geolocation-symbol_318-39926.jpg");
     background-size: cover;
     border-radius: 5px;
