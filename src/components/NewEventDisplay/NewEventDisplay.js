@@ -179,22 +179,30 @@ class NewEventDisplay extends Component {
         </div>
         <div className={`new_event-container ${visibility}`}>
         <div className="new_event_details">
-          <input type="text" value={this.state.title} placeholder="Nazwij wydarzenie" onChange={this.changeTitle}/>
-          <select value={this.state.value} onChange={this.changeSelect}>
-            <option value="JavaScript">JavaScript</option>
-            <option value="Python">Python</option>
-            <option value="Java">Java</option>
-            <option value="SQL">SQL</option>
-            <option value="PHP">PHP</option>
-          </select>
-          <div className="timePicker">
+            <div className="new_event_name-container">
+                <input
+                    type="text"
+                    value={this.state.title}
+                    placeholder="Nazwij wydarzenie"
+                    onChange={this.changeTitle}/>
+            </div>
+            <div className="new_event_technology-container">
+                <select value={this.state.value} onChange={this.changeSelect}>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="SQL">SQL</option>
+                    <option value="PHP">PHP</option>
+                </select>
+            </div>
+          <div className="new_event_time_date_picker">
             <input type="date" value={this.state.date} onChange={this.changeDate} />
             <input type="time" value={this.state.time} onChange={this.changeTime} />
           </div>
-          <div className="numberOfSlots">
+          <div className="new_event_number_of_slots">
             <input type="text" placeholder="Liczba uczestników" value={this.state.slots} onChange={this.addAttendees}/>
           </div>
-          <div>
+          <div className="new_event_description">
             <input type="text"
                    placeholder="Tagi po przecinku"
                    value={this.state.tags}
