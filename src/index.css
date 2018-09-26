@@ -394,3 +394,33 @@ body {
     color: white;
 }
 
+.event_user_buttons-container{
+    width: 70%;
+    display: block;
+    position: absolute;
+    text-align: center;
+    top: 88px;
+    z-index: 9999;
+    left: 30%;
+}
+
+.event_user_button{
+    width: 25%;
+    height: 34px;
+    margin: 0px 20px;
+    border: 2px solid #4f6b86;
+    background: #f3f1f8;
+    color: #4f6b86;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.event_user_button:hover{
+    background: #4f6b86;
+    color: #ffffff;
+    height: 40px;
+    transition: 0.3s;
+}
+
