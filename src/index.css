@@ -145,6 +145,27 @@ body {
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5EA3FF;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4f6b86;
+}
+
+::-webkit-scrollbar-button {
+    background: #5EA3FF;
+}
+
 .top_bar {
   display: flex;
   flex: 1;
