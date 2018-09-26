@@ -180,6 +180,7 @@ class NewEventDisplay extends Component {
         <div className={`new_event-container ${visibility}`}>
         <div className="new_event_details">
             <div className="new_event_name-container">
+                <p>Nazwa wydarzenia: </p>
                 <input
                     type="text"
                     value={this.state.title}
