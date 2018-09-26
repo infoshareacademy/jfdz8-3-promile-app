@@ -9,12 +9,12 @@ class NewEventDisplay extends Component {
     events: [],
     visible: false,
     mapBlocked: false,
-    title: 'New',
+    title: '',
     technology: 'JavaScript',
     coordinates: [],
-    slots: '2',
+    slots: '',
     arePlacesAvailable: true,
-    description: 'Description',
+    description: '',
     date: '',
     time: '',
     tags: [],
@@ -187,6 +187,7 @@ class NewEventDisplay extends Component {
                     onChange={this.changeTitle}/>
             </div>
             <div className="new_event_technology-container">
+                <p>Technologia:</p>
                 <select value={this.state.value} onChange={this.changeSelect}>
                     <option value="JavaScript">JavaScript</option>
                     <option value="Python">Python</option>
@@ -196,9 +197,10 @@ class NewEventDisplay extends Component {
                 </select>
             </div>
           <div className="new_event_time_date_picker">
-            <input type="date" value={this.state.date} onChange={this.changeDate} />
-            <input type="time" value={this.state.time} onChange={this.changeTime} />
+            <p>Data: </p><input type="date" value={this.state.date} onChange={this.changeDate} />
+            <p>Godzina: </p><input type="time" value={this.state.time} onChange={this.changeTime} />
           </div>
+            <div className="new_event_tags_and_slots-container">
           <div className="new_event_number_of_slots">
             <input type="text" placeholder="Liczba uczestników" value={this.state.slots} onChange={this.addAttendees}/>
           </div>
@@ -209,6 +211,7 @@ class NewEventDisplay extends Component {
                    onChange={this.addTags}
             />
           </div>
+            </div>
             <div className="new_event_description">
                 <textarea
                     value={this.state.description}
