@@ -202,8 +202,19 @@ class NewEventDisplay extends Component {
             />
           </div>
           <textarea value={this.state.description} onChange={this.changeDescription} rows="5" cols="50"/>
-          <button onClick={this.toggleMapBlock}>Add Event on map</button>
-          <button onClick={this.validateInputs}>Create Event!</button>
+          <div className="add_event_buttons-container">
+          <button
+              className="add_event_on_map"
+              onClick={this.toggleMapBlock}>
+              Dodaj na mapie
+          </button>
+          <button
+              className="add_event_create_event"
+              onClick={this.validateInputs}>
+              Utwórz wydarzenie!
+          </button>
+          </div>
+        </div>
         </div>
     </div>
     )
