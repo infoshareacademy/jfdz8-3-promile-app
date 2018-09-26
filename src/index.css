@@ -41,6 +41,10 @@ body {
     color: #ffffff;
 }
 
+.new_event_technology-container select {
+    background: #ffffff;
+}
+
 .new_event_time_date_picker p {
     margin: 5px;
     color: #ffffff;
@@ -600,7 +604,19 @@ body {
 .event_user_button:hover{
     background: #4f6b86;
     color: #ffffff;
+}
+
+.my_events:hover{
     height: 40px;
     transition: 0.3s;
 }
 
+.my_favourite_events:hover {
+    height: 40px;
+    transition: 0.3s;
+}
+
+.my_participation_events:hover {
+    height: 40px;
+    transition: 0.3s;
+}
