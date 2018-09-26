@@ -13,6 +13,8 @@ import gameIcon from '../../images/tech_icons/game_dev_icon.png'
 import htmlIcon from '../../images/tech_icons/html_icon.png'
 import nodeIcon from '../../images/tech_icons/node_icon.png'
 import rubyIcon from '../../images/tech_icons/ruby_icon.png'
+import cssIcon from '../../images/tech_icons/css_icon.png'
+import reactIcon from '../../images/tech_icons/react_icon.png'
 import './Map.css'
 import { toast } from 'react-toastify'
 
@@ -27,7 +29,9 @@ const markers = {
   GameDev: gameIcon,
   Html: htmlIcon,
   Node: nodeIcon,
-  Ruby: rubyIcon
+  Ruby: rubyIcon,
+  CSS: cssIcon,
+  React: reactIcon
 };
 
 class MainMap extends Component {
