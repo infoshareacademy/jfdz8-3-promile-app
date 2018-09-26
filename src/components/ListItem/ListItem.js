@@ -65,7 +65,11 @@ class ListItem extends Component {
           </li>
           )}
           {this.props.eventClicked !== '' ?
-              <div className="event_go_back_button"><button onClick={this.handleRevertView}>Back</button></div>
+              <div className="event_go_back_button">
+                  <button
+                      className="event_go_back_button_cover"
+                      onClick={this.handleRevertView}></button>
+              </div>
             : false
           }
         </ul>
