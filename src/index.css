@@ -61,6 +61,7 @@ body {
 
 .new_event_tags_and_slots-container input {
     width: 130px;
+    margin: 10px;
 }
 
 .add_event_buttons-container {
@@ -99,20 +100,17 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
-    background: #4f6b86;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    border-radius: 10px;
+    background: #ffffff;
+    color: #4f6b86;
+    border: 1px solid #4f6b86;
 }
 
 .add_event_create_event:hover {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
-    background: #4f6b86;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    border-radius: 10px;
+    background: #ffffff;
+    color: #4f6b86;
 }
 
 .new_event_details {
