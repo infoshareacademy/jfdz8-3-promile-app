@@ -119,7 +119,7 @@ class MainMap extends Component {
             )
           }
           <div className="geo_button-container">
-            <button className="geo_button" onClick={this.findLocation}>Geolocation</button>
+            <button className="geo_button" onClick={this.findLocation}></button>
           </div>
         </Map>
       </div>
