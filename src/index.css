@@ -462,6 +462,7 @@ body {
     top: 88px;
     z-index: 9999;
     left: 30%;
+    opacity: 0.8;
 }
 
 .event_user_button{
