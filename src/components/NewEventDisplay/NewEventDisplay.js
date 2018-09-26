@@ -202,14 +202,20 @@ class NewEventDisplay extends Component {
           <div className="new_event_number_of_slots">
             <input type="text" placeholder="Liczba uczestników" value={this.state.slots} onChange={this.addAttendees}/>
           </div>
-          <div className="new_event_description">
+          <div className="new_event_tags">
             <input type="text"
                    placeholder="Tagi po przecinku"
                    value={this.state.tags}
                    onChange={this.addTags}
             />
           </div>
-          <textarea value={this.state.description} onChange={this.changeDescription} rows="5" cols="50"/>
+            <div className="new_event_description">
+                <textarea
+                    value={this.state.description}
+                    onChange={this.changeDescription}
+                    rows="10"
+                    cols="40"/>
+            </div>
           <div className="add_event_buttons-container">
           <button
               className="add_event_on_map"
