@@ -36,14 +36,14 @@ class ButtonsUserEvents extends Component {
                                 this.getEventsUserAttend() }
         >{this.props.userAttend ? 'Wszystkie wydarzenia' : 'Pokaż w których uczestniczę'}
         </button>
-          <button
-            className="event_user_button my_favourite_events"
-            onClick={ () => this.props.userHasFavorites ?
-                            this.getEvents() :
-                            this.getUsersFavoriteEvents()}
-          >
-            {this.props.userHasFavorites ? 'Wszystkie wydarzenia' : 'Pokaż ulubione'}
-          </button>
+        <button
+          className="event_user_button my_favourite_events"
+          onClick={ () => this.props.userHasFavorites ?
+                          this.getEvents() :
+                          this.getUsersFavoriteEvents()}
+        >
+          {this.props.userHasFavorites ? 'Wszystkie wydarzenia' : 'Pokaż ulubione'}
+        </button>
       </div>
     )
   }

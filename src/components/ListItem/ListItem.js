@@ -59,16 +59,18 @@ class ListItem extends Component {
       <div>
         <ul>
           {this.props.eventsList.map(event =>
-          <li key={event.id}
-              className="single-event"
-              onClick={() => this.state.clicked ? false: this.handleClickCallback(event)}
+          <li
+            key={event.id}
+            className="single-event"
+            onClick={() => this.state.clicked ? false: this.handleClickCallback(event)}
           >
             <div className="event_short_view">
                 <div className="event_short_view-container">
                   <div className="event_title">
                       <p>{event.title}</p>
-                      <div className="event_technology">
-                          {event.technology}
+                      <div
+                        className="event_technology">
+                        {event.technology}
                       </div>
                   </div>
             </div>
@@ -77,9 +79,10 @@ class ListItem extends Component {
               <img src={icons[event.technology]} />
             </span>
             </div>
-            <EventDetails singleEvent={event}
-                          clicked={this.state.clicked}
-                          user={this.props.user}
+            <EventDetails
+              singleEvent={event}
+              clicked={this.state.clicked}
+              user={this.props.user}
             />
           </li>
           )}
