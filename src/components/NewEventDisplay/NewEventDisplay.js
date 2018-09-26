@@ -177,7 +177,8 @@ class NewEventDisplay extends Component {
             <button className="add_event_button" onClick={this.showNewEventPanel}>+</button>
           }
         </div>
-        <div className={`new-event ${visibility}`}>
+        <div className={`new_event-container ${visibility}`}>
+        <div className="new_event_details">
           <input type="text" value={this.state.title} placeholder="Nazwij wydarzenie" onChange={this.changeTitle}/>
           <select value={this.state.value} onChange={this.changeSelect}>
             <option value="JavaScript">JavaScript</option>
