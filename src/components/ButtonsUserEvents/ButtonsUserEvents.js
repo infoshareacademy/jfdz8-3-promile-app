@@ -21,11 +21,13 @@ class ButtonsUserEvents extends Component {
   render() {
     return(
       <div className="event_user_buttons-container">
-        <button className="event_user_button my_events"
-                onClick={ () => this.props.userEvents ?
-                                this.getEvents() :
-                                this.getUserCreatedEvents() }
-        >{this.props.userEvents ? 'Wszystkie wydarzenia' : 'Pokaż stworzone przeze mnie'}
+        <button
+          className="event_user_button my_events"
+          onClick={ () => this.props.userEvents ?
+                          this.getEvents() :
+                          this.getUserCreatedEvents() }
+        >
+          {this.props.userEvents ? 'Wszystkie wydarzenia' : 'Pokaż stworzone przeze mnie'}
         </button>
 
         <button className="event_user_button my_participation_events"
@@ -34,12 +36,13 @@ class ButtonsUserEvents extends Component {
                                 this.getEventsUserAttend() }
         >{this.props.userAttend ? 'Wszystkie wydarzenia' : 'Pokaż w których uczestniczę'}
         </button>
-          <button className="event_user_button my_favourite_events"
-                onClick={ () => this.props.userHasFavorites ?
-                                this.getEvents() :
-                                this.getUsersFavoriteEvents()}
+          <button
+            className="event_user_button my_favourite_events"
+            onClick={ () => this.props.userHasFavorites ?
+                            this.getEvents() :
+                            this.getUsersFavoriteEvents()}
           >
-              {this.props.userHasFavorites ? 'Wszystkie wydarzenia' : 'Pokaż ulubione'}
+            {this.props.userHasFavorites ? 'Wszystkie wydarzenia' : 'Pokaż ulubione'}
           </button>
       </div>
     )

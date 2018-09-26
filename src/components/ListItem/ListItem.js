@@ -72,7 +72,10 @@ class ListItem extends Component {
                       </div>
                   </div>
             </div>
-            <span className="technology_logo"><img src={icons[event.technology]} /></span>
+            <span
+              className="technology_logo">
+              <img src={icons[event.technology]} />
+            </span>
             </div>
             <EventDetails singleEvent={event}
                           clicked={this.state.clicked}
@@ -84,7 +87,8 @@ class ListItem extends Component {
               <div className="event_go_back_button">
                   <button
                       className="event_go_back_button_cover"
-                      onClick={this.handleRevertView}></button>
+                      onClick={this.handleRevertView}
+                  />
               </div>
             : false
           }
