@@ -207,7 +207,7 @@ class NewEventDisplay extends Component {
           </div>
           <div className="new_event_tags">
             <input type="text"
-                   placeholder="Tagi po przecinku"
+                   placeholder="Tagi (po przecinku)"
                    value={this.state.tags}
                    onChange={this.addTags}
             />
