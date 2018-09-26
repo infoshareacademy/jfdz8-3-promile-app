@@ -117,6 +117,7 @@ class App extends Component {
       const searchCriteria = this.state.events.filter(
           (event) => {
               return event.technology.toLowerCase().indexOf(this.state.search) !== -1
+            || event.tags.some(tag => tag.includes(this.state.search))
         });
     return (
       <div className="App">
