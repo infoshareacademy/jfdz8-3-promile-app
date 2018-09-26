@@ -46,6 +46,11 @@ body {
     color: #ffffff;
 }
 
+.new_event_name-container p {
+    margin: 5px;
+    color: #ffffff;
+}
+
 .new_event_tags_and_slots-container {
     display: flex;
     flex: 1;
