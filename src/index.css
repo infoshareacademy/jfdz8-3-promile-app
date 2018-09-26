@@ -83,8 +83,10 @@ body {
     color: #ffffff;
     border: 1px solid #ffffff;
     border-radius: 10px;
-    height: 30px;
+    height: 25px;
     width: 140px;
+    margin-right: 100px;
+    margin-bottom: 20px;
 }
 
 .logout_button:hover {
@@ -288,6 +290,12 @@ body {
     flex-direction: column;
     justify-content: space-around;
     margin-left: 50px;
+    align-items: flex-end;
+}
+
+.logout_button_container p {
+    margin-right: 100px;
+    color: #ffffff;
 }
 
 .form_container {
