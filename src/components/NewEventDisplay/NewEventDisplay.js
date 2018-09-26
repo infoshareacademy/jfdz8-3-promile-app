@@ -201,6 +201,8 @@ class NewEventDisplay extends Component {
                     <option value="Html">HTML</option>
                     <option value="Node">NodeJS</option>
                     <option value="Ruby">Ruby</option>
+                    <option value="CSS">UI/UX</option>
+                    <option value="React">React</option>
                 </select>
             </div>
           <div className="new_event_time_date_picker">
