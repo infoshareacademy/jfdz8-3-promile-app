@@ -7,6 +7,12 @@ import jsIcon from '../../images/tech_icons/js_icon.png'
 import javaIcon from '../../images/tech_icons/java_icon.png'
 import dbIcon from '../../images/tech_icons/database_icon.png'
 import phpIcon from '../../images/tech_icons/php_icon.png'
+import angularIcon from '../../images/tech_icons/angular_logo.png'
+import cPlusIcon from '../../images/tech_icons/c_plus_logo.png'
+import gameIcon from '../../images/tech_icons/game_dev_icon.png'
+import htmlIcon from '../../images/tech_icons/html_icon.png'
+import nodeIcon from '../../images/tech_icons/node_icon.png'
+import rubyIcon from '../../images/tech_icons/ruby_icon.png'
 import './Map.css'
 import { toast } from 'react-toastify'
 
@@ -15,7 +21,13 @@ const markers = {
   SQL: dbIcon,
   Java: javaIcon,
   PHP: phpIcon,
-  JavaScript: jsIcon
+  JavaScript: jsIcon,
+  Angular: angularIcon,
+  Cplus: cPlusIcon,
+  GameDev: gameIcon,
+  Html: htmlIcon,
+  Node: nodeIcon,
+  Ruby: rubyIcon
 };
 
 class MainMap extends Component {
