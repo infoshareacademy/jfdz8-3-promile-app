@@ -174,7 +174,7 @@ class NewEventDisplay extends Component {
         <div className="add_event-container">
           {
             this.props.user &&
-            <button className="add_event_button" onClick={this.showNewEventPanel}>Dodaj wydarzenie</button>
+            <button className="add_event_button" onClick={this.showNewEventPanel}>+</button>
           }
         </div>
         <div className={`new-event ${visibility}`}>
