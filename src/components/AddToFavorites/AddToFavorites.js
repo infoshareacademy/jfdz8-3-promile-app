@@ -34,8 +34,8 @@ class AddToFavorites extends Component {
 
     render() {
         return(
-            <div>
-                <button
+            <div className="event_to_watch_button-container">
+                <button className="event_to_watch_button"
                     onClick={() => this.toggleFavorite()}
                 >
                     {this.state.userFavoriteEvent ? "Nie obserwuj" : "Obserwuj"}

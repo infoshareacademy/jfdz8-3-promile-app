@@ -9,7 +9,18 @@ body {
 }
 
 .new-event {
-  border: 2px solid black;
+    border: 2px solid #f3f1f8;
+    float: right;
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    bottom: 180px;
+    right: 0;
+    border-radius: 10px;
+    height: 520px;
+    width: 400px;
+    background: #4f6b86;
+    opacity: 0.8;
 }
 
 .unvisible {
@@ -241,8 +252,39 @@ body {
     margin-top: 20px;
 }
 
-.event_go_back_button button{
+.event_go_back_button{
     text-align: center;
+}
+
+.event_go_back_button_cover{
+    height: 40px;
+    width: 40px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQubVNX86-cgbvu25fjQcoqvV9hZb4HhxdEX0n1cW0ujMbj215AlQ");
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.event_to_watch_button-container{
+
+}
+
+.event_to_watch_button {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #ffffff;
+    color: #4f6b86;
+    border-radius: 10px;
+    height: 30px;
+    width: 140px;
+    margin-bottom: 20px;
+    border: 1px solid #4f6b86
+}
+
+.event_to_watch_button:hover {
+    font-weight: bold;
+    background: #4f6b86;
+    color: #ffffff;
 }
 
 .technology_logo img {
@@ -382,6 +424,10 @@ body {
     border-radius: 5px;
 }
 
+.geo_button:hover {
+    box-shadow: 2px 2px 2px 2px #f4f4f4;
+}
+
 .add_event-container {
     float: right;
     margin-right: 100px;
@@ -391,14 +437,14 @@ body {
     z-index: 9999;
     position: absolute;
     float: right;
-    bottom: 100px;
+    bottom: 75px;
     right: 20px;
     height: 80px;
     width: 80px;
     border-radius: 50%;
     font-size: 3em;
     font-weight: bold;
-    background: green;
+    background: #278619;
     color: white;
 }
 
