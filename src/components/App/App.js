@@ -9,7 +9,7 @@ import { database } from '../FirebaseConfig/FirebaseConfig'
 import ButtonsUserEvents from "../ButtonsUserEvents/ButtonsUserEvents";
 import { ToastContainer, toast } from 'react-toastify'
 import Logo from "../../images/logo/LOGO1.png";
-import BottomBar from "../AddToFavorites/BottomBar";
+import BottomBar from "../BottomBar/BottomBar";
 
 class App extends Component {
 
