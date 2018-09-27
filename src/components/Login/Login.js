@@ -77,7 +77,7 @@ class Login extends Component {
                   <div className="login_inputs">
                     <input
                       className="input_username"
-                      placeholder="username"
+                      placeholder="email"
                       onChange={(event) => this.setState({username: event.target.value})}
                       value={this.state.username}
                     />
