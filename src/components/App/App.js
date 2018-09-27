@@ -65,7 +65,7 @@ class App extends Component {
           })
         }
         else {
-          toast.error('No events subscribed to!')
+          toast.error('Nie zapisałeś się na wydarzenia')
         }
       })
   };
@@ -83,7 +83,7 @@ class App extends Component {
                     })
                 }
                 else {
-                    toast.error(`There's no items you are observing`)
+                    toast.error('Nie obserwujesz żadnych wydarzeń')
                 }
             })
     }
