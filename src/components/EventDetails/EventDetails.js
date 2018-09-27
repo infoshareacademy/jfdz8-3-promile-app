@@ -6,7 +6,6 @@ import {database} from "../FirebaseConfig/FirebaseConfig";
 import EventTags from "../EventTags/EventTags";
 import { toast } from 'react-toastify';
 
-
 class EventDetails extends Component {
 
   state = {

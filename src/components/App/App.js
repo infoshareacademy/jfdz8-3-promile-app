@@ -4,8 +4,8 @@ import './App.css';
 import '../AvailableSlots/AvailableSlots.css'
 import NewEventDisplay from '../NewEventDisplay/NewEventDisplay'
 import ListItem from "../ListItem/ListItem";
-import Login from "../Login/Login"
-import { database } from '../FirebaseConfig/FirebaseConfig'
+import Login from "../Login/Login";
+import { database } from '../FirebaseConfig/FirebaseConfig';
 import ButtonsUserEvents from "../ButtonsUserEvents/ButtonsUserEvents";
 import { ToastContainer, toast } from 'react-toastify'
 import Logo from "../../images/logo/LOGO1.png";
@@ -70,27 +70,26 @@ class App extends Component {
       })
   };
 
-    getUsersFavoriteEvents = () => {
-        database.ref(`/users/${this.state.user.uid}/favorite/`)
-            .on('value', snapshot => {
-                if (snapshot.exists()) {
-                    const value = Object.keys(snapshot.val()) || this.state.events
-                    const events = this.state.events
-                    const userFavorites = events.filter(event => value.indexOf(event.id) > -1)
-                    this.setState({
-                        events: userFavorites,
-                        userHasFavoriteEvents: true
-                    })
-                }
-                else {
-                    toast.error('Nie obserwujesz żadnych wydarzeń')
-                }
-            })
-    }
+  getUsersFavoriteEvents = () => {
+      database.ref(`/users/${this.state.user.uid}/favorite/`)
+          .on('value', snapshot => {
+              if (snapshot.exists()) {
+                  const value = Object.keys(snapshot.val()) || this.state.events
+                  const events = this.state.events
+                  const userFavorites = events.filter(event => value.indexOf(event.id) > -1)
+                  this.setState({
+                      events: userFavorites,
+                      userHasFavoriteEvents: true
+                  })
+              }
+              else {
+                  toast.error('Nie obserwujesz żadnych wydarzeń')
+              }
+          })
+  };
 
-
-    componentDidMount() {
-    this.getEvents()
+  componentDidMount() {
+  this.getEvents()
   }
 
   handleCallback = (data) => {
@@ -156,6 +155,7 @@ class App extends Component {
                   eventClicked={this.state.clickedEvent}
                   handleCallback={this.handleCallback}
                   user={this.state.user}
+                  getEvents={this.getEvents}
               />
           </div>
           <NewEventDisplay

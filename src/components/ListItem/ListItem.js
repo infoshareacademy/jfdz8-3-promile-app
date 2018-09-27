@@ -13,6 +13,8 @@ import nodeIcon from '../../images/tech_icons/node_icon.png'
 import rubyIcon from '../../images/tech_icons/ruby_icon.png'
 import cssIcon from '../../images/tech_icons/css_icon.png'
 import reactIcon from '../../images/tech_icons/react_icon.png'
+import { database } from '../FirebaseConfig/FirebaseConfig'
+import { toast } from 'react-toastify';
 
 const icons = {
   Python: pyIcon,
@@ -33,7 +35,7 @@ const icons = {
 class ListItem extends Component {
 
   state = {
-    clicked: false
+    clicked: false,
   };
 
   handleRevertView = () => {
@@ -52,6 +54,17 @@ class ListItem extends Component {
     this.setState({
       clicked: !this.state.clicked
     })
+  };
+
+  getEvents = () => {
+    this.props.getEvents()
+  }
+
+  deleteEvent = () => {
+    database.ref(`/events/${this.props.eventClicked.id}`)
+      .remove();
+    toast.success('Usunąłeś wydarzenie');
+    this.handleRevertView()
   };
 
   render() {
@@ -79,10 +92,12 @@ class ListItem extends Component {
                   <img src={icons[event.technology]} />
                 </span>
             </div>
+
             {
               this.props.eventClicked.creator === this.props.user.uid &&
-              <button>Delete Event</button>
+              <button onClick={this.deleteEvent}>Delete Event</button>
             }
+
             <EventDetails
               singleEvent={event}
               clicked={this.state.clicked}
