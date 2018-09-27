@@ -48,7 +48,7 @@ class App extends Component {
     usersEvents.length === 0 ? toast.error("No events created") :
     this.setState({
       events: usersEvents,
-      userCreatedEvents: true
+      userCreatedEvents: true,
     })
   };
 

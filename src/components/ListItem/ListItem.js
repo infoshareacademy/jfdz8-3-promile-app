@@ -73,12 +73,16 @@ class ListItem extends Component {
                         {event.technology}
                       </div>
                   </div>
+                </div>
+                <span
+                  className="technology_logo">
+                  <img src={icons[event.technology]} />
+                </span>
             </div>
-            <span
-              className="technology_logo">
-              <img src={icons[event.technology]} />
-            </span>
-            </div>
+            {
+              this.props.eventClicked.creator === this.props.user.uid &&
+              <button>Delete Event</button>
+            }
             <EventDetails
               singleEvent={event}
               clicked={this.state.clicked}
