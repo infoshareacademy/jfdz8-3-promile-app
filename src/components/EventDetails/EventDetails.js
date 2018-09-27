@@ -94,6 +94,7 @@ class EventDetails extends Component {
                             user={this.state.user}
             />
           }
+
           <EventTags tags={this.state.event.tags}
 
           />
