@@ -25,27 +25,27 @@ class App extends Component {
   getEvents = () => {
     database.ref('/events')
     .on('value', (snapshot) => {
-        const value = snapshot.val();
-        const list = (value && Object.entries(value)
-          .map(item => {
-            return {
-              ...item[1],
-              id: item[0],
-            };
-          })) || [];
-        this.setState({
-          events: list,
-          userCreatedEvents: false,
-          userAttendedEvents: false,
-          userHasFavoriteEvents: false
-        })
+      const value = snapshot.val();
+      const list = (value && Object.entries(value)
+        .map(item => {
+          return {
+            ...item[1],
+            id: item[0],
+          };
+        })) || [];
+      this.setState({
+        events: list,
+        userCreatedEvents: false,
+        userAttendedEvents: false,
+        userHasFavoriteEvents: false
+      })
     })
   };
 
   getUserCreatedEvents = () => {
     const events = this.state.events;
     const usersEvents = events.filter(event => event.creator === this.state.user.uid);
-    usersEvents.length === 0 ? toast.error("No events created") :
+    usersEvents.length === 0 ? toast.error("Nie stworzyłeś żadnego wydarzenia") :
     this.setState({
       events: usersEvents,
       userCreatedEvents: true,
@@ -133,13 +133,14 @@ class App extends Component {
           />
             {
                 this.state.user &&
-                <ButtonsUserEvents getUserCreatedEvents={this.getUserCreatedEvents}
-                                   getEventsUserAttend={this.getEventsUserAttend}
-                                   getUsersFavoriteEvents={this.getUsersFavoriteEvents}
-                                   getAllEvents={this.getEvents}
-                                   userEvents={this.state.userCreatedEvents}
-                                   userAttend={this.state.userAttendedEvents}
-                                   userHasFavorites={this.state.userHasFavoriteEvents}
+                <ButtonsUserEvents
+                  getUserCreatedEvents={this.getUserCreatedEvents}
+                  getEventsUserAttend={this.getEventsUserAttend}
+                  getUsersFavoriteEvents={this.getUsersFavoriteEvents}
+                  getAllEvents={this.getEvents}
+                  userEvents={this.state.userCreatedEvents}
+                  userAttend={this.state.userAttendedEvents}
+                  userHasFavorites={this.state.userHasFavoriteEvents}
                 />
             }
           <Login getUser={this.handleUser}/>
