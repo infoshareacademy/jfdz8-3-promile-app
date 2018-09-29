@@ -71,6 +71,7 @@ class EventDetails extends Component {
               <p>{this.props.singleEvent.time}</p>
               <p>{this.props.singleEvent.address}</p>
           </div>
+          <EventTags tags={this.state.event.tags}/>
           <div className="event_description_container">
               <p className="event_description">{this.props.singleEvent.description}</p>
             </div>
@@ -95,9 +96,7 @@ class EventDetails extends Component {
             />
           }
 
-          <EventTags tags={this.state.event.tags}
 
-          />
         </div>
         }
       </div>
