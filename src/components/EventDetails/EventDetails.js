@@ -69,6 +69,7 @@ class EventDetails extends Component {
           <div className="event_date_time-container">
               <p>{this.props.singleEvent.date}</p>
               <p>{this.props.singleEvent.time}</p>
+              <p>{this.props.singleEvent.address}</p>
           </div>
           <div className="event_description_container">
               <p className="event_description">{this.props.singleEvent.description}</p>
