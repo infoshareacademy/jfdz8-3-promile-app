@@ -56,10 +56,6 @@ class ListItem extends Component {
     })
   };
 
-  getEvents = () => {
-    this.props.getEvents()
-  }
-
   deleteEvent = () => {
     database.ref(`/events/${this.props.eventClicked.id}`)
       .remove();

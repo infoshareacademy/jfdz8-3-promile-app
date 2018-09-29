@@ -174,7 +174,6 @@ body {
   display: flex;
   flex: 1;
   flex-direction: row;
-  justify-content: space-between;
   height: 90px;
   background: #4f6b86;
 }
@@ -183,11 +182,11 @@ body {
     height: 50px;
     background: #ffffff;
     color: #4f6b86;
-    width: 20rem;
+    width: 35%;
     margin: 18px auto;
     border-radius: 10px;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.75em;
 }
 
 .login_button {
@@ -200,7 +199,6 @@ body {
     border-radius: 10px;
     height: 30px;
     width: 140px;
-
 }
 
 .login_button:hover {
@@ -220,7 +218,7 @@ body {
     border-radius: 10px;
     height: 25px;
     width: 140px;
-    margin-right: 100px;
+    margin-right: 50px;
     margin-bottom: 20px;
 }
 
@@ -448,7 +446,8 @@ body {
     flex: 1;
     flex-direction: column;
     justify-content: space-around;
-    margin-left: 50px;
+    margin-left: 30px;
+    margin-right: 15px;
 }
 
 .logout_button_container {
@@ -456,13 +455,13 @@ body {
     flex: 1;
     flex-direction: column;
     justify-content: space-around;
-    margin-left: 50px;
     align-items: flex-end;
 }
 
 .logout_button_container p {
-    margin-right: 100px;
+    margin-right: 80px;
     color: #ffffff;
+    text-align: center;
 }
 
 .form_container {
@@ -591,8 +590,8 @@ body {
 
 .event_user_button{
     width: 25%;
-    height: 34px;
-    margin: 0px 20px;
+    height: 36px;
+    margin: 0 20px;
     border: 2px solid #4f6b86;
     background: #f3f1f8;
     color: #4f6b86;
@@ -600,9 +599,12 @@ body {
     text-transform: uppercase;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    overflow: hidden;
+
 }
 
 .event_user_button:hover{
+    margin-top: -2px;
     background: #4f6b86;
     color: #ffffff;
 }
