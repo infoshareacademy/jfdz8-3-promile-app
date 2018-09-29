@@ -575,6 +575,7 @@ body {
     font-weight: bold;
     background: #278619;
     color: white;
+    border: none;
 }
 
 .event_user_buttons-container{
