@@ -83,6 +83,16 @@ class MainMap extends Component {
     }
   };
 
+  countDaysToStart = () => {
+    const today = new Date()
+    const startDate = new Date(this.state.activeEvent.date)
+      if ((Math.floor((startDate - today) / (1000 * 60 * 60 * 24))) === 0) {
+          return 0
+      } else {
+          return (Math.floor((startDate - today) / (1000 * 60 * 60 * 24)))
+      }
+  }
+
   render() {
     let DefaultIcon = L.icon({
       iconUrl: icon,
@@ -124,7 +134,9 @@ class MainMap extends Component {
               <Popup className="pop">
                 <div>
                   <h1>{event.title}</h1>
-                  <p>Technology: {event.technology}</p>
+                  <p>Technologia: {event.technology}</p>
+                  <p>Ilość wolnych miejsc: {event.freeSlots}</p>
+                  <p>Do rozpoczęcia pozostało: {this.countDaysToStart()} dni</p>
                 </div>
               </Popup>
             </Marker>
