@@ -38,23 +38,26 @@ class Login extends Component {
   }
 
   registerNewUser = (event) => {
-        event.preventDefault()
-        auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
-      })
+    event.preventDefault()
+    auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
+    })
     toast.success('User registered and logged!')
     this.clearInputs()
+    toast.success("Zarejestrowałeś się")
   }
 
   logIn = (event) => {
-      event.preventDefault()
-      auth.signInWithEmailAndPassword(this.state.username, this.state.password)
+    event.preventDefault()
+    auth.signInWithEmailAndPassword(this.state.username, this.state.password)
     this.clearInputs()
+    toast.success("Zalogowałeś się")
   }
 
   logOut = (event) => {
-      event.preventDefault()
-      auth.signOut()
+    event.preventDefault()
+    auth.signOut()
     this.clearInputs()
+    toast.info("Wylogowałeś się")
   }
 
   getLoggedUser = () => {
@@ -63,8 +66,8 @@ class Login extends Component {
   }
 
   getLoggedUsername = () => {
-      const username = this.state.user.email
-      return username.slice(0, username.indexOf("@"))
+    const username = this.state.user.email
+    return username.slice(0, username.indexOf("@"))
   }
 
   render() {
@@ -77,7 +80,7 @@ class Login extends Component {
                   <div className="login_inputs">
                     <input
                       className="input_username"
-                      placeholder="username"
+                      placeholder="email"
                       onChange={(event) => this.setState({username: event.target.value})}
                       value={this.state.username}
                     />
