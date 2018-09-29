@@ -41,7 +41,6 @@ class Login extends Component {
     event.preventDefault()
     auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
     })
-    toast.success('User registered and logged!')
     this.clearInputs()
     toast.success("Zarejestrowałeś się")
   }
