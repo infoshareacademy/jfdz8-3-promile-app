@@ -118,6 +118,7 @@ class App extends Component {
           (event) => {
               return event.technology.toLowerCase().indexOf(this.state.search) !== -1
             || event.tags.some(tag => tag.includes(this.state.search))
+            || event.title.toLowerCase().indexOf(this.state.search) !== -1
         });
     return (
       <div className="App">
