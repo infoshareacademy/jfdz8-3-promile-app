@@ -16,6 +16,8 @@ class BottomBar extends Component {
           <span className="bottom_bar-technology-logo-item"><img src={require("../../images/tech_icons/php_icon.png")} /></span>
           <span className="bottom_bar-technology-logo-item"><img src={require("../../images/tech_icons/python_icon.png")} /></span>
           <span className="bottom_bar-technology-logo-item"><img src={require("../../images/tech_icons/ruby_icon.png")} /></span>
+          <span className="bottom_bar-technology-logo-item"><img src={require("../../images/tech_icons/css_icon.png")} /></span>
+          <span className="bottom_bar-technology-logo-item"><img src={require("../../images/tech_icons/react_icon.png")} /></span>
         </div>
       </div>
     )
