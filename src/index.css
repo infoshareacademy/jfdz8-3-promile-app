@@ -499,9 +499,11 @@ body {
     margin-left: 5px;
 }
 
-.top_bar_logo {
+.top_bar_logo-container {
+    width: 90px;
     height: inherit;
-    float: left;
+    background-image: url("../src/images/logo/LOGO1.png");
+    background-size: cover;
 }
 
 .logo_text {
