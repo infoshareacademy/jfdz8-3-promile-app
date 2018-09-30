@@ -123,7 +123,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="top_bar">
-          <img alt="logo" className="top_bar_logo" src={Logo}/>
+          <div className="top_bar_logo-container">
+            <div className="top_bar_logo_hover_info-container">
+
+            </div>
+          </div>
           <span className="logo_text">We got <span className="logo_text_it">it</span></span>
           <input
               className = "event_search-input"
