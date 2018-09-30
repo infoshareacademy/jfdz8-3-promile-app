@@ -4,6 +4,9 @@ class BottomBar extends Component {
   render () {
     return (
       <div className="bottom_bar">
+        <div className="bottom_bar_credits-container">
+
+        </div>
         <div className="bottom_bar-technology-logo-container">
           <span className="bottom_bar-technology-logo-item"><img src={require("../../images/tech_icons/angular_logo.png")} /></span>
           <span className="bottom_bar-technology-logo-item"><img src={require("../../images/tech_icons/c_plus_logo.png")} /></span>
