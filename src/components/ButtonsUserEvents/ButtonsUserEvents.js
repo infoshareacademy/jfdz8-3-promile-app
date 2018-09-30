@@ -3,19 +3,22 @@ import React, { Component } from 'react';
 class ButtonsUserEvents extends Component {
 
   getUserCreatedEvents = () => {
+    this.props.revertView()
     this.props.getUserCreatedEvents()
   };
 
   getEventsUserAttend = () => {
+    this.props.revertView()
     this.props.getEventsUserAttend()
   };
 
    getUsersFavoriteEvents = () => {
+    this.props.revertView()
     this.props.getUsersFavoriteEvents()
     }
 
   getEvents = () => {
-    this.props.getAllEvents()
+    this.props.getEvents()
   };
 
   render() {
@@ -25,7 +28,8 @@ class ButtonsUserEvents extends Component {
           className="event_user_button my_events"
           onClick={ () => this.props.userEvents ?
                           this.getEvents() :
-                          this.getUserCreatedEvents() }
+                          this.getUserCreatedEvents()
+          }
         >
           {this.props.userEvents ? 'Wszystkie wydarzenia' : 'Pokaż stworzone przeze mnie'}
         </button>

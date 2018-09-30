@@ -48,7 +48,6 @@ class EventDetails extends Component {
       });
       toast.success("Zapisałeś się na wydarzenie")
     } else {
-        toast.warn('Za chwilę wypiszesz się z wydarzenia');
         database.ref(`/events/${id}/freeSlots`)
           .set(this.state.event.freeSlots + 1);
         database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)

@@ -141,16 +141,17 @@ class App extends Component {
               onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
             {
-              this.state.user &&
-              <ButtonsUserEvents
-                getUserCreatedEvents={this.getUserCreatedEvents}
-                getEventsUserAttend={this.getEventsUserAttend}
-                getUsersFavoriteEvents={this.getUsersFavoriteEvents}
-                getAllEvents={this.getEvents}
-                userEvents={this.state.userCreatedEvents}
-                userAttend={this.state.userAttendedEvents}
-                userHasFavorites={this.state.userHasFavoriteEvents}
-              />
+                this.state.user &&
+                <ButtonsUserEvents
+                  getUserCreatedEvents={this.getUserCreatedEvents}
+                  getEventsUserAttend={this.getEventsUserAttend}
+                  getUsersFavoriteEvents={this.getUsersFavoriteEvents}
+                  revertView={this.handleRevertView}
+                  getEvents={this.getEvents}
+                  userEvents={this.state.userCreatedEvents}
+                  userAttend={this.state.userAttendedEvents}
+                  userHasFavorites={this.state.userHasFavoriteEvents}
+                />
             }
           <Login getUser={this.handleUser}/>
         </div>
@@ -176,7 +177,7 @@ class App extends Component {
                user={this.state.user}
           />
           <BottomBar />
-          <ToastContainer/>
+          <ToastContainer autoClose={1500}/>
       </div>
     );
   }
