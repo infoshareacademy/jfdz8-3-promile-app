@@ -86,7 +86,7 @@ class MainMap extends Component {
   countDaysToStart = () => {
     const today = new Date()
     const startDate = new Date(this.state.activeEvent.date)
-      if ((Math.floor((startDate - today) / (1000 * 60 * 60 * 24))) === 0) {
+      if ((Math.floor((startDate - today) / (1000 * 60 * 60 * 24))) <= 0) {
           return 0
       } else {
           return (Math.floor((startDate - today) / (1000 * 60 * 60 * 24)))
@@ -136,7 +136,11 @@ class MainMap extends Component {
                   <h1>{event.title}</h1>
                   <p>Technologia: {event.technology}</p>
                   <p>Ilość wolnych miejsc: {event.freeSlots}</p>
-                  <p>Do rozpoczęcia pozostało: {this.countDaysToStart()} dni</p>
+                  <p>
+                      {this.countDaysToStart() === 0 ?
+                      "Wydarzenie jest nieaktualne" :
+                      "Do rozpoczęcia pozostało:" +  this.countDaysToStart() + " dni"}
+                   </p>
                 </div>
               </Popup>
             </Marker>
