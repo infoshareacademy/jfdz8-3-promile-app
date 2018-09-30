@@ -10,6 +10,7 @@ class NewEventDisplay extends Component {
     visible: false,
     mapBlocked: false,
     title: '',
+    address: '',
     technology: 'JavaScript',
     coordinates: [],
     slots: '',
@@ -58,7 +59,8 @@ class NewEventDisplay extends Component {
     const textInputs = Array.of(
       this.state.slots,
       this.state.description,
-      this.state.title
+      this.state.title,
+      this.state.address
     );
     const arrayInputs = Array.of(
       this.state.coordinates,
@@ -90,6 +92,7 @@ class NewEventDisplay extends Component {
       title: this.state.title,
       technology: this.state.technology,
       coordinates: this.state.coordinates,
+      address: this.state.address,
       description: this.state.description,
       slots: this.state.slots,
       freeSlots: this.state.slots,
@@ -141,6 +144,12 @@ class NewEventDisplay extends Component {
       slots: event.target.value
     })
   };
+
+  addAddress = (event) => {
+    this.setState({
+        address: event.target.value
+    })
+  }
 
   changeSelect = (event) => {
     this.setState({
@@ -208,6 +217,7 @@ class NewEventDisplay extends Component {
           <div className="new_event_time_date_picker">
             <p>Data: </p><input type="date" value={this.state.date} onChange={this.changeDate} />
             <p>Godzina: </p><input type="time" value={this.state.time} onChange={this.changeTime} />
+            <p>Adres: </p><input type="address" value={this.state.address} onChange={this.addAddress} />
           </div>
             <div className="new_event_tags_and_slots-container">
           <div className="new_event_number_of_slots">
