@@ -214,12 +214,23 @@ class NewEventDisplay extends Component {
                     <option value="CSS">UI/UX</option>
                 </select>
             </div>
-          <div className="new_event_time_date_picker">
-            <p>Data: </p><input type="date" value={this.state.date} onChange={this.changeDate} />
-            <p>Godzina: </p><input type="time" value={this.state.time} onChange={this.changeTime} />
-          </div>
           <div className="new_event_address-container">
-            <p>Adres: </p><input type="address" value={this.state.address} onChange={this.addAddress} />
+            <p>Adres: </p>
+            <input
+              type="address"
+              placeholder="Podaje adres..."
+              value={this.state.address}
+              onChange={this.addAddress} />
+          </div>
+          <div className="new_event_time_date_picker">
+            <div className="new_event_date-container">
+              <p>Data: </p>
+              <input type="date" value={this.state.date} onChange={this.changeDate} />
+            </div>
+            <div className="new_event_time-container">
+              <p>Godzina: </p>
+              <input type="time" value={this.state.time} onChange={this.changeTime} />
+            </div>
           </div>
             <div className="new_event_tags_and_slots-container">
           <div className="new_event_number_of_slots">
