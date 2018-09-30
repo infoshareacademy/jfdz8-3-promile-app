@@ -54,7 +54,7 @@ class App extends Component {
 
   getEventsUserAttend = () => {
     database.ref(`/users/${this.state.user.uid}/subscribed`)
-      .on('value', snapshot => {
+      .once('value', snapshot => {
         if (snapshot.exists()) {
           const value = Object.keys(snapshot.val()) || this.state.events;
           const events = this.state.events;
@@ -71,21 +71,20 @@ class App extends Component {
   };
 
   getUsersFavoriteEvents = () => {
-      database.ref(`/users/${this.state.user.uid}/favorite/`)
-          .on('value', snapshot => {
-              if (snapshot.exists()) {
-                  const value = Object.keys(snapshot.val()) || this.state.events
-                  const events = this.state.events
-                  const userFavorites = events.filter(event => value.indexOf(event.id) > -1)
-                  this.setState({
-                      events: userFavorites,
-                      userHasFavoriteEvents: true
-                  })
-              }
-              else {
-                  toast.error('Nie obserwujesz żadnych wydarzeń')
-              }
-          })
+    database.ref(`/users/${this.state.user.uid}/favorite/`)
+    .once('value', snapshot => {
+      if (snapshot.exists()) {
+        const value = Object.keys(snapshot.val()) || this.state.events
+        const events = this.state.events
+        const userFavorites = events.filter(event => value.indexOf(event.id) > -1)
+        this.setState({
+            events: userFavorites,
+            userHasFavoriteEvents: true
+        })
+      } else {
+        toast.error('Nie obserwujesz żadnych wydarzeń')
+      }
+    })
   };
 
   componentDidMount() {
@@ -123,8 +122,17 @@ class App extends Component {
     return (
       <div className="App">
         <div className="top_bar">
-          <img alt="logo" className="top_bar_logo" src={Logo}/>
-          <span className="logo_text">We got <span className="logo_text_it">it</span></span>
+          <img
+              alt="logo"
+              className="top_bar_logo"
+              src={Logo}
+          />
+          <span
+            className="logo_text"
+          >
+              We got
+            <span className="logo_text_it">it</span>
+          </span>
           <input
               className = "event_search-input"
               type = "text"

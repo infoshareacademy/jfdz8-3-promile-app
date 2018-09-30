@@ -83,10 +83,9 @@ class EventDetails extends Component {
 
             </div>
           <SubscribeButton userSubscribed={this.state.userSubscribed}
-                           eventId={this.state.event.id}
+                           event={this.state.event}
                            user={this.state.user}
                            handleEventSlots={this.handleEventSlots}
-
           />
           {
             this.state.user &&
@@ -94,7 +93,6 @@ class EventDetails extends Component {
                             user={this.state.user}
             />
           }
-
 
         </div>
         }
