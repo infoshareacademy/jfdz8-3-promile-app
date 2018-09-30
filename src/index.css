@@ -531,6 +531,12 @@ body {
     background: #4f6b86;
 }
 
+.bottom_bar_credits-container {
+    width: 30%;
+    height: inherit;
+    background: #748A9F;
+}
+
 .bottom_bar-technology-logo-container{
     height: inherit;
     display: flex;
