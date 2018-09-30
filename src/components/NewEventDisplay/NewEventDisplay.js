@@ -140,10 +140,26 @@ class NewEventDisplay extends Component {
   };
 
   addAttendees = (event) => {
-    this.setState({
-      slots: event.target.value
-    })
+    if (event.target.value > 10 && event.target.value !== 0 && event.target.value !== 1) {
+      toast.warn("Maksymalna liczba uczestników to 10")
+       event.target.value = '';
+      this.setState({
+          slots: event.target.value
+      })
+    } else if(event.target.value < 2){
+        toast.warn("Minimalna liczba uczestników to 2")
+        event.target.value = '';
+        this.setState({
+            slots: event.target.value
+        })
+    }
   };
+
+  handleAttendeesInput = (event) => {
+      this.setState({
+          slots: event.target.value
+      })
+  }
 
   addAddress = (event) => {
     this.setState({
@@ -221,7 +237,7 @@ class NewEventDisplay extends Component {
           </div>
             <div className="new_event_tags_and_slots-container">
           <div className="new_event_number_of_slots">
-            <input type="text" placeholder="Liczba uczestników" value={this.state.slots} onChange={this.addAttendees}/>
+            <input type="text" placeholder="Liczba uczestników" value={this.state.slots}  onChange={this.handleAttendeesInput} onBlur={this.addAttendees}/>
           </div>
           <div className="new_event_tags">
             <input type="text"
