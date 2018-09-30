@@ -6,8 +6,12 @@ class EventTags extends Component {
     return (
       <div className="tags-container">
         { this.props.tags &&
-          this.props.tags.map(tag => {
-            return <span className="tag"> #{tag} </span>
+          this.props.tags.map((tag, index) => {
+            return <span
+                      key={index}
+                      className="tag">
+                  #{tag}
+                  </span>
           })
         }
       </div>

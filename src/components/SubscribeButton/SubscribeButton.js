@@ -21,7 +21,7 @@ class SubscribeButton extends Component {
           <button className="event_register_button" onClick={this.userNotLoggedNotification}
           >
             {
-              !this.props.user? 'Zarejestruj się':
+              !this.props.user? 'Najpierw sie zarejestruj':
                 this.props.userSubscribed? 'Zrezygnuj' :
                   'Zapisz się'
             }
