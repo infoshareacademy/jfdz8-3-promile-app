@@ -506,6 +506,22 @@ body {
     background-size: cover;
 }
 
+.top_bar_logo {
+    height: inherit;
+}
+
+.top_bar_logo_hover_info-container {
+    display: none;
+}
+
+.tob_bar_logo-container:hover + .top_bar_logo_hover_info-container {
+    display: block;
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background: #ffffff;
+}
+
 .logo_text {
     float: left;
     text-transform: uppercase;
