@@ -178,7 +178,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #5EA3FF;
+    background: #748A9F;
     border-radius: 20px;
 }
 
@@ -187,7 +187,7 @@ body {
 }
 
 ::-webkit-scrollbar-button {
-    background: #5EA3FF;
+    background: #748A9F;
 }
 
 .top_bar {
@@ -290,7 +290,7 @@ body {
 }
 
 .single-event:hover {
-    box-shadow: 1px 1px 2px #000000, 0 0 25px #5EA3FF, 0 0 5px #4661ff;
+    box-shadow: 1px 1px 2px #000000, 0 0 25px #748A9F, 0 0 5px #4661ff;
 }
 
 .event_short_view {
@@ -516,8 +516,8 @@ body {
 }
 
 .logo_text_it {
-    color: #5EA3FF;
-    border: 2px solid #5EA3FF;
+    color: #748A9F;
+    border: 2px solid #748A9F;
     padding: 5px 10px;
 }
 
