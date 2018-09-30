@@ -561,7 +561,7 @@ body {
     flex: 1;
     justify-content: space-evenly;
     align-items: center;
-    position: relative;
+    margin: 0 10%;
 }
 
 .bottom_bar-technology-logo-item img{
