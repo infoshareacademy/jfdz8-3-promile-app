@@ -54,7 +54,7 @@ class App extends Component {
 
   getEventsUserAttend = () => {
     database.ref(`/users/${this.state.user.uid}/subscribed`)
-      .on('value', snapshot => {
+      .once('value', snapshot => {
         if (snapshot.exists()) {
           const value = Object.keys(snapshot.val()) || this.state.events;
           const events = this.state.events;
@@ -72,7 +72,7 @@ class App extends Component {
 
   getUsersFavoriteEvents = () => {
       database.ref(`/users/${this.state.user.uid}/favorite/`)
-      .on('value', snapshot => {
+      .once('value', snapshot => {
           if (snapshot.exists()) {
               const value = Object.keys(snapshot.val()) || this.state.events
               const events = this.state.events
