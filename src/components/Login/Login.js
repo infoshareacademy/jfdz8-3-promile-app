@@ -39,18 +39,27 @@ class Login extends Component {
 
   registerNewUser = (event) => {
     event.preventDefault()
-    auth.createUserWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
-    })
+    auth.createUserWithEmailAndPassword(this.state.username, this.state.password)
+      .then(() => {
+        toast.success("Zarejestrowałeś się")
+      })
+     .catch(() => {
+       toast.warn('Nieprawidlowe dane! Zarejestruj sie uzywajac maila i hasla')
+    });
     this.clearInputs()
-    toast.success("Zarejestrowałeś się")
-  }
+  };
 
   logIn = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     auth.signInWithEmailAndPassword(this.state.username, this.state.password)
-    this.clearInputs()
-    toast.success("Zalogowałeś się")
-  }
+      .then(() => {
+        toast.success("Zalogowałeś się")
+      })
+      .catch(() => {
+        toast.warn('Zly login')
+      });
+    this.clearInputs();
+  };
 
   logOut = (event) => {
     event.preventDefault()
