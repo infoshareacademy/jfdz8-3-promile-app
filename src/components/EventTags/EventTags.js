@@ -9,7 +9,8 @@ class EventTags extends Component {
           this.props.tags.map((tag, index) => {
             return <span
                       key={index}
-                      className="tag">
+                      className="tag"
+                  >
                   #{tag}
                   </span>
           })
@@ -20,4 +21,3 @@ class EventTags extends Component {
 }
 
 export default EventTags
-

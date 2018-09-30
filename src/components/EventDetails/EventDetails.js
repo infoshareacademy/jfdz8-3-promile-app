@@ -95,7 +95,6 @@ class EventDetails extends Component {
             />
           }
 
-
         </div>
         }
       </div>

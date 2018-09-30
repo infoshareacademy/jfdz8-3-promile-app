@@ -23,12 +23,13 @@ class SubscribeButton extends Component {
             {
               !this.props.user? 'Najpierw sie zarejestruj':
                 this.props.userSubscribed? 'Zrezygnuj' :
-                  'Zapisz się'
+                'Zapisz się'
             }
           </button>
-          : <p>Brak wolnych miejsc...</p>
 
+          : <p>Brak wolnych miejsc...</p>
         }
+
       </div>
     )
   }
