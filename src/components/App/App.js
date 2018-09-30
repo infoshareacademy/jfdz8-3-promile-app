@@ -168,7 +168,7 @@ class App extends Component {
                user={this.state.user}
           />
           <BottomBar />
-          <ToastContainer/>
+          <ToastContainer autoClose={1500}/>
       </div>
     );
   }
