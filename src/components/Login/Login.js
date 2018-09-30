@@ -46,11 +46,16 @@ class Login extends Component {
   }
 
   logIn = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     auth.signInWithEmailAndPassword(this.state.username, this.state.password)
-    this.clearInputs()
-    toast.success("Zalogowałeś się")
-  }
+      .then(() => {
+        toast.success("Zalogowałeś się")
+      })
+      .catch(() => {
+        toast.warn('Zly login')
+      });
+    this.clearInputs();
+  };
 
   logOut = (event) => {
     event.preventDefault()

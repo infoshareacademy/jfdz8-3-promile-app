@@ -72,20 +72,19 @@ class App extends Component {
 
   getUsersFavoriteEvents = () => {
       database.ref(`/users/${this.state.user.uid}/favorite/`)
-          .on('value', snapshot => {
-              if (snapshot.exists()) {
-                  const value = Object.keys(snapshot.val()) || this.state.events
-                  const events = this.state.events
-                  const userFavorites = events.filter(event => value.indexOf(event.id) > -1)
-                  this.setState({
-                      events: userFavorites,
-                      userHasFavoriteEvents: true
-                  })
-              }
-              else {
-                  toast.error('Nie obserwujesz żadnych wydarzeń')
-              }
-          })
+      .on('value', snapshot => {
+          if (snapshot.exists()) {
+              const value = Object.keys(snapshot.val()) || this.state.events
+              const events = this.state.events
+              const userFavorites = events.filter(event => value.indexOf(event.id) > -1)
+              this.setState({
+                  events: userFavorites,
+                  userHasFavoriteEvents: true
+              })
+          } else {
+              toast.error('Nie obserwujesz żadnych wydarzeń')
+          }
+      })
   };
 
   componentDidMount() {
