@@ -46,6 +46,15 @@ body {
     margin: 5px;
 }
 
+.new_event-address-container input {
+    border-radius: 5px;
+}
+
+.new_event_time_date_picker {
+    display: inline-flex;
+    margin-top: 20px;
+}
+
 .new_event_technology-container select {
     background: #ffffff;
 }
