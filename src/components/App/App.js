@@ -138,7 +138,8 @@ class App extends Component {
                   getUserCreatedEvents={this.getUserCreatedEvents}
                   getEventsUserAttend={this.getEventsUserAttend}
                   getUsersFavoriteEvents={this.getUsersFavoriteEvents}
-                  getAllEvents={this.getEvents}
+                  revertView={this.handleRevertView}
+                  getEvents={this.getEvents}
                   userEvents={this.state.userCreatedEvents}
                   userAttend={this.state.userAttendedEvents}
                   userHasFavorites={this.state.userHasFavoriteEvents}

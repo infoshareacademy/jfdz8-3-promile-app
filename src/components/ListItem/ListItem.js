@@ -71,7 +71,7 @@ class ListItem extends Component {
           <li
             key={event.id}
             className="single-event"
-            onClick={() => this.state.clicked ? false: this.handleClickCallback(event)}
+            onClick={() => this.state.clicked === event ? false: this.handleClickCallback(event)}
           >
             <div className="event_short_view">
                 <div className="event_short_view-container">
