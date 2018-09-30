@@ -217,6 +217,8 @@ class NewEventDisplay extends Component {
           <div className="new_event_time_date_picker">
             <p>Data: </p><input type="date" value={this.state.date} onChange={this.changeDate} />
             <p>Godzina: </p><input type="time" value={this.state.time} onChange={this.changeTime} />
+          </div>
+          <div className="new_event_address-container">
             <p>Adres: </p><input type="address" value={this.state.address} onChange={this.addAddress} />
           </div>
             <div className="new_event_tags_and_slots-container">
