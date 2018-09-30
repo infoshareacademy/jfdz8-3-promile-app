@@ -41,6 +41,11 @@ body {
     color: #ffffff;
 }
 
+.new_event_address-container p {
+    color: #ffffff;
+    margin: 5px;
+}
+
 .new_event_technology-container select {
     background: #ffffff;
 }
