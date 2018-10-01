@@ -85,7 +85,7 @@ class ListItem extends Component {
                 </div>
                 <span
                   className="technology_logo">
-                  <img src={icons[event.technology]} />
+                  <img alt="technology icon" src={icons[event.technology]} />
                 </span>
             </div>
 

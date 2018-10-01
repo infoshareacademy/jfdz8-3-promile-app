@@ -95,7 +95,7 @@ class NewEventDisplay extends Component {
       address: this.state.address,
       description: this.state.description,
       slots: this.state.slots,
-      freeSlots: parseInt(this.state.slots),
+      freeSlots: parseInt(this.state.slots, 10),
       date: this.state.date,
       time: this.state.time,
       tags: this.state.tags,
