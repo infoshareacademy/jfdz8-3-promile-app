@@ -37,7 +37,7 @@ class App extends Component {
         events: list,
         userCreatedEvents: false,
         userAttendedEvents: false,
-        userHasFavoriteEvents: false
+        userHasFavoriteEvents: false,
       })
     })
   };
@@ -61,7 +61,7 @@ class App extends Component {
           const userAttends = events.filter(event => value.indexOf(event.id) > -1);
           this.setState({
             events: userAttends,
-            userAttendedEvents: true
+            userAttendedEvents: true,
           })
         }
         else {
@@ -79,7 +79,7 @@ class App extends Component {
         const userFavorites = events.filter(event => value.indexOf(event.id) > -1)
         this.setState({
             events: userFavorites,
-            userHasFavoriteEvents: true
+            userHasFavoriteEvents: true,
         })
       } else {
         toast.error('Nie obserwujesz żadnych wydarzeń')
@@ -153,7 +153,9 @@ class App extends Component {
                   userHasFavorites={this.state.userHasFavoriteEvents}
                 />
             }
-          <Login getUser={this.handleUser}/>
+          <Login getUser={this.handleUser}
+                 getEvents={this.getEvents}
+          />
         </div>
           <div className="list_container">
               <ListItem

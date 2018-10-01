@@ -66,6 +66,7 @@ class Login extends Component {
     auth.signOut()
     this.clearInputs()
     toast.info("Wylogowałeś się")
+    window.location.reload()
   }
 
   getLoggedUser = () => {
