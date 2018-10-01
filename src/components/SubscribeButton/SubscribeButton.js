@@ -16,7 +16,6 @@ class SubscribeButton extends Component {
     return (
       <div>
         {
-
           this.props.event.freeSlots ?
           <button className="event_register_button" onClick={this.userNotLoggedNotification}
           >
@@ -27,7 +26,14 @@ class SubscribeButton extends Component {
             }
           </button>
 
-          : <p>Brak wolnych miejsc...</p>
+          : this.props.user && this.props.userSubscribed ? 
+
+          <button className="event_register_button" onClick={this.userNotLoggedNotification}
+          >
+            Zrezygnuj
+          </button>
+          :
+          <p>Brak wolnych miejsc...</p>
         }
 
       </div>
