@@ -41,7 +41,7 @@ class ListItem extends Component {
   handleRevertView = () => {
     this.props.revertView();
     this.setState({
-      clicked: false
+      clicked: !this.state.clicked
     })
   };
 
@@ -63,6 +63,19 @@ class ListItem extends Component {
     this.handleRevertView()
   };
 
+  handleCloseListItem = () => {
+    this.setState({
+      clicked: false
+    })
+  }
+  componentDidUpdate(nextProps) {
+    if (nextProps.eventClicked !== this.props.eventClicked) {
+      this.setState({
+        clicked: this.props.eventClicked !== '' ? true : false
+      })
+    }
+  }
+
   render() {
     return(
       <div>
@@ -71,7 +84,7 @@ class ListItem extends Component {
           <li
             key={event.id}
             className="single-event"
-            onClick={() => this.state.clicked === event ? false: this.handleClickCallback(event)}
+            onClick={() => this.state.clicked ? false : this.handleClickCallback(event)}
           >
             <div className="event_short_view">
                 <div className="event_short_view-container">
@@ -85,7 +98,7 @@ class ListItem extends Component {
                 </div>
                 <span
                   className="technology_logo">
-                  <img src={icons[event.technology]} />
+                  <img alt="technology icon" src={icons[event.technology]} />
                 </span>
             </div>
 

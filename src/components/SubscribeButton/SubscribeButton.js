@@ -10,24 +10,30 @@ class SubscribeButton extends Component {
   userNotLoggedNotification = () => {if (this.props.user) {
       this.handleEventSlots(this.props.event.id)
   } else {
-      toast.warn("Najpierw się zaloguj")
+      toast.warn("Zaloguj się")
   } };
   render () {
     return (
       <div>
         {
-
           this.props.event.freeSlots ?
           <button className="event_register_button" onClick={this.userNotLoggedNotification}
           >
             {
-              !this.props.user? 'Najpierw sie zarejestruj':
+              !this.props.user? 'Zarejestruj się':
                 this.props.userSubscribed? 'Zrezygnuj' :
                 'Zapisz się'
             }
           </button>
 
-          : <p>Brak wolnych miejsc...</p>
+          : this.props.user && this.props.userSubscribed ? 
+
+          <button className="event_register_button" onClick={this.userNotLoggedNotification}
+          >
+            Zrezygnuj
+          </button>
+          :
+          <p>Brak wolnych miejsc...</p>
         }
 
       </div>
