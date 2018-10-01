@@ -43,16 +43,26 @@ class App extends Component {
   };
 
   getUserCreatedEvents = () => {
-    const events = this.state.events;
-    const usersEvents = events.filter(event => event.creator === this.state.user.uid);
-    usersEvents.length === 0 ? toast.error("Nie stworzyłeś żadnego wydarzenia") :
-    this.setState({
-      events: usersEvents,
-      userCreatedEvents: true,
-    })
+    this.getEvents()
+    database.ref(`/users/${this.state.user.uid}/created`)
+      .once('value', snapshot => {
+        if (snapshot.exists()) {
+          const value = Object.keys(snapshot.val()) || this.state.events;
+          const events = this.state.events;
+          const userCreated = events.filter(event => value.indexOf(event.id) > -1);
+          this.setState({
+            events: userCreated,
+            userCreatedEvents: true,
+          })
+        }
+        else {
+          toast.error('Nie zapisałeś się na wydarzenia')
+        }
+      })
   };
 
   getEventsUserAttend = () => {
+    this.getEvents()
     database.ref(`/users/${this.state.user.uid}/subscribed`)
       .once('value', snapshot => {
         if (snapshot.exists()) {
@@ -71,6 +81,7 @@ class App extends Component {
   };
 
   getUsersFavoriteEvents = () => {
+    this.getEvents()
     database.ref(`/users/${this.state.user.uid}/favorite/`)
     .once('value', snapshot => {
       if (snapshot.exists()) {
@@ -88,7 +99,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-  this.getEvents()
+    this.getEvents()
   }
 
   handleCallback = (data) => {
@@ -111,7 +122,7 @@ class App extends Component {
       user: user,
     })
   };
-
+  
   render() {
       const searchCriteria = this.state.events.filter(
           (event) => {
@@ -169,6 +180,7 @@ class App extends Component {
                   handleCallback={this.handleCallback}
                   user={this.state.user}
                   getEvents={this.getEvents}
+                  handleCloseItem={this.handleCloseItem}
               />
           </div>
           <NewEventDisplay
