@@ -543,7 +543,7 @@ body {
 .geo_button {
     width: 33px;
     height: 33px;
-    z-index: 9999;
+    z-index: 1200;
     position: absolute;
     float: right;
     right: 1px;
