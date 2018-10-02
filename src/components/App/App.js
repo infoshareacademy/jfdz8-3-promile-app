@@ -52,6 +52,17 @@ class App extends Component {
     })
   };
 
+  getClickedLogoTechnology = (technology) => {
+    this.getEvents()
+    const events = this.state.events
+    const eventWithClickedTechnology = events.filter(event => event.technology === technology)
+    eventWithClickedTechnology.length === 0 ? toast.error("Nie ma żadnych wydarzeń dla tej technologii") :
+    this.setState({
+        events: eventWithClickedTechnology
+    })
+      console.log(technology)
+  }
+
   getEventsUserAttend = () => {
     database.ref(`/users/${this.state.user.uid}/subscribed`)
       .once('value', snapshot => {
@@ -178,7 +189,10 @@ class App extends Component {
                clickedEvent={this.state.clickedEvent}
                user={this.state.user}
           />
-          <BottomBar />
+          <BottomBar
+              getClickedLogoTechnology={this.getClickedLogoTechnology}
+              getEvents={this.getEvents}
+          />
           <ToastContainer autoClose={1500}/>
       </div>
     );

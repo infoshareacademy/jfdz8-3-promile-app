@@ -2,15 +2,9 @@ import React, { Component } from 'react'
 
 class BottomBar extends Component {
 
-  state = {
-    whichTechnologyLogoClicked: ''
-  }
-
-  handleIdOfClickedLogo = (id) => {
-    this.setState({
-        whichTechnologyLogoClicked : id
-    })
-      console.log(id)
+  handleIdOfClickedLogo = (technology) => {
+    this.props.getEvents()
+    this.props.getClickedLogoTechnology(technology)
   }
 
   render () {
