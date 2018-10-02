@@ -10,6 +10,7 @@ import ButtonsUserEvents from "../ButtonsUserEvents/ButtonsUserEvents";
 import { ToastContainer, toast } from 'react-toastify'
 import Logo from "../../images/logo/LOGO1.png";
 import BottomBar from "../BottomBar/BottomBar";
+import AboutPage from '../AboutPage/AboutPage';
 
 class App extends Component {
 
@@ -177,7 +178,8 @@ class App extends Component {
         </div>
           <div className="list_container">
             {
-              !this.state.logoClicked &&
+              this.state.logoClicked ?
+              (
               <ListItem
               eventsList={
                   searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
@@ -190,9 +192,12 @@ class App extends Component {
               user={this.state.user}
               getEvents={this.getEvents}
               handleCloseItem={this.handleCloseItem}
-          />
+            />
+              ) : (
+                <AboutPage />  
+              )
+        
             }
-
           </div>
           <NewEventDisplay
                events={this.state.events}
