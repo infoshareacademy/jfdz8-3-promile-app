@@ -152,7 +152,10 @@ class App extends Component {
             className="logo_text"
           >
               We got
-            <span className="logo_text_it">it</span>
+          <span
+            className="logo_text_it"
+          >it
+          </span>
           </span>
           <input
             className = "event_search-input"
