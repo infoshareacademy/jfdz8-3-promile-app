@@ -98,7 +98,7 @@ class MainMap extends Component {
   render() {
     let DefaultIcon = L.icon({
       iconUrl: icon,
-      iconSize: [30, 30],
+      iconSize: [30, 45],
       iconAnchor: [12, 36],
       popupAnchor: [0, -25],
     });

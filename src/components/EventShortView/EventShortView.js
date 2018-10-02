@@ -6,11 +6,11 @@ class EventShortView extends Component {
       <div className="event_short_view">
         <div className="event_short_view-container">
           <div className="event_title">
-              <p>{this.props.event.title}</p>
-              <div
-                className="event_technology">
-                {this.props.event.technology}
-              </div>
+            <p>{this.props.event.title}</p>
+            <div
+              className="event_technology">
+              {this.props.event.technology}
+            </div>
           </div>
         </div>
         <span
