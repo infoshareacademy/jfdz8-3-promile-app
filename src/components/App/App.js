@@ -139,12 +139,13 @@ class App extends Component {
                     || event.title.toLowerCase().indexOf(this.state.search) !== -1
         });
     return (
-      <div className="App" onClick={() => this.toggleListItem()}>
+      <div className="App" >
         <div className="top_bar">
           <img
               alt="logo"
               className="top_bar_logo"
               src={Logo}
+              onClick={() => this.toggleListItem()}
           />
           <span
             className="logo_text"
@@ -178,7 +179,7 @@ class App extends Component {
         </div>
           <div className="list_container">
             {
-              this.state.logoClicked ?
+              !this.state.logoClicked ?
               (
               <ListItem
               eventsList={
