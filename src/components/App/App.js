@@ -145,6 +145,7 @@ class App extends Component {
               alt="logo"
               className="top_bar_logo"
               src={Logo}
+              title="O projekcie"
               onClick={() => this.toggleListItem()}
           />
           <span
