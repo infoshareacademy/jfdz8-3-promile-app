@@ -204,32 +204,33 @@ class NewEventDisplay extends Component {
         </div>
         <div className={`new_event-container ${visibility}`}>
         <div className="new_event_details">
-            <div className="new_event_name-container">
-                <p>Nazwa wydarzenia: </p>
-                <input
-                  type="text"
-                  value={this.state.title}
-                  placeholder="Nazwij wydarzenie"
-                  onChange={this.changeTitle}/>
-            </div>
-            <div className="new_event_technology-container">
-                <p>Technologia:</p>
-                <select value={this.state.value} onChange={this.changeSelect}>
-                  <option value="JavaScript">JavaScript</option>
-                  <option value="Python">Python</option>
-                  <option value="Java">Java</option>
-                  <option value="SQL">SQL</option>
-                  <option value="PHP">PHP</option>
-                  <option value="React">React</option>
-                  <option value="Angular">Angular</option>
-                  <option value="Cplus">C++</option>
-                  <option value="GameDev">Game Development</option>
-                  <option value="Html">HTML</option>
-                  <option value="Node">NodeJS</option>
-                  <option value="Ruby">Ruby</option>
-                  <option value="CSS">UI/UX</option>
-                </select>
-            </div>
+          <div className="new_event_name-container">
+            <p>Nazwa wydarzenia: </p>
+            <input
+              type="text"
+              value={this.state.title}
+              placeholder="Nazwij wydarzenie"
+              onChange={this.changeTitle}
+            />
+          </div>
+          <div className="new_event_technology-container">
+            <p>Technologia:</p>
+            <select value={this.state.value} onChange={this.changeSelect}>
+              <option value="JavaScript">JavaScript</option>
+              <option value="Python">Python</option>
+              <option value="Java">Java</option>
+              <option value="SQL">SQL</option>
+              <option value="PHP">PHP</option>
+              <option value="React">React</option>
+              <option value="Angular">Angular</option>
+              <option value="Cplus">C++</option>
+              <option value="GameDev">Game Development</option>
+              <option value="Html">HTML</option>
+              <option value="Node">NodeJS</option>
+              <option value="Ruby">Ruby</option>
+              <option value="CSS">UI/UX</option>
+            </select>
+          </div>
           <div className="new_event_time_date_picker">
             <p>Data: </p><input type="date" value={this.state.date} onChange={this.changeDate} />
             <p>Godzina: </p><input type="time" value={this.state.time} onChange={this.changeTime} />
@@ -268,7 +269,7 @@ class NewEventDisplay extends Component {
           </button>
           </div>
         </div>
-        </div>
+      </div>
     </div>
     )
   }
