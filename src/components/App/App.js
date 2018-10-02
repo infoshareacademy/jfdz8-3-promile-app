@@ -142,11 +142,11 @@ class App extends Component {
       <div className="App" >
         <div className="top_bar">
           <img
-              alt="logo"
-              className="top_bar_logo"
-              src={Logo}
-              title="O projekcie"
-              onClick={() => this.toggleListItem()}
+            alt="logo"
+            className="top_bar_logo"
+            src={Logo}
+            title="O projekcie"
+            onClick={() => this.toggleListItem()}
           />
           <span
             className="logo_text"
@@ -155,14 +155,14 @@ class App extends Component {
             <span className="logo_text_it">it</span>
           </span>
           <input
-              className = "event_search-input"
-              type = "text"
-              placeholder = 'Wyszukaj...'
-              value={this.state.search}
-              onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
+            className = "event_search-input"
+            type = "text"
+            placeholder = 'Wyszukaj...'
+            value={this.state.search}
+            onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
             {
-                this.state.user &&
+              this.state.user &&
                 <ButtonsUserEvents
                   getUserCreatedEvents={this.getUserCreatedEvents}
                   getEventsUserAttend={this.getEventsUserAttend}
@@ -174,8 +174,9 @@ class App extends Component {
                   userHasFavorites={this.state.userHasFavoriteEvents}
                 />
             }
-          <Login getUser={this.handleUser}
-                 getEvents={this.getEvents}
+          <Login
+            getUser={this.handleUser}
+            getEvents={this.getEvents}
           />
         </div>
           <div className="list_container">
@@ -183,30 +184,29 @@ class App extends Component {
               !this.state.logoClicked ?
               (
               <ListItem
-              eventsList={
-                  searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
-                          event.id === this.state.clickedEvent.id
-                      )
-                  )}
-              revertView={this.handleRevertView}
-              eventClicked={this.state.clickedEvent}
-              handleCallback={this.handleCallback}
-              user={this.state.user}
-              getEvents={this.getEvents}
-              handleCloseItem={this.handleCloseItem}
-            />
+                eventsList={
+                    searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
+                            event.id === this.state.clickedEvent.id
+                        )
+                    )}
+                revertView={this.handleRevertView}
+                eventClicked={this.state.clickedEvent}
+                handleCallback={this.handleCallback}
+                user={this.state.user}
+                getEvents={this.getEvents}
+                handleCloseItem={this.handleCloseItem}
+              />
               ) : (
                 <AboutPage />  
               )
-        
             }
           </div>
           <NewEventDisplay
-               events={this.state.events}
-               getEvents={this.getEvents}
-               callback={this.handleCallback}
-               clickedEvent={this.state.clickedEvent}
-               user={this.state.user}
+            events={this.state.events}
+            getEvents={this.getEvents}
+            callback={this.handleCallback}
+            clickedEvent={this.state.clickedEvent}
+            user={this.state.user}
           />
           <BottomBar />
           <ToastContainer autoClose={1500}/>

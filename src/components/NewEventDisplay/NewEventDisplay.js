@@ -207,27 +207,27 @@ class NewEventDisplay extends Component {
             <div className="new_event_name-container">
                 <p>Nazwa wydarzenia: </p>
                 <input
-                    type="text"
-                    value={this.state.title}
-                    placeholder="Nazwij wydarzenie"
-                    onChange={this.changeTitle}/>
+                  type="text"
+                  value={this.state.title}
+                  placeholder="Nazwij wydarzenie"
+                  onChange={this.changeTitle}/>
             </div>
             <div className="new_event_technology-container">
                 <p>Technologia:</p>
                 <select value={this.state.value} onChange={this.changeSelect}>
-                    <option value="JavaScript">JavaScript</option>
-                    <option value="Python">Python</option>
-                    <option value="Java">Java</option>
-                    <option value="SQL">SQL</option>
-                    <option value="PHP">PHP</option>
-                    <option value="React">React</option>
-                    <option value="Angular">Angular</option>
-                    <option value="Cplus">C++</option>
-                    <option value="GameDev">Game Development</option>
-                    <option value="Html">HTML</option>
-                    <option value="Node">NodeJS</option>
-                    <option value="Ruby">Ruby</option>
-                    <option value="CSS">UI/UX</option>
+                  <option value="JavaScript">JavaScript</option>
+                  <option value="Python">Python</option>
+                  <option value="Java">Java</option>
+                  <option value="SQL">SQL</option>
+                  <option value="PHP">PHP</option>
+                  <option value="React">React</option>
+                  <option value="Angular">Angular</option>
+                  <option value="Cplus">C++</option>
+                  <option value="GameDev">Game Development</option>
+                  <option value="Html">HTML</option>
+                  <option value="Node">NodeJS</option>
+                  <option value="Ruby">Ruby</option>
+                  <option value="CSS">UI/UX</option>
                 </select>
             </div>
           <div className="new_event_time_date_picker">
@@ -235,35 +235,36 @@ class NewEventDisplay extends Component {
             <p>Godzina: </p><input type="time" value={this.state.time} onChange={this.changeTime} />
             <p>Adres: </p><input type="address" value={this.state.address} onChange={this.addAddress} />
           </div>
-            <div className="new_event_tags_and_slots-container">
-          <div className="new_event_number_of_slots">
-            <input type="text" placeholder="Liczba uczestników" value={this.state.slots}  onChange={this.handleAttendeesInput} onBlur={this.addAttendees}/>
-          </div>
-          <div className="new_event_tags">
-            <input type="text"
-                   placeholder="Tagi (po przecinku)"
-                   value={this.state.tags}
-                   onChange={this.addTags}
-            />
-          </div>
+          <div className="new_event_tags_and_slots-container">
+            <div className="new_event_number_of_slots">
+              <input type="text" placeholder="Liczba uczestników" value={this.state.slots}  onChange={this.handleAttendeesInput} onBlur={this.addAttendees}/>
             </div>
+            <div className="new_event_tags">
+              <input 
+                type="text"
+                placeholder="Tagi (po przecinku)"
+                value={this.state.tags}
+                onChange={this.addTags}
+              />
+            </div>
+          </div>
             <div className="new_event_description">
-                <textarea
-                    value={this.state.description}
-                    onChange={this.changeDescription}
-                    rows="10"
-                    cols="40"/>
+              <textarea
+                value={this.state.description}
+                onChange={this.changeDescription}
+                rows="10"
+                cols="40"/>
             </div>
           <div className="add_event_buttons-container">
           <button
-              className="add_event_on_map"
-              onClick={this.toggleMapBlock}>
-              Dodaj na mapie
+            className="add_event_on_map"
+            onClick={this.toggleMapBlock}>
+            Dodaj na mapie
           </button>
           <button
-              className="add_event_create_event"
-              onClick={this.validateInputs}>
-              Utwórz wydarzenie!
+            className="add_event_create_event"
+            onClick={this.validateInputs}>
+            Utwórz wydarzenie!
           </button>
           </div>
         </div>
