@@ -71,8 +71,27 @@ class NewEventDisplay extends Component {
     return textInputsCheck || arrayInputsCheck ?
       toast.error('Niektóre pola nie zostały wypełnione!') :
       this.addEvent(event)
+
       ;
   };
+
+  clearInputs = () => {
+    this.setState({
+      events: [],
+      visible: false,
+      mapBlocked: true,
+      title: '',
+      address: '',
+      technology: 'JavaScript',
+      coordinates: [],
+      slots: '',
+      arePlacesAvailable: true,
+      description: '',
+      date: this.defaultDate(),
+      time: this.defaultTime(),
+      tags: [],
+    })
+  }
 
   showNewEventPanel = () => {
     this.setState({
@@ -88,6 +107,7 @@ class NewEventDisplay extends Component {
 
   addEvent = (event) => {
     event.preventDefault();
+    this.clearInputs()
     const newEvent = {
       title: this.state.title,
       technology: this.state.technology,
