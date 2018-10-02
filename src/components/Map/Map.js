@@ -152,10 +152,10 @@ class MainMap extends Component {
               position =>  <Marker key={position.toString()} position={position} />
             )
           }
-          <div className="geo_button-container">
+        </Map>
+        <div className="geo_button-container">
             <button className="geo_button" onClick={this.findLocation}></button>
           </div>
-        </Map>
       </div>
     );
   }
