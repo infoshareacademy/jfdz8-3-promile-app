@@ -20,6 +20,7 @@ class App extends Component {
     user: null,
     userCreatedEvents: false,
     userAttendedEvents: false,
+    logoClicked: false
   };
 
   getEvents = () => {
@@ -122,6 +123,12 @@ class App extends Component {
       user: user,
     })
   };
+
+  toggleListItem = () => {
+    this.setState({
+      logoClicked: !this.state.logoClicked
+    })
+  }
   
   render() {
       const searchCriteria = this.state.events.filter(
@@ -131,7 +138,7 @@ class App extends Component {
                     || event.title.toLowerCase().indexOf(this.state.search) !== -1
         });
     return (
-      <div className="App">
+      <div className="App" onClick={() => this.toggleListItem()}>
         <div className="top_bar">
           <img
               alt="logo"
@@ -169,19 +176,23 @@ class App extends Component {
           />
         </div>
           <div className="list_container">
+            {
+              !this.state.logoClicked &&
               <ListItem
-                  eventsList={
-                      searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
-                              event.id === this.state.clickedEvent.id
-                          )
-                      )}
-                  revertView={this.handleRevertView}
-                  eventClicked={this.state.clickedEvent}
-                  handleCallback={this.handleCallback}
-                  user={this.state.user}
-                  getEvents={this.getEvents}
-                  handleCloseItem={this.handleCloseItem}
-              />
+              eventsList={
+                  searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
+                          event.id === this.state.clickedEvent.id
+                      )
+                  )}
+              revertView={this.handleRevertView}
+              eventClicked={this.state.clickedEvent}
+              handleCallback={this.handleCallback}
+              user={this.state.user}
+              getEvents={this.getEvents}
+              handleCloseItem={this.handleCloseItem}
+          />
+            }
+
           </div>
           <NewEventDisplay
                events={this.state.events}
