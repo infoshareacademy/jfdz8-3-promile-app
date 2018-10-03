@@ -21,7 +21,8 @@ class App extends Component {
     user: null,
     userCreatedEvents: false,
     userAttendedEvents: false,
-    logoClicked: false
+    logoClicked: false,
+    sortedByPlaces: false
   };
 
   getEvents = () => {
@@ -40,6 +41,7 @@ class App extends Component {
         userCreatedEvents: false,
         userAttendedEvents: false,
         userHasFavoriteEvents: false,
+        sortedByPlaces: false
       })
     })
   };
@@ -99,6 +101,16 @@ class App extends Component {
       }
     })
   };
+
+  sortByPlaces = () => {
+    const events = [...this.state.events]
+    const sortedEvents = events.sort((a, b) => b.freeSlots - a.freeSlots)
+    console.log(sortedEvents.map(item => item.freeSlots))
+    this.setState({
+      events: sortedEvents,
+      sortedByPlaces: true
+    })
+  }
 
   componentDidMount() {
     this.getEvents()
@@ -175,6 +187,8 @@ class App extends Component {
                   userEvents={this.state.userCreatedEvents}
                   userAttend={this.state.userAttendedEvents}
                   userHasFavorites={this.state.userHasFavoriteEvents}
+                  sortByPlaces={this.sortByPlaces}
+                  sortedByPlaces={this.state.sortedByPlaces}
                 />
             }
           <Login
