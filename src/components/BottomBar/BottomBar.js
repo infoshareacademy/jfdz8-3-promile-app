@@ -4,12 +4,10 @@ class BottomBar extends Component {
 
   handleIdOfClickedLogo = (technology) => {
     this.props.getClickedLogoTechnology(technology)
-      console.log(this.props.logoClicked)
   }
 
     getEvents = () => {
       this.props.getEvents()
-        console.log("ss")
     }
 
   render () {
