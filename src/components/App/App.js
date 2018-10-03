@@ -105,7 +105,6 @@ class App extends Component {
   sortByPlaces = () => {
     const events = [...this.state.events]
     const sortedEvents = events.sort((a, b) => b.freeSlots - a.freeSlots)
-    console.log(sortedEvents.map(item => item.freeSlots))
     this.setState({
       events: sortedEvents,
       sortedByPlaces: true
