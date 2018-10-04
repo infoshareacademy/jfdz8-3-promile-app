@@ -78,10 +78,10 @@ class MainMap extends Component {
     })};
 
   componentDidUpdate(nextProps) {
-    if (nextProps.clicked !== this.props.clicked) {
+    if ((nextProps.clicked !== this.props.clicked) || nextProps.userCoords !== this.props.userCoords) {
       this.setState({
         activeEvent: this.props.clicked,
-        userCoordinates: this.props.clicked.coordinates,
+        userCoordinates: this.props.clicked.coordinates || this.props.userCoords,
         zoom: 15,
       })
     }
@@ -98,11 +98,11 @@ class MainMap extends Component {
   countDaysToStart = () => {
     const today = new Date()
     const startDate = new Date(this.state.eventDateForPopup)
-      if ((Math.floor((startDate - today) / (1000 * 60 * 60 * 24))) <= 0) {
-          return 0
-      } else {
-          return (Math.floor((startDate - today) / (1000 * 60 * 60 * 24)))
-      }
+    if ((Math.floor((startDate - today) / (1000 * 60 * 60 * 24))) <= 0) {
+      return 0
+    } else {
+      return (Math.floor((startDate - today) / (1000 * 60 * 60 * 24)))
+    }
   }
 
   render() {
@@ -162,7 +162,7 @@ class MainMap extends Component {
               position =>  <Marker key={position.toString()} position={position} />
             )
           }
-          {/* {
+          {
             this.props.nearestFound &&
               <Circle 
               center={this.props.userCoords}
@@ -170,7 +170,7 @@ class MainMap extends Component {
               fillColor={"blue"}
               fillOpacity={0.05}
             />
-          } */}
+          }
 
         </Map>
         <div className="geo_button-container">

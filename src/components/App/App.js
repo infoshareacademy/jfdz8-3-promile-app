@@ -122,6 +122,7 @@ class App extends Component {
        L.latLng(userCoords)
        .distanceTo(event.coordinates) < this.state.nearestRadius)
     this.setState({
+      userCoordinates: userCoords,
       events: closestEvents,
       nearestFound: !this.state.nearestFound
     })
@@ -249,7 +250,7 @@ class App extends Component {
             callback={this.handleCallback}
             clickedEvent={this.state.clickedEvent}
             user={this.state.user}
-            userCoords={this.state.userCoords}
+            userCoords={this.state.userCoordinates}
             nearestFound={this.state.nearestFound}
           />
           <BottomBar />
