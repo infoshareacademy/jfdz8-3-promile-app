@@ -26,12 +26,8 @@ class ButtonsUserEvents extends Component {
     this.props.sortByPlaces()
   }
 
-  findNearest = () => {
-    this.props.revertView()
-    this.props.findNearest()
-  }
-
   searchForNearest = () => {
+    this.props.revertView()
     this.props.searchForNearest()
   }
 
@@ -66,14 +62,18 @@ class ButtonsUserEvents extends Component {
 
         <button
           className="event_user_button my_favourite_events"
-          onClick={ () => this.props.sortedByPlaces ? this.props.getEvents() : this.sortByPlaces()}
+          onClick={ () => this.props.sortedByPlaces ?
+                          this.props.getEvents() : 
+                          this.sortByPlaces()}
         >
         {this.props.sortedByPlaces ? 'Wróć' : 'Sortuj według wolnych miejsc'}
         </button>
 
         <button
           className="event_user_button my_favourite_events"
-          onClick={ () => this.props.nearestFound ? this.props.getEvents() : this.searchForNearest()}
+          onClick={ () => this.props.nearestFound ?
+                          this.props.getEvents() : 
+                          this.searchForNearest()}
         >
         {this.props.nearestFound ? 'Wróć' : 'Znajdź w Twojej okolicy'}
         </button>

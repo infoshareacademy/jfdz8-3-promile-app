@@ -121,7 +121,8 @@ class App extends Component {
        L.latLng(userCoords)
        .distanceTo(event.coordinates) < this.state.nearestRadius)
     this.setState({
-      events: closestEvents
+      events: closestEvents,
+      nearestFound: true
     })
   }
 
@@ -133,40 +134,36 @@ class App extends Component {
   }
 }
 
-  searchForNearest = () => {
-    this.findLocation()
-  }
+componentDidMount() {
+  this.getEvents()
+}
 
-  componentDidMount() {
-    this.getEvents()
-  }
+handleCallback = (data) => {
+  this.setState({
+    clickedEvent: data,
+  })};
 
-  handleCallback = (data) => {
-    this.setState({
-      clickedEvent: data,
-    })};
+handleRevertView = () => {
+  this.setState({
+    clickedEvent: ''
+  })};
 
-  handleRevertView = () => {
-    this.setState({
-      clickedEvent: ''
-    })};
+handleSearchCriteria = (event) => {
+  this.setState({
+  search: event.toLowerCase()
+  })};
 
-  handleSearchCriteria = (event) => {
-    this.setState({
-    search: event.toLowerCase()
-    })};
+handleUser = (user) => {
+  this.setState({
+    user: user,
+  })
+};
 
-  handleUser = (user) => {
-    this.setState({
-      user: user,
-    })
-  };
-
-  toggleListItem = () => {
-    this.setState({
-      logoClicked: !this.state.logoClicked
-    })
-  }
+toggleListItem = () => {
+  this.setState({
+    logoClicked: !this.state.logoClicked
+  })
+}
   
   render() {
       const searchCriteria = this.state.events.filter(
@@ -214,8 +211,8 @@ class App extends Component {
                   userHasFavorites={this.state.userHasFavoriteEvents}
                   sortByPlaces={this.sortByPlaces}
                   sortedByPlaces={this.state.sortedByPlaces}
-                  findNearest={this.findNearest}
-                  searchForNearest={this.searchForNearest}
+                  nearestFound={this.state.nearestFound}
+                  searchForNearest={this.findLocation}
                 />
             }
           <Login
@@ -251,8 +248,6 @@ class App extends Component {
             callback={this.handleCallback}
             clickedEvent={this.state.clickedEvent}
             user={this.state.user}
-            findNearest={this.findNearest}
-            searchForNearest={this.searchForNearest}
           />
           <BottomBar />
           <ToastContainer autoClose={1500}/>
