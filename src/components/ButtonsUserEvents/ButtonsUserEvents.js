@@ -31,6 +31,10 @@ class ButtonsUserEvents extends Component {
     this.props.findNearest()
   }
 
+  searchForNearest = () => {
+    this.props.searchForNearest()
+  }
+
   render() {
     return(
       <div className="event_user_buttons-container">
@@ -69,7 +73,7 @@ class ButtonsUserEvents extends Component {
 
         <button
           className="event_user_button my_favourite_events"
-          onClick={ () => this.props.nearestFound ? this.props.getEvents() : this.findNearest()}
+          onClick={ () => this.props.nearestFound ? this.props.getEvents() : this.searchForNearest()}
         >
         {this.props.nearestFound ? 'Wróć' : 'Znajdź w Twojej okolicy'}
         </button>

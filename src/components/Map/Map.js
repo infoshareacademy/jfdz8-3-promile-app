@@ -42,7 +42,6 @@ class MainMap extends Component {
     activeEvent: this.props.clicked,
     zoom: 6,
     eventDateForPopup: "",
-    nearestRadius: 10000
   };
 
   clickHandler = (e) => {
@@ -55,6 +54,7 @@ class MainMap extends Component {
   };
 
   findNearest = () => {
+    console.log('E')
     this.findLocation()
     const events = this.props.events
     const closestEvents = events.filter(event =>

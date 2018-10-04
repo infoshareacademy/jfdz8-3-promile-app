@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import L from 'leaflet';
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css';
 import '../AvailableSlots/AvailableSlots.css'
@@ -17,6 +18,8 @@ class App extends Component {
   state = {
     search: '',
     events: [],
+    userCoordinates: [],
+    nearestRadius: 10000,
     clickedEvent: '',
     user: null,
     userCreatedEvents: false,
@@ -112,8 +115,26 @@ class App extends Component {
     })
   }
 
-  findNearest = () => {
+  findNearest = (userCoords) => {
+    const events = this.state.events
+    const closestEvents = events.filter(event =>
+       L.latLng(userCoords)
+       .distanceTo(event.coordinates) < this.state.nearestRadius)
+    this.setState({
+      events: closestEvents
+    })
+  }
 
+  findLocation = () => {
+    if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(position => {
+      this.findNearest([position.coords.latitude, position.coords.longitude])
+    })
+  }
+}
+
+  searchForNearest = () => {
+    this.findLocation()
   }
 
   componentDidMount() {
@@ -194,6 +215,7 @@ class App extends Component {
                   sortByPlaces={this.sortByPlaces}
                   sortedByPlaces={this.state.sortedByPlaces}
                   findNearest={this.findNearest}
+                  searchForNearest={this.searchForNearest}
                 />
             }
           <Login
@@ -229,6 +251,8 @@ class App extends Component {
             callback={this.handleCallback}
             clickedEvent={this.state.clickedEvent}
             user={this.state.user}
+            findNearest={this.findNearest}
+            searchForNearest={this.searchForNearest}
           />
           <BottomBar />
           <ToastContainer autoClose={1500}/>
