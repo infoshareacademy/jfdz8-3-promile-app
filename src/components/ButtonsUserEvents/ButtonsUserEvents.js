@@ -59,7 +59,7 @@ class ButtonsUserEvents extends Component {
             className="event_user_button my_favourite_events"
             onClick={ () => this.props.sortedByPlaces ? this.props.getEvents() : this.sortByPlaces()}
         >
-          {this.props.sortedByPlaces ? 'Wszystkie wydarzenia' : 'Sortuj według miejsc'}
+          {this.props.sortedByPlaces ? 'Wróć' : 'Sortuj według wolnych miejsc'}
         </button>
         
       </div>
