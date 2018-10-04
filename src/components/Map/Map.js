@@ -78,10 +78,10 @@ class MainMap extends Component {
     })};
 
   componentDidUpdate(nextProps) {
-    if ((nextProps.clicked !== this.props.clicked) || nextProps.userCoords !== this.props.userCoords) {
+    if ((nextProps.clicked !== this.props.clicked || nextProps.userCoords !== this.props.userCoords)) {
       this.setState({
         activeEvent: this.props.clicked,
-        userCoordinates: this.props.clicked.coordinates || this.props.userCoords,
+        userCoordinates: this.props.clicked.coordinates || this.showUserPosition(this.props.userCoords),
         zoom: 15,
       })
     }
