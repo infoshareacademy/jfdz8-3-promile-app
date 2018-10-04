@@ -45,7 +45,8 @@ class App extends Component {
         userCreatedEvents: false,
         userAttendedEvents: false,
         userHasFavoriteEvents: false,
-        sortedByPlaces: false
+        sortedByPlaces: false,
+        nearestFound: false
       })
     })
   };
@@ -122,7 +123,7 @@ class App extends Component {
        .distanceTo(event.coordinates) < this.state.nearestRadius)
     this.setState({
       events: closestEvents,
-      nearestFound: true
+      nearestFound: !this.state.nearestFound
     })
   }
 
@@ -248,6 +249,8 @@ class App extends Component {
             callback={this.handleCallback}
             clickedEvent={this.state.clickedEvent}
             user={this.state.user}
+            userCoords={this.state.userCoords}
+            nearestFound={this.state.nearestFound}
           />
           <BottomBar />
           <ToastContainer autoClose={1500}/>

@@ -162,12 +162,16 @@ class MainMap extends Component {
               position =>  <Marker key={position.toString()} position={position} />
             )
           }
-          <Circle 
-            center={this.state.userCoordinates}
-            radius={this.state.nearestRadius}
-            fillColor={"blue"}
-            fillOpacity={0.05}
-          />
+          {/* {
+            this.props.nearestFound &&
+              <Circle 
+              center={this.props.userCoords}
+              radius={10000}
+              fillColor={"blue"}
+              fillOpacity={0.05}
+            />
+          } */}
+
         </Map>
         <div className="geo_button-container">
             <button className="geo_button" onClick={this.findLocation}></button>
