@@ -15,6 +15,7 @@ import cssIcon from '../../images/tech_icons/css_icon.png'
 import reactIcon from '../../images/tech_icons/react_icon.png'
 import { database } from '../FirebaseConfig/FirebaseConfig'
 import { toast } from 'react-toastify';
+import EventShortView from '../EventShortView/EventShortView';
 
 const icons = {
   Python: pyIcon,
@@ -86,21 +87,10 @@ class ListItem extends Component {
             className="single-event"
             onClick={() => this.state.clicked ? false : this.handleClickCallback(event)}
           >
-            <div className="event_short_view">
-                <div className="event_short_view-container">
-                  <div className="event_title">
-                      <p>{event.title}</p>
-                      <div
-                        className="event_technology">
-                        {event.technology}
-                      </div>
-                  </div>
-                </div>
-                <span
-                  className="technology_logo">
-                  <img alt="technology icon" src={icons[event.technology]} />
-                </span>
-            </div>
+            <EventShortView
+              event={event}
+              icons={icons}
+            />
 
             {
               this.props.user &&

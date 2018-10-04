@@ -21,6 +21,11 @@ class ButtonsUserEvents extends Component {
     this.props.getEvents()
   };
 
+  sortByPlaces = () => {
+    this.props.revertView()
+    this.props.sortByPlaces()
+  }
+
   render() {
     return(
       <div className="event_user_buttons-container">
@@ -49,6 +54,14 @@ class ButtonsUserEvents extends Component {
         >
           {this.props.userHasFavorites ? 'Wszystkie wydarzenia' : 'Pokaż ulubione'}
         </button>
+
+          <button
+            className="event_user_button my_favourite_events"
+            onClick={ () => this.props.sortedByPlaces ? this.props.getEvents() : this.sortByPlaces()}
+        >
+          {this.props.sortedByPlaces ? 'Wróć' : 'Sortuj według wolnych miejsc'}
+        </button>
+        
       </div>
     )
   }

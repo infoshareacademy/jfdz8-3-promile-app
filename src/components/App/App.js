@@ -10,6 +10,7 @@ import ButtonsUserEvents from "../ButtonsUserEvents/ButtonsUserEvents";
 import { ToastContainer, toast } from 'react-toastify'
 import Logo from "../../images/logo/LOGO1.png";
 import BottomBar from "../BottomBar/BottomBar";
+import AboutPage from '../AboutPage/AboutPage';
 
 class App extends Component {
 
@@ -20,7 +21,8 @@ class App extends Component {
     user: null,
     userCreatedEvents: false,
     userAttendedEvents: false,
-    logoClicked: false
+    logoClicked: false,
+    sortedByPlaces: false
   };
 
   getEvents = () => {
@@ -39,6 +41,7 @@ class App extends Component {
         userCreatedEvents: false,
         userAttendedEvents: false,
         userHasFavoriteEvents: false,
+        sortedByPlaces: false,
         logoClicked: false
       })
     })
@@ -110,6 +113,15 @@ class App extends Component {
     })
   };
 
+  sortByPlaces = () => {
+    const events = [...this.state.events]
+    const sortedEvents = events.sort((a, b) => b.freeSlots - a.freeSlots)
+    this.setState({
+      events: sortedEvents,
+      sortedByPlaces: true
+    })
+  }
+
   componentDidMount() {
     this.getEvents()
   }
@@ -134,7 +146,13 @@ class App extends Component {
       user: user,
     })
   };
-  
+
+  toggleListItem = () => {
+    this.setState({
+      logoClicked: !this.state.logoClicked
+    })
+  }
+
   render() {
       const searchCriteria = this.state.events.filter(
           (event) => {
@@ -143,28 +161,33 @@ class App extends Component {
                     || event.title.toLowerCase().indexOf(this.state.search) !== -1
         });
     return (
-      <div className="App">
+      <div className="App" >
         <div className="top_bar">
           <img
-              alt="logo"
-              className="top_bar_logo"
-              src={Logo}
+            alt="logo"
+            className="top_bar_logo"
+            src={Logo}
+            title="O projekcie"
+            onClick={() => this.toggleListItem()}
           />
           <span
             className="logo_text"
           >
               We got
-            <span className="logo_text_it">it</span>
+          <span
+            className="logo_text_it"
+          >it
+          </span>
           </span>
           <input
-              className = "event_search-input"
-              type = "text"
-              placeholder = 'Wyszukaj...'
-              value={this.state.search}
-              onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
+            className = "event_search-input"
+            type = "text"
+            placeholder = 'Wyszukaj...'
+            value={this.state.search}
+            onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
             {
-                this.state.user &&
+              this.state.user &&
                 <ButtonsUserEvents
                   getUserCreatedEvents={this.getUserCreatedEvents}
                   getEventsUserAttend={this.getEventsUserAttend}
@@ -174,33 +197,43 @@ class App extends Component {
                   userEvents={this.state.userCreatedEvents}
                   userAttend={this.state.userAttendedEvents}
                   userHasFavorites={this.state.userHasFavoriteEvents}
+                  sortByPlaces={this.sortByPlaces}
+                  sortedByPlaces={this.state.sortedByPlaces}
                 />
             }
-          <Login getUser={this.handleUser}
-                 getEvents={this.getEvents}
+          <Login
+            getUser={this.handleUser}
+            getEvents={this.getEvents}
           />
         </div>
           <div className="list_container">
+            {
+              !this.state.logoClicked ?
+              (
               <ListItem
-                  eventsList={
-                      searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
-                              event.id === this.state.clickedEvent.id
-                          )
-                      )}
-                  revertView={this.handleRevertView}
-                  eventClicked={this.state.clickedEvent}
-                  handleCallback={this.handleCallback}
-                  user={this.state.user}
-                  getEvents={this.getEvents}
-                  handleCloseItem={this.handleCloseItem}
+                eventsList={
+                    searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
+                            event.id === this.state.clickedEvent.id
+                        )
+                    )}
+                revertView={this.handleRevertView}
+                eventClicked={this.state.clickedEvent}
+                handleCallback={this.handleCallback}
+                user={this.state.user}
+                getEvents={this.getEvents}
+                handleCloseItem={this.handleCloseItem}
               />
+              ) : (
+                <AboutPage />
+              )
+            }
           </div>
           <NewEventDisplay
-               events={this.state.events}
-               getEvents={this.getEvents}
-               callback={this.handleCallback}
-               clickedEvent={this.state.clickedEvent}
-               user={this.state.user}
+            events={this.state.events}
+            getEvents={this.getEvents}
+            callback={this.handleCallback}
+            clickedEvent={this.state.clickedEvent}
+            user={this.state.user}
           />
           <BottomBar
               getClickedLogoTechnology={this.getClickedLogoTechnology}
