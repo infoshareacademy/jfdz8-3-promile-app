@@ -71,7 +71,7 @@ class App extends Component {
   getClickedLogoTechnology = (technology) => {
     const events = this.state.events
     const eventWithClickedTechnology = events.filter(event => event.technology === technology)
-    eventWithClickedTechnology.length === 0 ? toast.error("Nie ma żadnych wydarzeń dla tej technologii") :
+    eventWithClickedTechnology.length === 0 ? this.getEvents() :
     this.setState({
         events: eventWithClickedTechnology,
         techLogoClicked: !this.state.techLogoClicked
