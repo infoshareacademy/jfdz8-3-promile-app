@@ -22,7 +22,8 @@ class App extends Component {
     userCreatedEvents: false,
     userAttendedEvents: false,
     logoClicked: false,
-    sortedByPlaces: false
+    sortedByPlaces: false,
+    techLogoClicked: false
   };
 
   getEvents = () => {
@@ -42,7 +43,8 @@ class App extends Component {
         userAttendedEvents: false,
         userHasFavoriteEvents: false,
         sortedByPlaces: false,
-        logoClicked: false
+        logoClicked: false,
+        techLogoClicked: false
       })
     })
   };
@@ -72,7 +74,7 @@ class App extends Component {
     eventWithClickedTechnology.length === 0 ? toast.error("Nie ma żadnych wydarzeń dla tej technologii") :
     this.setState({
         events: eventWithClickedTechnology,
-        logoClicked: !this.state.logoClicked
+        techLogoClicked: !this.state.techLogoClicked
     })
   }
 
@@ -237,7 +239,7 @@ class App extends Component {
           />
           <BottomBar
               getClickedLogoTechnology={this.getClickedLogoTechnology}
-              logoClicked={this.state.logoClicked}
+              logoClicked={this.state.techLogoClicked}
               revertView={this.handleRevertView}
               getEvents={this.getEvents}
           />
