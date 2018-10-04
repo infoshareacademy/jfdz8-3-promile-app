@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Map, Marker, Popup, TileLayer} from 'react-leaflet'
+import {Map, Marker, Popup, TileLayer, Circle} from 'react-leaflet'
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import pyIcon from '../../images/tech_icons/python_icon.png'
@@ -41,7 +41,8 @@ class MainMap extends Component {
     userCoordinates: [54.5, 18.5],
     activeEvent: this.props.clicked,
     zoom: 6,
-    eventDateForPopup: ""
+    eventDateForPopup: "",
+    nearestRadius: 10000
   };
 
   clickHandler = (e) => {
@@ -52,6 +53,15 @@ class MainMap extends Component {
       toast.error("Mapa jest zablokowana")
     }
   };
+
+  findNearest = () => {
+    this.findLocation()
+    const events = this.props.events
+    const closestEvents = events.filter(event =>
+       L.latLng(this.state.userCoordinates)
+       .distanceTo(event.coordinates) < this.state.nearestRadius)
+    return closestEvents
+  }
 
   handleClickCallback = data => {
     this.props.handleCallback(data);
@@ -152,6 +162,12 @@ class MainMap extends Component {
               position =>  <Marker key={position.toString()} position={position} />
             )
           }
+          <Circle 
+            center={this.state.userCoordinates}
+            radius={this.state.nearestRadius}
+            fillColor={"blue"}
+            fillOpacity={0.05}
+          />
         </Map>
         <div className="geo_button-container">
             <button className="geo_button" onClick={this.findLocation}></button>

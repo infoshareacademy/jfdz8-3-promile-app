@@ -22,7 +22,8 @@ class App extends Component {
     userCreatedEvents: false,
     userAttendedEvents: false,
     logoClicked: false,
-    sortedByPlaces: false
+    sortedByPlaces: false,
+    nearestFound: false
   };
 
   getEvents = () => {
@@ -111,6 +112,10 @@ class App extends Component {
     })
   }
 
+  findNearest = () => {
+
+  }
+
   componentDidMount() {
     this.getEvents()
   }
@@ -188,6 +193,7 @@ class App extends Component {
                   userHasFavorites={this.state.userHasFavoriteEvents}
                   sortByPlaces={this.sortByPlaces}
                   sortedByPlaces={this.state.sortedByPlaces}
+                  findNearest={this.findNearest}
                 />
             }
           <Login
