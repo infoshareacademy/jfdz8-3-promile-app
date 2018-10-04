@@ -128,42 +128,42 @@ class App extends Component {
 
   findLocation = () => {
     if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(position => {
-      this.findNearest([position.coords.latitude, position.coords.longitude])
+      navigator.geolocation.getCurrentPosition(position => {
+        this.findNearest([position.coords.latitude, position.coords.longitude])
+      })
+    }
+  }
+
+  componentDidMount() {
+    this.getEvents()
+  }
+
+  handleCallback = (data) => {
+    this.setState({
+      clickedEvent: data,
+    })};
+
+  handleRevertView = () => {
+    this.setState({
+      clickedEvent: ''
+    })};
+
+  handleSearchCriteria = (event) => {
+    this.setState({
+    search: event.toLowerCase()
+    })};
+
+  handleUser = (user) => {
+    this.setState({
+      user: user,
+    })
+  };
+
+  toggleListItem = () => {
+    this.setState({
+      logoClicked: !this.state.logoClicked
     })
   }
-}
-
-componentDidMount() {
-  this.getEvents()
-}
-
-handleCallback = (data) => {
-  this.setState({
-    clickedEvent: data,
-  })};
-
-handleRevertView = () => {
-  this.setState({
-    clickedEvent: ''
-  })};
-
-handleSearchCriteria = (event) => {
-  this.setState({
-  search: event.toLowerCase()
-  })};
-
-handleUser = (user) => {
-  this.setState({
-    user: user,
-  })
-};
-
-toggleListItem = () => {
-  this.setState({
-    logoClicked: !this.state.logoClicked
-  })
-}
   
   render() {
       const searchCriteria = this.state.events.filter(

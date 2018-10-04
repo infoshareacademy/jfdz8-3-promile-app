@@ -213,8 +213,6 @@ class NewEventDisplay extends Component {
           getCoordinates={this.getCoordinates}
           handleCallback={this.props.callback}
           clicked={this.props.clickedEvent}
-          findNearest={this.props.findNearest}
-          searchForNearest={this.props.searchForNearest}
         />
         <div className="add_event-container">
           {
