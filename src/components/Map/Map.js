@@ -163,8 +163,9 @@ class MainMap extends Component {
               <Circle 
               center={this.props.userCoords}
               radius={3000}
-              fillColor={"blue"}
-              fillOpacity={0.05}
+              fillColor={"#4f6b86"}
+              fillOpacity={0.1}
+              color={'#5ea3ff'}
             />
           }
 
