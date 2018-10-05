@@ -19,7 +19,7 @@ class App extends Component {
     search: '',
     events: [],
     userCoordinates: [],
-    nearestRadius: 10000,
+    nearestRadius: 3000,
     clickedEvent: '',
     user: null,
     userCreatedEvents: false,
@@ -117,6 +117,7 @@ class App extends Component {
   }
 
   findNearest = (userCoords) => {
+    console.log(userCoords)
     const events = this.state.events
     const closestEvents = events.filter(event =>
        L.latLng(userCoords)

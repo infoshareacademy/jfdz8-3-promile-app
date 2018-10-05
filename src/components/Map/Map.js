@@ -81,7 +81,7 @@ class MainMap extends Component {
     if ((nextProps.clicked !== this.props.clicked || nextProps.userCoords !== this.props.userCoords)) {
       this.setState({
         activeEvent: this.props.clicked,
-        userCoordinates: this.props.clicked.coordinates || this.showUserPosition(this.props.userCoords),
+        userCoordinates: this.props.clicked.coordinates || this.props.userCoords,
         zoom: 15,
       })
     }
@@ -166,7 +166,7 @@ class MainMap extends Component {
             this.props.nearestFound &&
               <Circle 
               center={this.props.userCoords}
-              radius={10000}
+              radius={3000}
               fillColor={"blue"}
               fillOpacity={0.05}
             />
