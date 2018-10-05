@@ -13,6 +13,12 @@ class AddToFavorites extends Component {
             .on('value', snapshot => !snapshot.val() ? false : this.setState({userFavoriteEvent: true}))
     }
 
+    componentWillUnmount() {
+      this.setState({
+        userFavoriteEvent: false
+      })
+    }
+
     toggleFavorite = () => {
         this.setState({
             userFavoriteEvent: !this.state.userFavoriteEvent

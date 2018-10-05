@@ -48,7 +48,6 @@ class EventDetails extends Component {
       });
       toast.success("Zapisałeś się na wydarzenie")
     } else {
-        toast.warn('Za chwilę wypiszesz się z wydarzenia');
         database.ref(`/events/${id}/freeSlots`)
           .set(this.state.event.freeSlots + 1);
         database.ref(`/users/${this.state.user.uid}/subscribed/${id}`)
@@ -73,21 +72,21 @@ class EventDetails extends Component {
           </div>
           <EventTags tags={this.state.event.tags}/>
           <div className="event_description_container">
-              <p className="event_description">{this.props.singleEvent.description}</p>
-            </div>
-            <div className="event_slots-container">
-              <p>Wolnych miejsc: </p>
-              <AvailableSlots event={this.props.singleEvent}
-                                user={this.props.user}
-              />
-              <p>Maksymalna liczba uczestników {this.props.singleEvent.slots}</p>
-
-            </div>
-          <SubscribeButton userSubscribed={this.state.userSubscribed}
-                           eventId={this.state.event.id}
-                           user={this.state.user}
-                           handleEventSlots={this.handleEventSlots}
-
+            <p className="event_description">{this.props.singleEvent.description}</p>
+          </div>
+          <div className="event_slots-container">
+            <p>Wolnych miejsc: </p>
+            <AvailableSlots
+              event={this.props.singleEvent}
+              user={this.props.user}
+            />
+            <p>Maksymalna liczba uczestników {this.props.singleEvent.slots}</p>
+          </div>
+          <SubscribeButton
+            userSubscribed={this.state.userSubscribed}
+            event={this.state.event}
+            user={this.state.user}
+            handleEventSlots={this.handleEventSlots}
           />
           {
             this.state.user &&
@@ -95,8 +94,6 @@ class EventDetails extends Component {
                             user={this.state.user}
             />
           }
-
-
         </div>
         }
       </div>

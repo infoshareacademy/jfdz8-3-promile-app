@@ -10,6 +10,7 @@ import ButtonsUserEvents from "../ButtonsUserEvents/ButtonsUserEvents";
 import { ToastContainer, toast } from 'react-toastify'
 import Logo from "../../images/logo/LOGO1.png";
 import BottomBar from "../BottomBar/BottomBar";
+import AboutPage from '../AboutPage/AboutPage';
 
 class App extends Component {
 
@@ -20,6 +21,8 @@ class App extends Component {
     user: null,
     userCreatedEvents: false,
     userAttendedEvents: false,
+    logoClicked: false,
+    sortedByPlaces: false
   };
 
   getEvents = () => {
@@ -37,31 +40,53 @@ class App extends Component {
         events: list,
         userCreatedEvents: false,
         userAttendedEvents: false,
-        userHasFavoriteEvents: false
+        userHasFavoriteEvents: false,
+        sortedByPlaces: false
       })
     })
   };
 
   getUserCreatedEvents = () => {
-    const events = this.state.events;
-    const usersEvents = events.filter(event => event.creator === this.state.user.uid);
-    usersEvents.length === 0 ? toast.error("Nie stworzyłeś żadnego wydarzenia") :
-    this.setState({
-      events: usersEvents,
-      userCreatedEvents: true,
-    })
+    this.getEvents()
+    database.ref(`/users/${this.state.user.uid}/created`)
+      .once('value', snapshot => {
+        if (snapshot.exists()) {
+          const value = Object.keys(snapshot.val()) || this.state.events;
+          const events = this.state.events;
+          const userCreated = events.filter(event => value.indexOf(event.id) > -1);
+          this.setState({
+            events: userCreated,
+            userCreatedEvents: true,
+          })
+        }
+        else {
+          toast.error('Nie zapisałeś się na wydarzenia')
+        }
+      })
   };
 
+  getClickedLogoTechnology = (technology) => {
+    this.getEvents()
+    const events = this.state.events
+    const eventWithClickedTechnology = events.filter(event => event.technology === technology)
+    eventWithClickedTechnology.length === 0 ? toast.error("Nie ma żadnych wydarzeń dla tej technologii") :
+    this.setState({
+        events: eventWithClickedTechnology
+    })
+      console.log(technology)
+  }
+
   getEventsUserAttend = () => {
+    this.getEvents()
     database.ref(`/users/${this.state.user.uid}/subscribed`)
-      .on('value', snapshot => {
+      .once('value', snapshot => {
         if (snapshot.exists()) {
           const value = Object.keys(snapshot.val()) || this.state.events;
           const events = this.state.events;
           const userAttends = events.filter(event => value.indexOf(event.id) > -1);
           this.setState({
             events: userAttends,
-            userAttendedEvents: true
+            userAttendedEvents: true,
           })
         }
         else {
@@ -71,25 +96,34 @@ class App extends Component {
   };
 
   getUsersFavoriteEvents = () => {
-      database.ref(`/users/${this.state.user.uid}/favorite/`)
-          .on('value', snapshot => {
-              if (snapshot.exists()) {
-                  const value = Object.keys(snapshot.val()) || this.state.events
-                  const events = this.state.events
-                  const userFavorites = events.filter(event => value.indexOf(event.id) > -1)
-                  this.setState({
-                      events: userFavorites,
-                      userHasFavoriteEvents: true
-                  })
-              }
-              else {
-                  toast.error('Nie obserwujesz żadnych wydarzeń')
-              }
-          })
+    this.getEvents()
+    database.ref(`/users/${this.state.user.uid}/favorite/`)
+    .once('value', snapshot => {
+      if (snapshot.exists()) {
+        const value = Object.keys(snapshot.val()) || this.state.events
+        const events = this.state.events
+        const userFavorites = events.filter(event => value.indexOf(event.id) > -1)
+        this.setState({
+            events: userFavorites,
+            userHasFavoriteEvents: true,
+        })
+      } else {
+        toast.error('Nie obserwujesz żadnych wydarzeń')
+      }
+    })
   };
 
+  sortByPlaces = () => {
+    const events = [...this.state.events]
+    const sortedEvents = events.sort((a, b) => b.freeSlots - a.freeSlots)
+    this.setState({
+      events: sortedEvents,
+      sortedByPlaces: true
+    })
+  }
+
   componentDidMount() {
-  this.getEvents()
+    this.getEvents()
   }
 
   handleCallback = (data) => {
@@ -113,6 +147,12 @@ class App extends Component {
     })
   };
 
+  toggleListItem = () => {
+    this.setState({
+      logoClicked: !this.state.logoClicked
+    })
+  }
+
   render() {
       const searchCriteria = this.state.events.filter(
           (event) => {
@@ -130,49 +170,66 @@ class App extends Component {
           </div>
           <span className="logo_text">We got <span className="logo_text_it">it</span></span>
           <input
-              className = "event_search-input"
-              type = "text"
-              placeholder = 'Wyszukaj...'
-              value={this.state.search}
-              onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
+            className = "event_search-input"
+            type = "text"
+            placeholder = 'Wyszukaj...'
+            value={this.state.search}
+            onChange = {event=>this.handleSearchCriteria(event.currentTarget.value)}
           />
             {
-                this.state.user &&
+              this.state.user &&
                 <ButtonsUserEvents
                   getUserCreatedEvents={this.getUserCreatedEvents}
                   getEventsUserAttend={this.getEventsUserAttend}
                   getUsersFavoriteEvents={this.getUsersFavoriteEvents}
-                  getAllEvents={this.getEvents}
+                  revertView={this.handleRevertView}
+                  getEvents={this.getEvents}
                   userEvents={this.state.userCreatedEvents}
                   userAttend={this.state.userAttendedEvents}
                   userHasFavorites={this.state.userHasFavoriteEvents}
+                  sortByPlaces={this.sortByPlaces}
+                  sortedByPlaces={this.state.sortedByPlaces}
                 />
             }
-          <Login getUser={this.handleUser}/>
+          <Login
+            getUser={this.handleUser}
+            getEvents={this.getEvents}
+          />
         </div>
           <div className="list_container">
+            {
+              !this.state.logoClicked ?
+              (
               <ListItem
-                  eventsList={
-                      searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
-                              event.id === this.state.clickedEvent.id
-                          )
-                      )}
-                  revertView={this.handleRevertView}
-                  eventClicked={this.state.clickedEvent}
-                  handleCallback={this.handleCallback}
-                  user={this.state.user}
-                  getEvents={this.getEvents}
+                eventsList={
+                    searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
+                            event.id === this.state.clickedEvent.id
+                        )
+                    )}
+                revertView={this.handleRevertView}
+                eventClicked={this.state.clickedEvent}
+                handleCallback={this.handleCallback}
+                user={this.state.user}
+                getEvents={this.getEvents}
+                handleCloseItem={this.handleCloseItem}
               />
+              ) : (
+                <AboutPage />
+              )
+            }
           </div>
           <NewEventDisplay
-               events={this.state.events}
-               getEvents={this.getEvents}
-               callback={this.handleCallback}
-               clickedEvent={this.state.clickedEvent}
-               user={this.state.user}
+            events={this.state.events}
+            getEvents={this.getEvents}
+            callback={this.handleCallback}
+            clickedEvent={this.state.clickedEvent}
+            user={this.state.user}
           />
-          <BottomBar />
-          <ToastContainer/>
+          <BottomBar
+              getClickedLogoTechnology={this.getClickedLogoTechnology}
+              getEvents={this.getEvents}
+          />
+          <ToastContainer autoClose={1500}/>
       </div>
     );
   }

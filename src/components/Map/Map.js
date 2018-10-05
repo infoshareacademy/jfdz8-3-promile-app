@@ -40,7 +40,8 @@ class MainMap extends Component {
     userMarkers: [],
     userCoordinates: [54.5, 18.5],
     activeEvent: this.props.clicked,
-    zoom: 6
+    zoom: 6,
+    eventDateForPopup: ""
   };
 
   clickHandler = (e) => {
@@ -55,7 +56,8 @@ class MainMap extends Component {
   handleClickCallback = data => {
     this.props.handleCallback(data);
     this.setState({
-      activeEvent: this.props.clicked
+      activeEvent: this.props.clicked,
+      eventDateForPopup: this.props.clicked.date,
     })
   };
 
@@ -70,7 +72,7 @@ class MainMap extends Component {
       this.setState({
         activeEvent: this.props.clicked,
         userCoordinates: this.props.clicked.coordinates,
-        zoom: 15
+        zoom: 15,
       })
     }
   }
@@ -83,10 +85,20 @@ class MainMap extends Component {
     }
   };
 
+  countDaysToStart = () => {
+    const today = new Date()
+    const startDate = new Date(this.state.eventDateForPopup)
+      if ((Math.floor((startDate - today) / (1000 * 60 * 60 * 24))) <= 0) {
+          return 0
+      } else {
+          return (Math.floor((startDate - today) / (1000 * 60 * 60 * 24)))
+      }
+  }
+
   render() {
     let DefaultIcon = L.icon({
       iconUrl: icon,
-      iconSize: [30, 30],
+      iconSize: [30, 45],
       iconAnchor: [12, 36],
       popupAnchor: [0, -25],
     });
@@ -121,10 +133,16 @@ class MainMap extends Component {
                     }
                     onClick={() => this.handleClickCallback(event)}
             >
-              <Popup className="pop">
+              <Popup className="pop" >
                 <div>
                   <h1>{event.title}</h1>
-                  <p>Technology: {event.technology}</p>
+                  <p>Technologia: {event.technology}</p>
+                  <p>Ilość wolnych miejsc: {event.freeSlots}</p>
+                    <p>
+                      {this.countDaysToStart() === 0 ?
+                      "Wydarzenie jest nieaktualne" :
+                      "Do rozpoczęcia pozostało:" +  this.countDaysToStart() + " dni"}
+                   </p>
                 </div>
               </Popup>
             </Marker>
@@ -134,10 +152,10 @@ class MainMap extends Component {
               position =>  <Marker key={position.toString()} position={position} />
             )
           }
-          <div className="geo_button-container">
+        </Map>
+        <div className="geo_button-container">
             <button className="geo_button" onClick={this.findLocation}></button>
           </div>
-        </Map>
       </div>
     );
   }

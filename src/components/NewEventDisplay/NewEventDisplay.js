@@ -74,6 +74,24 @@ class NewEventDisplay extends Component {
       ;
   };
 
+  clearInputs = () => {
+    this.setState({
+      events: [],
+      visible: false,
+      mapBlocked: true,
+      title: '',
+      address: '',
+      technology: 'JavaScript',
+      coordinates: [],
+      slots: '',
+      arePlacesAvailable: true,
+      description: '',
+      date: this.defaultDate(),
+      time: this.defaultTime(),
+      tags: [],
+    })
+  }
+
   showNewEventPanel = () => {
     this.setState({
       visible: !this.state.visible
@@ -88,6 +106,7 @@ class NewEventDisplay extends Component {
 
   addEvent = (event) => {
     event.preventDefault();
+    this.clearInputs()
     const newEvent = {
       title: this.state.title,
       technology: this.state.technology,
@@ -95,7 +114,7 @@ class NewEventDisplay extends Component {
       address: this.state.address,
       description: this.state.description,
       slots: this.state.slots,
-      freeSlots: this.state.slots,
+      freeSlots: parseInt(this.state.slots, 10),
       date: this.state.date,
       time: this.state.time,
       tags: this.state.tags,
@@ -140,10 +159,26 @@ class NewEventDisplay extends Component {
   };
 
   addAttendees = (event) => {
-    this.setState({
-      slots: event.target.value
-    })
+    if (event.target.value > 10 && event.target.value !== 0 && event.target.value !== 1) {
+      toast.warn("Maksymalna liczba uczestników to 10")
+       event.target.value = '';
+      this.setState({
+          slots: event.target.value
+      })
+    } else if(event.target.value < 2){
+        toast.warn("Minimalna liczba uczestników to 2")
+        event.target.value = '';
+        this.setState({
+            slots: event.target.value
+        })
+    }
   };
+
+  handleAttendeesInput = (event) => {
+      this.setState({
+          slots: event.target.value
+      })
+  }
 
   addAddress = (event) => {
     this.setState({
@@ -232,39 +267,40 @@ class NewEventDisplay extends Component {
               <input type="time" value={this.state.time} onChange={this.changeTime} />
             </div>
           </div>
-            <div className="new_event_tags_and_slots-container">
-          <div className="new_event_number_of_slots">
-            <input type="text" placeholder="Liczba uczestników" value={this.state.slots} onChange={this.addAttendees}/>
-          </div>
-          <div className="new_event_tags">
-            <input type="text"
-                   placeholder="Tagi (po przecinku)"
-                   value={this.state.tags}
-                   onChange={this.addTags}
-            />
-          </div>
+          <div className="new_event_tags_and_slots-container">
+            <div className="new_event_number_of_slots">
+              <input type="text" placeholder="Liczba uczestników" value={this.state.slots}  onChange={this.handleAttendeesInput} onBlur={this.addAttendees}/>
             </div>
+            <div className="new_event_tags">
+              <input
+                type="text"
+                placeholder="Tagi (po przecinku)"
+                value={this.state.tags}
+                onChange={this.addTags}
+              />
+            </div>
+          </div>
             <div className="new_event_description">
-                <textarea
-                    value={this.state.description}
-                    onChange={this.changeDescription}
-                    rows="10"
-                    cols="40"/>
+              <textarea
+                value={this.state.description}
+                onChange={this.changeDescription}
+                rows="10"
+                cols="40"/>
             </div>
           <div className="add_event_buttons-container">
           <button
-              className="add_event_on_map"
-              onClick={this.toggleMapBlock}>
-              Dodaj na mapie
+            className="add_event_on_map"
+            onClick={this.toggleMapBlock}>
+            Dodaj na mapie
           </button>
           <button
-              className="add_event_create_event"
-              onClick={this.validateInputs}>
-              Utwórz wydarzenie!
+            className="add_event_create_event"
+            onClick={this.validateInputs}>
+            Utwórz wydarzenie!
           </button>
           </div>
         </div>
-        </div>
+      </div>
     </div>
     )
   }
