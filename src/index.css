@@ -88,7 +88,7 @@ body {
 
 .new_event_tags_and_slots-container input {
     width: 130px;
-    margin: 10px;
+    margin: 0 10px 5px 10px;
 }
 
 .add_event_buttons-container {
@@ -108,7 +108,7 @@ body {
     padding: 0.5rem 1rem;
     margin: 1rem 0.5rem 0;
     width: 50%;
-    animation: pulse 2s infinite;;
+    animation: pulse 2s infinite;
 }
 
 .add_event_create_event {
@@ -716,7 +716,6 @@ body {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     overflow: hidden;
-
 }
 
 .event_user_button:hover{
@@ -727,12 +726,13 @@ body {
     transition: 0.3s;
 }
 
+
+
 @-webkit-keyframes pulsate {
     0% {-webkit-transform: scale(0.8, 0.8); opacity: 0.8;}
     50% {-webkit-transform: scale(1.1, 1.1); opacity: 1.0;}
     100% {-webkit-transform: scale(0.8, 0.8); opacity: 1.0;}
 }
-
 
 @keyframes pulse {
     0% {
