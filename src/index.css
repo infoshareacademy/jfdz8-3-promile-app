@@ -678,19 +678,6 @@ body {
     margin-top: -2px;
     background: #4f6b86;
     color: #ffffff;
-}
-
-.my_events:hover{
-    height: 40px;
-    transition: 0.3s;
-}
-
-.my_favourite_events:hover {
-    height: 40px;
-    transition: 0.3s;
-}
-
-.my_participation_events:hover {
     height: 40px;
     transition: 0.3s;
 }
