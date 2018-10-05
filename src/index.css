@@ -483,6 +483,21 @@ body {
     align-items: center;
 }
 
+.login_inputs p {
+    display: none;
+}
+
+.login_inputs:hover p {
+    display: block;
+    position: absolute;
+    width: 500px;
+    font-size: 0.7em;
+    top: 58px;
+    color: #ffffff;
+    right: 85px;
+    transition: 0.4s;
+}
+
 .login_button_container {
     display: flex;
     flex: 1;
