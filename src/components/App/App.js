@@ -26,7 +26,7 @@ class App extends Component {
     userAttendedEvents: false,
     logoClicked: false,
     sortedByPlaces: false,
-    nearestFound: false
+    nearestFound: false,
     techLogoClicked: false
   };
 
@@ -47,7 +47,7 @@ class App extends Component {
         userAttendedEvents: false,
         userHasFavoriteEvents: false,
         sortedByPlaces: false,
-        nearestFound: false
+        nearestFound: false,
         logoClicked: false,
         techLogoClicked: false
       })
