@@ -19,7 +19,9 @@ class BottomBar extends Component {
           {technology: 'Node', logo: 'node_icon.png'},
           {technology: 'PHP', logo: 'php_icon.png'},
           {technology: 'Python', logo: 'python_icon.png'},
-          {technology: 'Ruby', logo: 'ruby_icon.png'}
+          {technology: 'Ruby', logo: 'ruby_icon.png'},
+          {technology: 'React', logo: 'react_icon.png'},
+          {technology: 'UI/UX', logo: 'css_icon.png'}
           ]
     return (
       <div className="bottom_bar">
