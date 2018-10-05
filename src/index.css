@@ -154,12 +154,6 @@ body {
   display: inline-block;
 }
 
-/*button {*/
-  /*display: block;*/
-  /*z-index: 9999;*/
-  /*position: absolute;*/
-/*}*/
-
 .list_container {
   float: left;
   width: 30%;
