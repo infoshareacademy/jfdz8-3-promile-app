@@ -14,10 +14,10 @@ body {
     display: block;
     position: absolute;
     z-index: 9999;
-    bottom: 170px;
+    bottom: 160px;
     right: 0;
     border-radius: 10px;
-    height: 530px;
+    height: 550px;
     width: 400px;
     background: #4f6b86;
     opacity: 0.8;
