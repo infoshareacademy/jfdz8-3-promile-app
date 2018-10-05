@@ -36,7 +36,7 @@ class BottomBar extends Component {
                     <img src="https://avatars2.githubusercontent.com/u/14171731?s=280&v=4" alt="infoshare logo"/>
                 </a>
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/infoshareacademy/jfdz8-3-promile-app">
-                    <img src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="github repo"/>
+                    <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" alt="github repo"/>
                 </a>
             </div>
         </div>
