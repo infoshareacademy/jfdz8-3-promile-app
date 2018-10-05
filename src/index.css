@@ -575,12 +575,23 @@ body {
     flex: 1;
     justify-content: space-evenly;
     align-items: center;
-    margin: 0 10%;
+    margin: 0 5%;
+}
+
+.bottom_bar-technology-logo-item {
+    border-radius: 50%;
 }
 
 .bottom_bar-technology-logo-item img{
     height: 40px;
     width: 40px;
+    border-radius: 50%;
+}
+
+.bottom_bar-technology-logo-item img:hover {
+    box-shadow: 0 0 0 5px #748A9F;
+    opacity: 0.8;
+    color: #fff;
 }
 
 .bottom_bar_logos {
@@ -597,6 +608,12 @@ body {
     width: 40px;
     margin: 0 20px;
     border-radius: 50%;
+}
+
+.bottom_bar_logos img:hover {
+    box-shadow: 0 0 0 5px #fefefe;
+    opacity: 0.8;
+    color: #fff;
 }
 
 .leaflet-control {
@@ -692,4 +709,3 @@ body {
     50% {-webkit-transform: scale(1.1, 1.1); opacity: 1.0;}
     100% {-webkit-transform: scale(0.8, 0.8); opacity: 1.0;}
 }
-
