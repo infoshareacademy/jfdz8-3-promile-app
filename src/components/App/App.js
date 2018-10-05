@@ -27,6 +27,7 @@ class App extends Component {
     logoClicked: false,
     sortedByPlaces: false,
     nearestFound: false
+    techLogoClicked: false
   };
 
   getEvents = () => {
@@ -47,6 +48,8 @@ class App extends Component {
         userHasFavoriteEvents: false,
         sortedByPlaces: false,
         nearestFound: false
+        logoClicked: false,
+        techLogoClicked: false
       })
     })
   };
@@ -69,6 +72,16 @@ class App extends Component {
         }
       })
   };
+
+  getClickedLogoTechnology = (technology) => {
+    const events = this.state.events
+    const eventWithClickedTechnology = events.filter(event => event.technology === technology)
+    eventWithClickedTechnology.length === 0 ? this.getEvents() :
+    this.setState({
+        events: eventWithClickedTechnology,
+        techLogoClicked: !this.state.techLogoClicked
+    })
+  }
 
   getEventsUserAttend = () => {
     this.getEvents()
@@ -167,7 +180,7 @@ class App extends Component {
       logoClicked: !this.state.logoClicked
     })
   }
-  
+
   render() {
       const searchCriteria = this.state.events.filter(
           (event) => {
@@ -241,7 +254,7 @@ class App extends Component {
                 handleCloseItem={this.handleCloseItem}
               />
               ) : (
-                <AboutPage />  
+                <AboutPage />
               )
             }
           </div>
@@ -254,7 +267,12 @@ class App extends Component {
             userCoords={this.state.userCoordinates}
             nearestFound={this.state.nearestFound}
           />
-          <BottomBar />
+          <BottomBar
+              getClickedLogoTechnology={this.getClickedLogoTechnology}
+              logoClicked={this.state.techLogoClicked}
+              revertView={this.handleRevertView}
+              getEvents={this.getEvents}
+          />
           <ToastContainer autoClose={1500}/>
       </div>
     );

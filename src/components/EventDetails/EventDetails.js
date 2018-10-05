@@ -66,9 +66,9 @@ class EventDetails extends Component {
         {this.state.active &&
         <div className="event_details">
           <div className="event_date_time-container">
-              <p>{this.props.singleEvent.date}</p>
-              <p>{this.props.singleEvent.time}</p>
-              <p>{this.props.singleEvent.address}</p>
+              <p>Data: {this.props.singleEvent.date}</p>
+              <p>Godzina: {this.props.singleEvent.time}</p>
+              <p>Adres: {this.props.singleEvent.address}</p>
           </div>
           <EventTags tags={this.state.event.tags}/>
           <div className="event_description_container">
