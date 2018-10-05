@@ -270,9 +270,11 @@ class NewEventDisplay extends Component {
           </div>
           <div className="new_event_tags_and_slots-container">
             <div className="new_event_number_of_slots">
+              <p>Liczba uczestników: </p>
               <input type="text" placeholder="Liczba uczestników" value={this.state.slots}  onChange={this.handleAttendeesInput} onBlur={this.addAttendees}/>
             </div>
             <div className="new_event_tags">
+              <p>Tagi: </p>
               <input
                 type="text"
                 placeholder="Tagi (po przecinku)"
