@@ -122,7 +122,7 @@ class MainMap extends Component {
           viewport={this.state.userCoordinates}
         >
           <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            url="http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           />
 
