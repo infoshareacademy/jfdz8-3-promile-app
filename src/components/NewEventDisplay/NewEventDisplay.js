@@ -71,8 +71,6 @@ class NewEventDisplay extends Component {
     return textInputsCheck || arrayInputsCheck ?
       toast.error('Niektóre pola nie zostały wypełnione!') :
       this.addEvent(event)
-
-      ;
   };
 
   clearInputs = () => {
@@ -215,6 +213,8 @@ class NewEventDisplay extends Component {
           getCoordinates={this.getCoordinates}
           handleCallback={this.props.callback}
           clicked={this.props.clickedEvent}
+          userCoords={this.props.userCoords}
+          nearestFound={this.props.nearestFound}
         />
         <div className="add_event-container">
           {

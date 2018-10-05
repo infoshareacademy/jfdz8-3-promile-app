@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import L from 'leaflet';
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css';
 import '../AvailableSlots/AvailableSlots.css'
@@ -17,12 +18,15 @@ class App extends Component {
   state = {
     search: '',
     events: [],
+    userCoordinates: [],
+    nearestRadius: 3000,
     clickedEvent: '',
     user: null,
     userCreatedEvents: false,
     userAttendedEvents: false,
     logoClicked: false,
     sortedByPlaces: false,
+    nearestFound: false
     techLogoClicked: false
   };
 
@@ -43,6 +47,7 @@ class App extends Component {
         userAttendedEvents: false,
         userHasFavoriteEvents: false,
         sortedByPlaces: false,
+        nearestFound: false
         logoClicked: false,
         techLogoClicked: false
       })
@@ -124,6 +129,27 @@ class App extends Component {
     })
   }
 
+  findNearest = (userCoords) => {
+    console.log(userCoords)
+    const events = this.state.events
+    const closestEvents = events.filter(event =>
+       L.latLng(userCoords)
+       .distanceTo(event.coordinates) < this.state.nearestRadius)
+    this.setState({
+      userCoordinates: userCoords,
+      events: closestEvents,
+      nearestFound: !this.state.nearestFound
+    })
+  }
+
+  findLocation = () => {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.findNearest([position.coords.latitude, position.coords.longitude])
+      })
+    }
+  }
+
   componentDidMount() {
     this.getEvents()
   }
@@ -201,6 +227,8 @@ class App extends Component {
                   userHasFavorites={this.state.userHasFavoriteEvents}
                   sortByPlaces={this.sortByPlaces}
                   sortedByPlaces={this.state.sortedByPlaces}
+                  nearestFound={this.state.nearestFound}
+                  searchForNearest={this.findLocation}
                 />
             }
           <Login
@@ -236,6 +264,8 @@ class App extends Component {
             callback={this.handleCallback}
             clickedEvent={this.state.clickedEvent}
             user={this.state.user}
+            userCoords={this.state.userCoordinates}
+            nearestFound={this.state.nearestFound}
           />
           <BottomBar
               getClickedLogoTechnology={this.getClickedLogoTechnology}

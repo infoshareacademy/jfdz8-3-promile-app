@@ -63,16 +63,11 @@ class ListItem extends Component {
     toast.success('Usunąłeś wydarzenie');
     this.handleRevertView()
   };
-
-  handleCloseListItem = () => {
-    this.setState({
-      clicked: false
-    })
-  }
+  
   componentDidUpdate(nextProps) {
     if (nextProps.eventClicked !== this.props.eventClicked) {
       this.setState({
-        clicked: this.props.eventClicked !== '' ? true : false
+        clicked: this.props.eventClicked !== ''
       })
     }
   }
