@@ -53,16 +53,6 @@ class MainMap extends Component {
     }
   };
 
-  findNearest = () => {
-    console.log('E')
-    this.findLocation()
-    const events = this.props.events
-    const closestEvents = events.filter(event =>
-       L.latLng(this.state.userCoordinates)
-       .distanceTo(event.coordinates) < this.state.nearestRadius)
-    return closestEvents
-  }
-
   handleClickCallback = data => {
     this.props.handleCallback(data);
     this.setState({
@@ -78,13 +68,19 @@ class MainMap extends Component {
     })};
 
   componentDidUpdate(nextProps) {
-    if ((nextProps.clicked !== this.props.clicked || nextProps.userCoords !== this.props.userCoords)) {
+    if ((nextProps.clicked !== this.props.clicked)) {
       this.setState({
         activeEvent: this.props.clicked,
-        userCoordinates: this.props.clicked.coordinates || this.props.userCoords,
+        userCoordinates: this.props.clicked.coordinates,
         zoom: 15,
       })
     }
+  }
+
+  componentWillUnmount() {
+    this.setState({
+      userCoordinates: this.props
+    })
   }
 
   findLocation = () => {
