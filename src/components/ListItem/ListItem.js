@@ -67,7 +67,7 @@ class ListItem extends Component {
   componentDidUpdate(nextProps) {
     if (nextProps.eventClicked !== this.props.eventClicked) {
       this.setState({
-        clicked: this.props.eventClicked !== '' ? true : false
+        clicked: this.props.eventClicked !== ''
       })
     }
   }
