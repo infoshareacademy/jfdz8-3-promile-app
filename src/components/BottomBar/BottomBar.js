@@ -27,7 +27,17 @@ class BottomBar extends Component {
     return (
       <div className="bottom_bar">
         <div className="bottom_bar_credits-container">
-
+            <div className="bottom_bar_logos">
+                <a target="_blank" rel="noopener noreferrer" href="http://www.3-promile.jfdz8.is-academy.pl/">
+                    <img src={Logo} alt="wizytowka"/>
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://infoshareacademy.com/">
+                    <img src="https://avatars2.githubusercontent.com/u/14171731?s=280&v=4" alt="infoshare logo"/>
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/infoshareacademy/jfdz8-3-promile-app">
+                    <img src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="github repo"/>
+                </a>
+            </div>
         </div>
           <div className="bottom_bar-technology-logo-container">
               { logotypes.map( ({ technology, logo }) => (
