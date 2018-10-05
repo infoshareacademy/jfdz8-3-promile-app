@@ -59,8 +59,6 @@ body {
     margin-top: 5px;
 }
 
-
-
 .new_event_technology-container select {
     background: #ffffff;
 }
@@ -333,7 +331,7 @@ body {
     width: 100%;
     text-align: center;
     color: #4f6b86;
-    margin: 20px 0px;
+    margin: 20px 0;
 }
 
 .event_date_time-container {
