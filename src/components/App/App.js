@@ -163,7 +163,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="top_bar">
-          <div className="top_bar_logo-container">
+          <div className="top_bar_logo-container"
+               onClick={() => this.toggleListItem()}
+               title="O projekcie"
+          >
+
             <div className="top_bar_logo_hover_info-container">
 
             </div>
