@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Logo from "../../images/logo/LOGO1.png";
 
 class BottomBar extends Component {
 
