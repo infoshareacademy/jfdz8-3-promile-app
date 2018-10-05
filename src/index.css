@@ -523,22 +523,19 @@ body {
     height: inherit;
     background-image: url("../src/images/logo/LOGO1.png");
     background-size: cover;
+    cursor: pointer;
+    border-radius: 50%;
+    animation: pulsate 4s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 1;
+}
+
+.top_bar_logo-container:hover {
+    animation: none;
 }
 
 .top_bar_logo {
     height: inherit;
-}
-
-.top_bar_logo_hover_info-container {
-    display: none;
-}
-
-.tob_bar_logo-container:hover + .top_bar_logo_hover_info-container {
-    display: block;
-    position: absolute;
-    height: 200px;
-    width: 200px;
-    background: #ffffff;
 }
 
 .logo_text {
@@ -690,5 +687,11 @@ body {
     color: #ffffff;
     height: 40px;
     transition: 0.3s;
+}
+
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.8, 0.8); opacity: 0.8;}
+    50% {-webkit-transform: scale(1.1, 1.1); opacity: 1.0;}
+    100% {-webkit-transform: scale(0.8, 0.8); opacity: 1.0;}
 }
 
