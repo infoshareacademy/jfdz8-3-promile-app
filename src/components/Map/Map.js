@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Map, Marker, Popup, TileLayer} from 'react-leaflet'
+import {Map, Marker, Popup, TileLayer, Circle} from 'react-leaflet'
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import pyIcon from '../../images/tech_icons/python_icon.png'
@@ -41,7 +41,7 @@ class MainMap extends Component {
     userCoordinates: [54.5, 18.5],
     activeEvent: this.props.clicked,
     zoom: 6,
-    eventDateForPopup: ""
+    eventDateForPopup: "",
   };
 
   clickHandler = (e) => {
@@ -68,13 +68,19 @@ class MainMap extends Component {
     })};
 
   componentDidUpdate(nextProps) {
-    if (nextProps.clicked !== this.props.clicked) {
+    if ((nextProps.clicked !== this.props.clicked)) {
       this.setState({
         activeEvent: this.props.clicked,
         userCoordinates: this.props.clicked.coordinates,
         zoom: 15,
       })
     }
+  }
+
+  componentWillUnmount() {
+    this.setState({
+      userCoordinates: this.props
+    })
   }
 
   findLocation = () => {
@@ -88,11 +94,11 @@ class MainMap extends Component {
   countDaysToStart = () => {
     const today = new Date()
     const startDate = new Date(this.state.eventDateForPopup)
-      if ((Math.floor((startDate - today) / (1000 * 60 * 60 * 24))) <= 0) {
-          return 0
-      } else {
-          return (Math.floor((startDate - today) / (1000 * 60 * 60 * 24)))
-      }
+    if ((Math.floor((startDate - today) / (1000 * 60 * 60 * 24))) <= 0) {
+      return 0
+    } else {
+      return (Math.floor((startDate - today) / (1000 * 60 * 60 * 24)))
+    }
   }
 
   render() {
@@ -116,7 +122,7 @@ class MainMap extends Component {
           viewport={this.state.userCoordinates}
         >
           <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            url="http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           />
 
@@ -152,6 +158,17 @@ class MainMap extends Component {
               position =>  <Marker key={position.toString()} position={position} />
             )
           }
+          {
+            this.props.nearestFound &&
+              <Circle 
+              center={this.props.userCoords}
+              radius={3000}
+              fillColor={"#4f6b86"}
+              fillOpacity={0.1}
+              color={'#5ea3ff'}
+            />
+          }
+
         </Map>
         <div className="geo_button-container">
             <button className="geo_button" onClick={this.findLocation}></button>

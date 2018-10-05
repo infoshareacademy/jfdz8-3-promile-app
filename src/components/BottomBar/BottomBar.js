@@ -4,7 +4,8 @@ class BottomBar extends Component {
 
   handleIdOfClickedLogo = (technology) => {
     this.props.getEvents()
-      this.props.getClickedLogoTechnology(technology)
+      this.props.getClickedLogoTechnology(technology);
+      console.log(technology)
   }
 
   render () {
@@ -21,7 +22,7 @@ class BottomBar extends Component {
           {technology: 'Python', logo: 'python_icon.png'},
           {technology: 'Ruby', logo: 'ruby_icon.png'},
           {technology: 'React', logo: 'react_icon.png'},
-          {technology: 'UI/UX', logo: 'css_icon.png'}
+          {technology: 'CSS', logo: 'css_icon.png'}
           ]
     return (
       <div className="bottom_bar">

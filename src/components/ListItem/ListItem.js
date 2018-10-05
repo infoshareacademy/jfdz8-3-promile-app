@@ -63,16 +63,11 @@ class ListItem extends Component {
     toast.success('Usunąłeś wydarzenie');
     this.handleRevertView()
   };
-
-  handleCloseListItem = () => {
-    this.setState({
-      clicked: false
-    })
-  }
+  
   componentDidUpdate(nextProps) {
     if (nextProps.eventClicked !== this.props.eventClicked) {
       this.setState({
-        clicked: this.props.eventClicked !== '' ? true : false
+        clicked: this.props.eventClicked !== ''
       })
     }
   }
@@ -96,7 +91,7 @@ class ListItem extends Component {
               this.props.user &&
               (this.props.eventClicked.creator === this.props.user.uid) &&
               <button
-                  className="delete_event_button"
+                  className="event_delete_button"
                   onClick={this.deleteEvent}>
                   Usuń
               </button>
