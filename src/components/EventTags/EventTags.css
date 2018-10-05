@@ -1,20 +1,19 @@
 .tags-container {
-    height: 60px;
-    margin-bottom: 1.4rem;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    flex-flow: row wrap;
+    height: 100%;
+    width: 100%;
+    margin: 15px 0;
 }
 
 .tag {
-    height: 30px;
     font-size: 1em;
     padding: 0.5em;
     border: 2px solid #4f6b86;
-    margin: 2px 6px;
+    margin: 0 6px;
     border-radius: 0.4em;
     background: #748A9F;
     color: #ffffff;
+    flex: 1;
+    display: block;
 }

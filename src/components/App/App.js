@@ -22,7 +22,8 @@ class App extends Component {
     userCreatedEvents: false,
     userAttendedEvents: false,
     logoClicked: false,
-    sortedByPlaces: false
+    sortedByPlaces: false,
+    techLogoClicked: false
   };
 
   getEvents = () => {
@@ -41,7 +42,9 @@ class App extends Component {
         userCreatedEvents: false,
         userAttendedEvents: false,
         userHasFavoriteEvents: false,
-        sortedByPlaces: false
+        sortedByPlaces: false,
+        logoClicked: false,
+        techLogoClicked: false
       })
     })
   };
@@ -66,14 +69,13 @@ class App extends Component {
   };
 
   getClickedLogoTechnology = (technology) => {
-    this.getEvents()
     const events = this.state.events
     const eventWithClickedTechnology = events.filter(event => event.technology === technology)
-    eventWithClickedTechnology.length === 0 ? toast.error("Nie ma żadnych wydarzeń dla tej technologii") :
+    eventWithClickedTechnology.length === 0 ? this.getEvents() :
     this.setState({
-        events: eventWithClickedTechnology
+        events: eventWithClickedTechnology,
+        techLogoClicked: !this.state.techLogoClicked
     })
-      console.log(technology)
   }
 
   getEventsUserAttend = () => {
@@ -231,6 +233,8 @@ class App extends Component {
           />
           <BottomBar
               getClickedLogoTechnology={this.getClickedLogoTechnology}
+              logoClicked={this.state.techLogoClicked}
+              revertView={this.handleRevertView}
               getEvents={this.getEvents}
           />
           <ToastContainer autoClose={1500}/>
