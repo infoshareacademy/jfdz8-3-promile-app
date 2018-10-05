@@ -107,8 +107,6 @@ body {
     width: 50%;
 }
 
-
-
 .add_event_create_event {
     text-decoration: none;
     text-transform: uppercase;
@@ -592,8 +590,24 @@ body {
 }
 
 .bottom_bar-technology-logo-item img{
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
+}
+
+.bottom_bar_logos {
+    height: inherit;
+    width: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.bottom_bar_logos img {
+    height: 40px;
+    width: 40px;
+    margin: 0 20px;
+    border-radius: 50%;
 }
 
 .leaflet-control {
@@ -683,3 +697,4 @@ body {
     height: 40px;
     transition: 0.3s;
 }
+
