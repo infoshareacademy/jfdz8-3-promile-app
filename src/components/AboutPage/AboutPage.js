@@ -23,7 +23,7 @@ class AboutPage extends Component {
               <li>dodawać wydarzenia do ulubionych, by móc mieć je zawsze pod ręką!</li>
             <p>
                 Uzupełnij wszystkie szczegóły Twojego wydarzenia, dodaj krótki opis oraz
-                dodaj wskaźnik na mapie, by móc spotykać się z innymi rządnymi kodu wariatami
+                dodaj wskaźnik na mapie, by móc spotykać się z innymi żądnymi kodu wariatami
                 w Twojej ulubionej restauracji przy schabowym z duraleksu
             </p>
             <h2>Możesz nam również nawrzucać. W wersji Premium.</h2>
