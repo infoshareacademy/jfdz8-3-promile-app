@@ -90,7 +90,11 @@ class ListItem extends Component {
             {
               this.props.user &&
               (this.props.eventClicked.creator === this.props.user.uid) &&
-              <button className="event_delete_button" onClick={this.deleteEvent}>Usuń</button>
+              <button
+                  className="event_delete_button"
+                  onClick={this.deleteEvent}>
+                  Usuń
+              </button>
             }
 
             <EventDetails

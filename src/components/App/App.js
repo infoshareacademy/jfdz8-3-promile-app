@@ -9,7 +9,6 @@ import Login from "../Login/Login";
 import { database } from '../FirebaseConfig/FirebaseConfig';
 import ButtonsUserEvents from "../ButtonsUserEvents/ButtonsUserEvents";
 import { ToastContainer, toast } from 'react-toastify'
-import Logo from "../../images/logo/LOGO1.png";
 import BottomBar from "../BottomBar/BottomBar";
 import AboutPage from '../AboutPage/AboutPage';
 
@@ -189,24 +188,18 @@ class App extends Component {
                     || event.title.toLowerCase().indexOf(this.state.search) !== -1
         });
     return (
-      <div className="App" >
+      <div className="App">
         <div className="top_bar">
-          <img
-            alt="logo"
-            className="top_bar_logo"
-            src={Logo}
-            title="O projekcie"
-            onClick={() => this.toggleListItem()}
-          />
-          <span
-            className="logo_text"
+          <div className="top_bar_logo-container"
+               onClick={() => this.toggleListItem()}
+               title="O projekcie"
           >
-              We got
-          <span
-            className="logo_text_it"
-          >it
-          </span>
-          </span>
+
+            <div className="top_bar_logo_hover_info-container">
+
+            </div>
+          </div>
+          <span className="logo_text">We got <span className="logo_text_it">it</span></span>
           <input
             className = "event_search-input"
             type = "text"

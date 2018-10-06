@@ -103,6 +103,7 @@ class Login extends Component {
                       value={this.state.password}
                       type="password"
                     />
+                    <p>*aby się zarejestrować, wprowadź login i hasło, po czym kliknij ZAREJESTRUJ</p>
                   </div>
                   <div className="login_button_container">
                     <button

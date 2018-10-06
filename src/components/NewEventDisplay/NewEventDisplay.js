@@ -224,44 +224,58 @@ class NewEventDisplay extends Component {
         </div>
         <div className={`new_event-container ${visibility}`}>
         <div className="new_event_details">
-          <div className="new_event_name-container">
-            <p>Nazwa wydarzenia: </p>
+            <div className="new_event_name-container">
+                <p>Nazwa wydarzenia: </p>
+                <input
+                    type="text"
+                    value={this.state.title}
+                    placeholder="Nazwij wydarzenie"
+                    onChange={this.changeTitle}/>
+            </div>
+            <div className="new_event_technology-container">
+                <p>Technologia:</p>
+                <select value={this.state.value} onChange={this.changeSelect}>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="SQL">SQL</option>
+                    <option value="PHP">PHP</option>
+                    <option value="React">React</option>
+                    <option value="Angular">Angular</option>
+                    <option value="Cplus">C++</option>
+                    <option value="GameDev">Game Development</option>
+                    <option value="Html">HTML</option>
+                    <option value="Node">NodeJS</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="CSS">UI/UX</option>
+                </select>
+            </div>
+          <div className="new_event_address-container">
+            <p>Adres: </p>
             <input
-              type="text"
-              value={this.state.title}
-              placeholder="Nazwij wydarzenie"
-              onChange={this.changeTitle}
-            />
-          </div>
-          <div className="new_event_technology-container">
-            <p>Technologia:</p>
-            <select value={this.state.value} onChange={this.changeSelect}>
-              <option value="JavaScript">JavaScript</option>
-              <option value="Python">Python</option>
-              <option value="Java">Java</option>
-              <option value="SQL">SQL</option>
-              <option value="PHP">PHP</option>
-              <option value="React">React</option>
-              <option value="Angular">Angular</option>
-              <option value="Cplus">C++</option>
-              <option value="GameDev">Game Development</option>
-              <option value="Html">HTML</option>
-              <option value="Node">NodeJS</option>
-              <option value="Ruby">Ruby</option>
-              <option value="CSS">UI/UX</option>
-            </select>
+              type="address"
+              placeholder="Podaje adres..."
+              value={this.state.address}
+              onChange={this.addAddress} />
           </div>
           <div className="new_event_time_date_picker">
-            <p>Data: </p><input type="date" value={this.state.date} onChange={this.changeDate} />
-            <p>Godzina: </p><input type="time" value={this.state.time} onChange={this.changeTime} />
-            <p>Adres: </p><input type="address" value={this.state.address} onChange={this.addAddress} />
+            <div className="new_event_date-container">
+              <p>Data: </p>
+              <input type="date" value={this.state.date} onChange={this.changeDate} />
+            </div>
+            <div className="new_event_time-container">
+              <p>Godzina: </p>
+              <input type="time" value={this.state.time} onChange={this.changeTime} />
+            </div>
           </div>
           <div className="new_event_tags_and_slots-container">
             <div className="new_event_number_of_slots">
+              <p>Liczba uczestników: </p>
               <input type="text" placeholder="Liczba uczestników" value={this.state.slots}  onChange={this.handleAttendeesInput} onBlur={this.addAttendees}/>
             </div>
             <div className="new_event_tags">
-              <input 
+              <p>Tagi: </p>
+              <input
                 type="text"
                 placeholder="Tagi (po przecinku)"
                 value={this.state.tags}
