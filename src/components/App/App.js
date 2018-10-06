@@ -26,7 +26,8 @@ class App extends Component {
     logoClicked: false,
     sortedByPlaces: false,
     nearestFound: false,
-    techLogoClicked: false
+    techLogoClicked: false,
+    technologyLogo: null
   };
 
   getEvents = () => {
@@ -77,7 +78,7 @@ class App extends Component {
     const eventWithClickedTechnology = events.filter(event => event.technology === technology)
     eventWithClickedTechnology.length === 0 ? this.getEvents() :
     this.setState({
-        events: eventWithClickedTechnology,
+        technologyLogo: this.state.technologyLogo === technology ? null : technology,
         techLogoClicked: !this.state.techLogoClicked
     })
   }
@@ -176,7 +177,8 @@ class App extends Component {
 
   toggleListItem = () => {
     this.setState({
-      logoClicked: !this.state.logoClicked
+      logoClicked: !this.state.logoClicked,
+
     })
   }
 
@@ -235,7 +237,9 @@ class App extends Component {
               (
               <ListItem
                 eventsList={
-                    searchCriteria.filter(event => this.state.clickedEvent === '' ? this.state.events : (
+                    searchCriteria.filter(
+                      event => this.state.technologyLogo === null ? true : event.technology === this.state.technologyLogo
+                    ).filter(event => this.state.clickedEvent === '' ? this.state.events : (
                             event.id === this.state.clickedEvent.id
                         )
                     )}
