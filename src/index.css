@@ -9,6 +9,10 @@ body {
   background: #4f6b86;
 }
 
+button, input {
+    outline: none;
+}
+
 .new_event-container {
     border: 2px solid #f3f1f8;
     float: right;
