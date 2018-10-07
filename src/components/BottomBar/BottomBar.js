@@ -40,9 +40,11 @@ class BottomBar extends Component {
             </div>
         </div>
           <div className="bottom_bar-technology-logo-container">
-              { logotypes.map( ({ technology, logo }) => (
+              { logotypes.map( ({ technology, logo }, index) => (
                   <span className="bottom_bar-technology-logo-item"
                         onClick={()=> this.handleIdOfClickedLogo(technology)}
+                        key={index}
+                        
                   >
       <img alt="logo" src={require(`../../images/tech_icons/${logo}`)}/>
     </span>

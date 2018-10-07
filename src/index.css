@@ -430,10 +430,6 @@ body {
     border-radius: 10px;
 }
 
-.event_to_watch_button-container{
-
-}
-
 .event_to_watch_button {
     text-decoration: none;
     text-transform: uppercase;
@@ -687,10 +683,19 @@ body {
     border-radius: 50%;
     font-size: 3em;
     font-weight: bold;
-    background: #278619;
-    color: white;
+    background: #32516F;
+    color: #A7B6C5;
     border: none;
     line-height: 1.4;
+    animation: pulse_add_event 2s infinite;
+}
+
+.add_event_button:hover {
+    background: #A7B6C5;
+    color: #32516F;
+    border: 1px solid #32516F;
+    transition: 0.6s;
+    animation: none;
 }
 
 .event_user_buttons-container{
@@ -726,6 +731,46 @@ body {
     transition: 0.3s;
 }
 
+.about-container {
+    height: 95%;
+    width: 100%;
+}
+
+.about_content {
+    text-align: center;
+    color: #4f6b86;
+    margin: 3%;
+    padding: 10px;
+    min-width: 0;
+    width: 95%;
+    height: 100%;
+    font-size: 11px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.about_content h1 {
+    font-size: 3em
+}
+
+.about_content h2 {
+    margin-top: 40px;
+    font-size: 2em
+}
+
+.about_content h3 {
+    margin-top: 40px;
+}
+
+.about_content p {
+    font-size: 1.6em
+}
+
+.about_content li {
+    font-size: 1.7em;
+    font-weight: bold;
+}
 
 
 @-webkit-keyframes pulsate {
@@ -738,6 +783,22 @@ body {
     0% {
         -moz-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.41);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 15px rgba(204,169,44, 0);
+        box-shadow: 0 0 0 15px rgba(204,169,44, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    }
+}
+
+
+@keyframes pulse_add_event {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgb(51, 0, 255);
+        box-shadow: 0 0 0 0 rgba(51, 0, 255, 0.41);
     }
     70% {
         -moz-box-shadow: 0 0 0 15px rgba(204,169,44, 0);
