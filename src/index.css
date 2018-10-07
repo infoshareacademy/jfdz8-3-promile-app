@@ -7,6 +7,7 @@ body {
   padding: 0;
   font-family: 'Lato', sans-serif;
   background: #4f6b86;
+  overflow: hidden;
 }
 
 button, input {
@@ -718,7 +719,7 @@ button, input {
 .event_user_button{
     width: 15%;
     height: 36px;
-    margin: 0 20px;
+    margin: -1px 20px;
     border: 2px solid #4f6b86;
     background: #f3f1f8;
     color: #4f6b86;
@@ -730,7 +731,8 @@ button, input {
 }
 
 .event_user_button:hover{
-    margin-top: -2px;
+    margin-top: -3px;
+    border: none;
     background: #4f6b86;
     color: #ffffff;
     height: 40px;
