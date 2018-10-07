@@ -426,7 +426,7 @@ body {
 .event_go_back_button_cover{
     height: 40px;
     width: 40px;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQubVNX86-cgbvu25fjQcoqvV9hZb4HhxdEX0n1cW0ujMbj215AlQ");
+    background-image: url("../src/images/scroll_button_image.png");
     background-size: cover;
     border-radius: 10px;
 }
@@ -663,7 +663,7 @@ body {
     float: right;
     right: 1px;
     top: 200px;
-    background-image: url("https://image.freepik.com/free-icon/geolocation-symbol_318-39926.jpg");
+    background-image: url("../src/images/geo_image.png");
     background-size: cover;
     border-radius: 5px;
 }
