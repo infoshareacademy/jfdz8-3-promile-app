@@ -41,14 +41,14 @@ class ButtonsUserEvents extends Component {
                           this.getUserCreatedEvents()
           }
         >
-          {this.props.userEvents ? 'Wszystkie wydarzenia' : 'Stworzone'}
+          {this.props.userEvents ? 'Wszystkie' : 'Stworzone'}
         </button>
 
         <button className="event_user_button my_participation_events"
                 onClick={ () => this.props.userAttend ?
                                 this.getEvents() :
                                 this.getEventsUserAttend() }
-        >{this.props.userAttend ? 'Wszystkie wydarzenia' : 'Uczestniczę'}
+        >{this.props.userAttend ? 'Wszystkie' : 'Uczestniczę'}
         </button>
         
         <button
@@ -57,7 +57,7 @@ class ButtonsUserEvents extends Component {
                           this.getEvents() :
                           this.getUsersFavoriteEvents()}
         >
-          {this.props.userHasFavorites ? 'Wszystkie wydarzenia' : 'Pokaż ulubione'}
+          {this.props.userHasFavorites ? 'Wszystkie' : 'Ulubione'}
         </button>
 
         <button
@@ -66,7 +66,7 @@ class ButtonsUserEvents extends Component {
                           this.props.getEvents() : 
                           this.sortByPlaces()}
         >
-        {this.props.sortedByPlaces ? 'Wróć' : 'Wolne miejsca'}
+        {this.props.sortedByPlaces ? 'Wszystkie' : 'Dostępne'}
         </button>
 
         <button
@@ -75,7 +75,7 @@ class ButtonsUserEvents extends Component {
                           this.props.getEvents() : 
                           this.searchForNearest()}
         >
-        {this.props.nearestFound ? 'Wróć' : 'w Twojej okolicy'}
+        {this.props.nearestFound ? 'Wszystkie' : 'Blisko'}
         </button>
         
       </div>
