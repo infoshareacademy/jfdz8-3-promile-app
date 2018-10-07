@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
+  background: #4f6b86;
 }
 
 .new_event-container {
@@ -684,7 +685,7 @@ body {
     font-size: 3em;
     font-weight: bold;
     background: #32516F;
-    color: #A7B6C5;
+    color: #ffffff;
     border: none;
     line-height: 1.4;
     animation: pulse_add_event 2s infinite;
@@ -710,7 +711,7 @@ body {
 }
 
 .event_user_button{
-    width: 17%;
+    width: 15%;
     height: 36px;
     margin: 0 20px;
     border: 2px solid #4f6b86;

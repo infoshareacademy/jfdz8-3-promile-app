@@ -41,7 +41,7 @@ class ButtonsUserEvents extends Component {
                           this.getUserCreatedEvents()
           }
         >
-          {this.props.userEvents ? 'Wszystkie wydarzenia' : 'Stworzone przeze mnie'}
+          {this.props.userEvents ? 'Wszystkie wydarzenia' : 'Stworzone'}
         </button>
 
         <button className="event_user_button my_participation_events"
