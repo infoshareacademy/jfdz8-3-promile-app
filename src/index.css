@@ -197,7 +197,7 @@ button, input {
   display: flex;
   flex: 1;
   flex-direction: row;
-  height: 90px;
+  height: 100px;
   background: #4f6b86;
 }
 
@@ -583,10 +583,6 @@ button, input {
     align-items: center;
     height: 50px;
     background: #4f6b86;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 
 .bottom_bar_credits-container {
@@ -713,7 +709,7 @@ button, input {
     display: block;
     position: absolute;
     text-align: center;
-    top: 88px;
+    top: 100px;
     z-index: 9999;
     left: 30%;
     opacity: 0.8;
